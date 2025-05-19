@@ -1,0 +1,100 @@
+Name,Attack,Health,Level,Ability,Summoned From,Notes
+Bee,1,1,1,,Any Pet with Honey Perk once it faints.,
+Bee,1,1,2,,Any Pet with Honey Perk once it faints.,
+Bee,1,1,3,,Any Pet with Honey Perk once it faints.,
+Bus,5,5,1,,A Deer once it faints.,Bus has innate Chili perk.
+Bus,10,10,2,,A Deer once it faints.,Bus has innate Chili perk.
+Bus,15,15,3,,A Deer once it faints.,Bus has innate Chili perk.
+Butterfly,1,1,1,Transformed: Copy 33% attack and health health from the strongest enemy.,A level 3 Caterpillar at the start of battle.,
+Butterfly,1,1,2,Transformed: Copy 66% attack and health health from the strongest enemy.,A level 3 Caterpillar at the start of battle.,
+Butterfly,1,1,3,Transformed: Copy 100% attack and health health from the strongest enemy.,A level 3 Caterpillar at the start of battle.,
+Chick,X,1,1,,A Rooster once it faints.,X is a variable for half of the Rooster's attack.
+Chick,X,1,2,,A Rooster once it faints.,X is a variable for half of the Rooster's attack.
+Chick,X,1,3,,A Rooster once it faints.,X is a variable for half of the Rooster's attack.
+Cooked Roach,1,1,1,,A Cockroach once it faints.,
+Cooked Roach,1,1,2,,A Cockroach once it faints.,
+Cooked Roach,1,1,3,,A Cockroach once it faints.,
+Cracked Egg,4,2,1,,After a Sneaky Egg faints at the start of battle.,The Cracked Egg will still be summoned even if the Sneaky Egg faints via other means before it faints via its Start of Battle ability.
+Cracked Egg,8,4,2,,After a Sneaky Egg faints at the start of battle.,The Cracked Egg will still be summoned even if the Sneaky Egg faints via other means before it faints via its Start of Battle ability.
+Cracked Egg,12,6,3,,After a Sneaky Egg faints at the start of battle.,The Cracked Egg will still be summoned even if the Sneaky Egg faints via other means before it faints via its Start of Battle ability.
+Daycrawler,3,(1*X),1,,A Nightcrawler once it faints.,X = Each friendly pet summoned this turn.
+Daycrawler,6,(2*X),2,,A Nightcrawler once it faints.,X = Each friendly pet summoned this turn.
+Daycrawler,9,(3*X),3,,A Nightcrawler once it faints.,X = Each friendly pet summoned this turn.
+Dirty Rat,1,1,1,,A Rat once it faints.,The Dirty Rat will be summoned at the front of the Opponents team.
+Dirty Rat,1,1,2,,A Rat once it faints.,The Dirty Rat will be summoned at the front of the Opponents team.
+Dirty Rat,1,1,3,,A Rat once it faints.,The Dirty Rat will be summoned at the front of the Opponents team.
+Fairy Ball,,,1,Takes 1 less damage.,A Fairy Armadillo once it's hurt twice.,
+Fairy Ball,,,2,Takes 2 less damage.,A Fairy Armadillo once it's hurt twice.,
+Fairy Ball,,,3,Takes 3 less damage.,A Fairy Armadillo once it's hurt twice.,
+Fire Pup,8,8,1,,A Cerberus once the front space is empty during battle.,"The Cerberus can summon 1/2/3 Fire Pups in battle, depending on its level. Uniquely, a front most Fire Pup fainting is capable of being replaced by another Fire Pup (provided the Cerberus has enough triggers)."
+Fire Pup,8,8,2,,A Cerberus once the front space is empty during battle.,"The Cerberus can summon 1/2/3 Fire Pups in battle, depending on its level. Uniquely, a front most Fire Pup fainting is capable of being replaced by another Fire Pup (provided the Cerberus has enough triggers)."
+Fire Pup,8,8,3,,A Cerberus once the front space is empty during battle.,"The Cerberus can summon 1/2/3 Fire Pups in battle, depending on its level. Uniquely, a front most Fire Pup fainting is capable of being replaced by another Fire Pup (provided the Cerberus has enough triggers)."
+Giant Eyes Dog,6,6,1,,A Tinder Box once the front space is empty during battle.,
+Giant Eyes Dog,12,12,2,,A Tinder Box once the front space is empty during battle.,
+Giant Eyes Dog,18,18,3,,A Tinder Box once the front space is empty during battle.,
+Goat (Chimera),X,X,1,,A level 2 Chimera once it faints.,X = each mana the Chimera had.
+Goat (Chimera),X,X,2,,A level 2 Chimera once it faints.,X = each mana the Chimera had.
+Goat (Chimera),X,X,3,,A level 2 Chimera once it faints.,X = each mana the Chimera had.
+Golden Retriever,X,X,1,,The second to last pet fainting while the team possesses Trumpet(s).,X = Number of available Trumpets
+Golden Retriever,X,X,2,,The second to last pet fainting while the team possesses Trumpet(s).,X = Number of available Trumpets
+Golden Retriever,X,X,3,,The second to last pet fainting while the team possesses Trumpet(s).,X = Number of available Trumpets
+Good Dog,,,1,Start of battle: Give friends plenty of useful(?) perks!,A Bad Dog whenever it's fed Holy Water and transforms.,
+Good Dog,,,2,Start of battle: Give friends silly amounts of useful(?) perks!,A Bad Dog whenever it's fed Holy Water and transforms.,
+Good Dog,,,3,Start of battle: Give friends silly amounts of useful(?) perks!,A Bad Dog whenever it's fed Holy Water and transforms.,
+Hydra Head,5,5,1,,A Hydra once it faints.,Hydra summons 1 Head for each 10 attack it has.
+Hydra Head,10,10,2,,A Hydra once it faints.,Hydra summons 1 Head for each 10 attack it has.
+Hydra Head,15,15,3,,A Hydra once it faints.,Hydra summons 1 Head for each 10 attack it has.
+Lion (Chimera),X,X,1,,A Chimera once it faints.,X = each mana the Chimera had.
+Lion (Chimera),X,X,2,,A Chimera once it faints.,X = each mana the Chimera had.
+Lion (Chimera),X,X,3,,A Chimera once it faints.,X = each mana the Chimera had.
+Lizard Tail,3,1,1,,A Lizard when it is Hurt.,The Lizard is only capable of summoning two Lizard Tails per turn.
+Lizard Tail,6,2,2,,A Lizard when it is Hurt.,The Lizard is only capable of summoning two Lizard Tails per turn.
+Lizard Tail,9,3,3,,A Lizard when it is Hurt.,The Lizard is only capable of summoning two Lizard Tails per turn.
+Loyal Chinchilla,2,2,1,,A Chinchilla upon being sold.,
+Loyal Chinchilla,4,4,2,,A Chinchilla upon being sold.,
+Loyal Chinchilla,6,6,3,,A Chinchilla upon being sold.,
+Mimic Octopus,,,1,After attack: Deal 4 damage to the least healthy enemy.,An Ammonite once it faints,
+Mimic Octopus,,,2,After attack: Deal 4 damage to the 2 least healthy enemies.,An Ammonite once it faints,
+Mimic Octopus,,,3,After attack: Deal 4 damage to the 3 least healthy enemies.,An Ammonite once it faints,
+Moby Dick,8,8,1,Start of battle: Remove this!,Buying the Peg Leg (obtained by knocking out a Nessie? in the shop).,"It is described as the ""Achievement hunter's bane""."
+Moby Dick,8,8,2,Summoned & Start of battle: Remove this!,Buying the Peg Leg (obtained by knocking out a Nessie? in the shop).,"It is described as the ""Achievement hunter's bane""."
+Moby Dick,8,8,3,Summoned & Start of battle: Remove this!,Buying the Peg Leg (obtained by knocking out a Nessie? in the shop).,"It is described as the ""Achievement hunter's bane""."
+Monty,2,1,1,Attacks for two times more damage.,Any Pet with Easter Egg once it faints.,
+Monty,2,1,2,Attacks for three times more damage.,Any Pet with Easter Egg once it faints.,
+Monty,2,1,3,Attacks for four times more damage.,Any Pet with Easter Egg once it faints.,
+Nessie?,X,(2*X),1,,A Nessie once it faints.,X = 1/2/3 multiplied by the number of rolls this turn (up to 7)
+Nessie?,X,(2*X),2,,A Nessie once it faints.,X = 1/2/3 multiplied by the number of rolls this turn (up to 7)
+Nessie?,X,(2*X),3,,A Nessie once it faints.,X = 1/2/3 multiplied by the number of rolls this turn (up to 7)
+Nest,2,3,1,Egg Perk has regular effect.,A Robin at the start of battle.,Nest is given Egg Perk by the Robin.
+Nest,4,6,2,Egg Perk has double effect.,A Robin at the start of battle.,Nest is given Egg Perk by the Robin.
+Nest,6,9,3,Egg Perk has triple effect.,A Robin at the start of battle.,Nest is given Egg Perk by the Robin.
+Ram,2,2,1,,A Sheep once it faints.,The Sheep will always summon two Rams.
+Ram,4,4,2,,A Sheep once it faints.,The Sheep will always summon two Rams.
+Ram,6,6,3,,A Sheep once it faints.,The Sheep will always summon two Rams.
+Rock,,,1,,A Basilisk and a Cockatrice once they find relevant targets that fit their criteria.,
+Rock,,,2,,A Basilisk and a Cockatrice once they find relevant targets that fit their criteria.,
+Rock,,,3,,A Basilisk and a Cockatrice once they find relevant targets that fit their criteria.,
+Salmon,,,1,Summoned: Deal 5 damage to a random enemy. Repeat for every 25 health this has.,A Pelican once it faints (if it successfully swallowed a pet during the Start of Battle).,
+Salmon,,,2,Summoned: Deal 10 damage to a random enemy. Repeat for every 25 health this has.,A Pelican once it faints (if it successfully swallowed a pet during the Start of Battle).,
+Salmon,,,3,Summoned: Deal 15 damage to a random enemy. Repeat for every 25 health this has.,A Pelican once it faints (if it successfully swallowed a pet during the Start of Battle).,
+Smaller Slime,2,2,1,,A Slime once it faints after having fought at least two battles.,More are summoned for each two battles fought by the Slime.
+Smaller Slime,4,4,2,,A Slime once it faints after having fought at least two battles.,More are summoned for each two battles fought by the Slime.
+Smaller Slime,6,6,3,,A Slime once it faints after having fought at least two battles.,More are summoned for each two battles fought by the Slime.
+Smaller Slug,2,2,1,Faint: Summon one 1/1 Smallest Slug.,A Slug once it faints.,Summons a Smallest Slug upon faint.
+Smaller Slug,4,4,2,Faint: Summon one 2/2 Smallest Slug.,A Slug once it faints.,Summons a Smallest Slug upon faint.
+Smaller Slug,6,6,3,Faint: Summon one 3/3 Smallest Slug.,A Slug once it faints.,Summons a Smallest Slug upon faint.
+Smallest Slug,1,1,1,,A Smaller Slug once it faints.,This is the only pet summoned by another token pet.
+Smallest Slug,2,2,2,,A Smaller Slug once it faints.,This is the only pet summoned by another token pet.
+Smallest Slug,3,3,3,,A Smaller Slug once it faints.,This is the only pet summoned by another token pet.
+Snake (Chimera),X,X,1,,A level 3 Chimera once it faints.,X = each mana the Chimera had.
+Snake (Chimera),X,X,2,,A level 3 Chimera once it faints.,X = each mana the Chimera had.
+Snake (Chimera),X,X,3,,A level 3 Chimera once it faints.,X = each mana the Chimera had.
+Young Phoenix,6,6,1,,A Phoenix once it faints.,
+Young Phoenix,12,12,2,,A Phoenix once it faints.,
+Young Phoenix,18,18,3,,A Phoenix once it faints.,
+Zombie Cricket,1,1,1,,A Cricket once it faints.,
+Zombie Cricket,2,2,2,,A Cricket once it faints.,
+Zombie Cricket,3,3,3,,A Cricket once it faints.,
+Zombie Fly,4,4,1,,Upon any Pet fainting when a Fly is alive and has more than 0 triggers.,A Zombie Fly will not be summoned upon the death of another Zombie Fly
+Zombie Fly,8,8,2,,Upon any Pet fainting when a Fly is alive and has more than 0 triggers.,A Zombie Fly will not be summoned upon the death of another Zombie Fly
+Zombie Fly,12,12,3,,Upon any Pet fainting when a Fly is alive and has more than 0 triggers.,A Zombie Fly will not be summoned upon the death of another Zombie Fly

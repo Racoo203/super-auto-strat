@@ -1,0 +1,1099 @@
+Name,Attack,Health,Level,Ability,Packs,Tier
+Ant,2,2,1,Faint → Give one random friend +1  attack and +1  health.,['Turtle Pack'],Tier 1 Pets
+Ant,2,2,2,Faint → Give one random friend +2  attack and +2  health.,['Turtle Pack'],Tier 1 Pets
+Ant,2,2,2,Faint → Give one random friend +2  attack and +2  health.,['Turtle Pack'],Tier 1 Pets
+Beaver,3,2,1,Sell → Give two random friends +1  attack.,"['Turtle Pack', 'Puppy Pack']",Tier 1 Pets
+Beaver,3,2,2,Sell → Give two random friends +2  attack.,"['Turtle Pack', 'Puppy Pack']",Tier 1 Pets
+Beaver,3,2,2,Sell → Give two random friends +2  attack.,"['Turtle Pack', 'Puppy Pack']",Tier 1 Pets
+Cricket,1,3,1,Faint → Summon one 1/1  Zombie Cricket.,['Turtle Pack'],Tier 1 Pets
+Cricket,1,3,2,Faint → Summon one 2/2  Zombie Cricket.,['Turtle Pack'],Tier 1 Pets
+Cricket,1,3,2,Faint → Summon one 2/2  Zombie Cricket.,['Turtle Pack'],Tier 1 Pets
+Duck,2,3,1,Sell → Give shop pets +1  health.,"['Turtle Pack', 'Puppy Pack']",Tier 1 Pets
+Duck,2,3,2,Sell → Give shop pets +2  health.,"['Turtle Pack', 'Puppy Pack']",Tier 1 Pets
+Duck,2,3,2,Sell → Give shop pets +2  health.,"['Turtle Pack', 'Puppy Pack']",Tier 1 Pets
+Fish,2,3,1,Level up → Give two friends +1  attack and +1  health.,['Turtle Pack'],Tier 1 Pets
+Fish,2,3,2,Level up → Give two friends +2  attack and +2  health.,['Turtle Pack'],Tier 1 Pets
+Fish,2,3,2,Level up → Give two friends +2  attack and +2  health.,['Turtle Pack'],Tier 1 Pets
+Horse,2,1,1,Friend summoned → Give it +1  attack until end of battle.,['Turtle Pack'],Tier 1 Pets
+Horse,2,1,2,Friend summoned → Give it +2  attack until end of battle.,['Turtle Pack'],Tier 1 Pets
+Horse,2,1,2,Friend summoned → Give it +2  attack until end of battle.,['Turtle Pack'],Tier 1 Pets
+Mosquito,2,2,1,Start of battle → Deal 1  damage to one random enemy.,['Turtle Pack'],Tier 1 Pets
+Mosquito,2,2,2,Start of battle → Deal 1  damage to two random enemies.,['Turtle Pack'],Tier 1 Pets
+Mosquito,2,2,2,Start of battle → Deal 1  damage to two random enemies.,['Turtle Pack'],Tier 1 Pets
+Otter,1,3,1,Buy → Give one random friend +1  health.,['Turtle Pack'],Tier 1 Pets
+Otter,1,3,2,Buy → Give two random friends +1  health.,['Turtle Pack'],Tier 1 Pets
+Otter,1,3,2,Buy → Give two random friends +1  health.,['Turtle Pack'],Tier 1 Pets
+Pig,4,1,1,Sell → Gain +1  gold.,['Turtle Pack'],Tier 1 Pets
+Pig,4,1,2,Sell → Gain +2  gold.,['Turtle Pack'],Tier 1 Pets
+Pig,4,1,2,Sell → Gain +2  gold.,['Turtle Pack'],Tier 1 Pets
+Pigeon,3,1,1,Sell → Stock one free  Bread Crumbs.,['Turtle Pack'],Tier 1 Pets
+Pigeon,3,1,2,Sell → Stock two free  Bread Crumbs.,['Turtle Pack'],Tier 1 Pets
+Pigeon,3,1,2,Sell → Stock two free  Bread Crumbs.,['Turtle Pack'],Tier 1 Pets
+Baku,3,2,1,"End turn → If turn number is even, replace ailment on one random friend with +1  health.",['Unicorn Pack'],Tier 1 Pets
+Baku,3,2,2,"End turn → If turn number is even, replace ailment on one random friend with +2  health.",['Unicorn Pack'],Tier 1 Pets
+Baku,3,2,2,"End turn → If turn number is even, replace ailment on one random friend with +2  health.",['Unicorn Pack'],Tier 1 Pets
+Axehandle Hound,3,1,1,"Before attack → If the opponent has duplicates, deal 2  damage to all enemies. Works 1 time per battle.",['Unicorn Pack'],Tier 1 Pets
+Axehandle Hound,3,1,2,"Before attack → If the opponent has duplicates, deal 4  damage to all enemies. Works 1 time per battle.",['Unicorn Pack'],Tier 1 Pets
+Axehandle Hound,3,1,2,"Before attack → If the opponent has duplicates, deal 4  damage to all enemies. Works 1 time per battle.",['Unicorn Pack'],Tier 1 Pets
+Barghest,1,3,1,Start of battle → Make the last perk-less enemy  Spooked.,['Unicorn Pack'],Tier 1 Pets
+Barghest,1,3,2,Start of battle → Make the two last perk-less enemies  Spooked.,['Unicorn Pack'],Tier 1 Pets
+Barghest,1,3,2,Start of battle → Make the two last perk-less enemies  Spooked.,['Unicorn Pack'],Tier 1 Pets
+Tsuchinoko,1,2,1,Start of battle → Jump to the front space and gain +1  experience.,['Unicorn Pack'],Tier 1 Pets
+Tsuchinoko,1,2,2,Start of battle → Jump to the front space and gain +2  experience.,['Unicorn Pack'],Tier 1 Pets
+Tsuchinoko,1,2,2,Start of battle → Jump to the front space and gain +2  experience.,['Unicorn Pack'],Tier 1 Pets
+Murmel,1,2,1,Friend gained experience → Gain +1  attack until next turn.,['Unicorn Pack'],Tier 1 Pets
+Murmel,1,2,2,Friend gained experience → Gain +2  attack until next turn.,['Unicorn Pack'],Tier 1 Pets
+Murmel,1,2,2,Friend gained experience → Gain +2  attack until next turn.,['Unicorn Pack'],Tier 1 Pets
+Alchemedes,1,4,1,Start of battle → Give the nearest friend ahead +1  mana.,['Unicorn Pack'],Tier 1 Pets
+Alchemedes,1,4,2,Start of battle → Give the nearest friend ahead +2  mana.,['Unicorn Pack'],Tier 1 Pets
+Alchemedes,1,4,2,Start of battle → Give the nearest friend ahead +2  mana.,['Unicorn Pack'],Tier 1 Pets
+Warf,2,2,1,Gains mana → Deal 1  damage to one random enemy.,['Unicorn Pack'],Tier 1 Pets
+Warf,2,2,2,Gains mana → Deal 2  damage to one random enemy.,['Unicorn Pack'],Tier 1 Pets
+Warf,2,2,2,Gains mana → Deal 2  damage to one random enemy.,['Unicorn Pack'],Tier 1 Pets
+Bunyip,3,1,1,"Start of battle → Gain +1  health for each time you rolled this turn, up to 3.",['Unicorn Pack'],Tier 1 Pets
+Bunyip,3,1,2,"Start of battle → Gain +2  health for each time you rolled this turn, up to 3.",['Unicorn Pack'],Tier 1 Pets
+Bunyip,3,1,2,"Start of battle → Gain +2  health for each time you rolled this turn, up to 3.",['Unicorn Pack'],Tier 1 Pets
+Sneaky Egg,2,4,1,Start of battle → Faint and summon one 4/2  Cracked Egg.,['Unicorn Pack'],Tier 1 Pets
+Sneaky Egg,2,4,2,Start of battle → Faint and summon one 8/4  Cracked Egg.,['Unicorn Pack'],Tier 1 Pets
+Sneaky Egg,2,4,2,Start of battle → Faint and summon one 8/4  Cracked Egg.,['Unicorn Pack'],Tier 1 Pets
+Cuddle Toad,2,3,1,Sell → Choose one witch toy that breaks after 2 turns.,['Unicorn Pack'],Tier 1 Pets
+Cuddle Toad,2,3,2,Sell → Choose one witch toy that breaks after 4 turns.,['Unicorn Pack'],Tier 1 Pets
+Cuddle Toad,2,3,2,Sell → Choose one witch toy that breaks after 4 turns.,['Unicorn Pack'],Tier 1 Pets
+Basilisk,2,1,1,Start of battle → Transform the nearest pet ahead to a  Rock with +2  health.,['Unicorn Pack'],Tier 1 Pets
+Basilisk,2,1,2,Start of battle → Transform the nearest pet ahead to a  Rock with +4  health.,['Unicorn Pack'],Tier 1 Pets
+Basilisk,2,1,2,Start of battle → Transform the nearest pet ahead to a  Rock with +4  health.,['Unicorn Pack'],Tier 1 Pets
+Pengobble,1,4,1,Gains mana → Gain 1 bonus  mana. Works 3 times per turn.,['Unicorn Pack'],Tier 1 Pets
+Pengobble,1,4,2,Gains mana → Gain 2 bonus  mana. Works 3 times per turn.,['Unicorn Pack'],Tier 1 Pets
+Pengobble,1,4,2,Gains mana → Gain 2 bonus  mana. Works 3 times per turn.,['Unicorn Pack'],Tier 1 Pets
+Bulldog,1,3,1,After attack → Set  attack equal to  health +1.,['Golden Pack'],Tier 1 Pets
+Bulldog,1,3,2,After attack → Set  attack equal to  health +2.,['Golden Pack'],Tier 1 Pets
+Bulldog,1,3,2,After attack → Set  attack equal to  health +2.,['Golden Pack'],Tier 1 Pets
+Chipmunk,3,2,1,Sell → Stock one free copy of this pet's food perk.,"['Golden Pack', 'Puppy Pack']",Tier 1 Pets
+Chipmunk,3,2,2,Sell → Stock two free copies of this pet's food perk.,"['Golden Pack', 'Puppy Pack']",Tier 1 Pets
+Chipmunk,3,2,2,Sell → Stock two free copies of this pet's food perk.,"['Golden Pack', 'Puppy Pack']",Tier 1 Pets
+Groundhog,2,1,1,Faint → Gain +1  Trumpet.,['Golden Pack'],Tier 1 Pets
+Groundhog,2,1,2,Faint → Gain +2  Trumpets.,['Golden Pack'],Tier 1 Pets
+Groundhog,2,1,2,Faint → Gain +2  Trumpets.,['Golden Pack'],Tier 1 Pets
+Cone Snail,1,2,1,Start of battle → Give the nearest friend behind +2  health.,['Golden Pack'],Tier 1 Pets
+Cone Snail,1,2,2,Start of battle → Give the nearest friend behind +4  health.,['Golden Pack'],Tier 1 Pets
+Cone Snail,1,2,2,Start of battle → Give the nearest friend behind +4  health.,['Golden Pack'],Tier 1 Pets
+Goose,2,2,1,Start of battle → Remove 1  attack from the first enemy.,['Golden Pack'],Tier 1 Pets
+Goose,2,2,2,Start of battle → Remove 2  attack from the first enemy.,['Golden Pack'],Tier 1 Pets
+Goose,2,2,2,Start of battle → Remove 2  attack from the first enemy.,['Golden Pack'],Tier 1 Pets
+Pied Tamarin,1,2,1,Faint → Spend 1  Trumpet to deal 3  damage to one random enemy.,['Golden Pack'],Tier 1 Pets
+Pied Tamarin,1,2,2,Faint → Spend 1  Trumpet to deal 3  damage to two random enemies.,['Golden Pack'],Tier 1 Pets
+Pied Tamarin,1,2,2,Faint → Spend 1  Trumpet to deal 3  damage to two random enemies.,['Golden Pack'],Tier 1 Pets
+Opossum,2,3,1,Sell → Give one random Faint pet in the shop +1  attack and +1  health.,['Golden Pack'],Tier 1 Pets
+Opossum,2,3,2,Sell → Give one random Faint pet in the shop +2  attack and +2  health.,['Golden Pack'],Tier 1 Pets
+Opossum,2,3,2,Sell → Give one random Faint pet in the shop +2  attack and +2  health.,['Golden Pack'],Tier 1 Pets
+Silkmoth,3,1,1,Friend ahead hurt → Give it +1  health. Works 2 times per turn.,['Golden Pack'],Tier 1 Pets
+Silkmoth,3,1,2,Friend ahead hurt → Give it +2  health. Works 2 times per turn.,['Golden Pack'],Tier 1 Pets
+Silkmoth,3,1,2,Friend ahead hurt → Give it +2  health. Works 2 times per turn.,['Golden Pack'],Tier 1 Pets
+Magpie,1,4,1,End turn → Spend up to 1  gold and gain it back next turn.,['Golden Pack'],Tier 1 Pets
+Magpie,1,4,2,End turn → Spend up to 2  gold and gain it back next turn.,['Golden Pack'],Tier 1 Pets
+Magpie,1,4,2,End turn → Spend up to 2  gold and gain it back next turn.,['Golden Pack'],Tier 1 Pets
+Chihuahua,4,1,1,Start of battle → Push the most healthy enemy one space forward.,['Star Pack'],Tier 1 Pets
+Chihuahua,4,1,2,Start of battle → Push the most healthy enemy two spaces forward.,['Star Pack'],Tier 1 Pets
+Chihuahua,4,1,2,Start of battle → Push the most healthy enemy two spaces forward.,['Star Pack'],Tier 1 Pets
+Cockroach,1,1,1,Faint → Summon one 1/1  Cooked Roach and give it +1  experience,['Star Pack'],Tier 1 Pets
+Cockroach,1,1,2,Faint → Summon one 1/1  Cooked Roach and give it +2  experience,['Star Pack'],Tier 1 Pets
+Cockroach,1,1,2,Faint → Summon one 1/1  Cooked Roach and give it +2  experience,['Star Pack'],Tier 1 Pets
+Firefly,2,2,1,Faint → Deal 1 damage to ALL pets within one space.,['Star Pack'],Tier 1 Pets
+Firefly,2,2,2,Faint → Deal 1 damage to ALL pets within two spaces.,['Star Pack'],Tier 1 Pets
+Firefly,2,2,2,Faint → Deal 1 damage to ALL pets within two spaces.,['Star Pack'],Tier 1 Pets
+Frog,3,2,1,"Sell → If adjacent friends are tier 2 or lower, swap their stats.",['Star Pack'],Tier 1 Pets
+Frog,3,2,2,"Sell → If adjacent friends are tier 4 or lower, swap their stats.",['Star Pack'],Tier 1 Pets
+Frog,3,2,2,"Sell → If adjacent friends are tier 4 or lower, swap their stats.",['Star Pack'],Tier 1 Pets
+Hummingbird,3,1,1,Start of battle → Give  Strawberry perk to the nearest friend ahead.,['Star Pack'],Tier 1 Pets
+Hummingbird,3,1,2,Start of battle → Give  Strawberry perk to the two nearest friends ahead.,['Star Pack'],Tier 1 Pets
+Hummingbird,3,1,2,Start of battle → Give  Strawberry perk to the two nearest friends ahead.,['Star Pack'],Tier 1 Pets
+Kiwi,1,4,1,Hurt & Sell → Give one random  Strawberry friend +1  attack,['Star Pack'],Tier 1 Pets
+Kiwi,1,4,2,Hurt & Sell → Give one random  Strawberry friend +2  attack,['Star Pack'],Tier 1 Pets
+Kiwi,1,4,2,Hurt & Sell → Give one random  Strawberry friend +2  attack,['Star Pack'],Tier 1 Pets
+Marmoset,2,3,1,Sell → Your next roll is free.,"['Star Pack', 'Weekly Pack']",Tier 1 Pets
+Marmoset,2,3,2,Sell → Your next two rolls are free.,"['Star Pack', 'Weekly Pack']",Tier 1 Pets
+Marmoset,2,3,2,Sell → Your next two rolls are free.,"['Star Pack', 'Weekly Pack']",Tier 1 Pets
+Mouse,1,2,1,Sell → Replace shop food with one free  Apple.,['Star Pack'],Tier 1 Pets
+Mouse,1,2,2,Sell → Replace shop food with one free  Better Apple.,['Star Pack'],Tier 1 Pets
+Mouse,1,2,2,Sell → Replace shop food with one free  Better Apple.,['Star Pack'],Tier 1 Pets
+Pillbug,2,2,1,Sell → Stock one free  Sleeping Pill.,['Star Pack'],Tier 1 Pets
+Pillbug,2,2,2,Sell → Stock two free  Sleeping Pills.,['Star Pack'],Tier 1 Pets
+Pillbug,2,2,2,Sell → Stock two free  Sleeping Pills.,['Star Pack'],Tier 1 Pets
+Duckling,1,2,1,Sell → Give left-most shop pet +2  health.,['Star Pack'],Tier 1 Pets
+Duckling,1,2,2,Sell → Give left-most shop pet +4  health.,['Star Pack'],Tier 1 Pets
+Duckling,1,2,2,Sell → Give left-most shop pet +4  health.,['Star Pack'],Tier 1 Pets
+Gibbon,2,2,1,Shop tier upgraded → Give the two nearest pets behind +1  health.,['Star Pack'],Tier 1 Pets
+Gibbon,2,2,2,Shop tier upgraded → Give the two nearest pets behind +2  health.,['Star Pack'],Tier 1 Pets
+Gibbon,2,2,2,Shop tier upgraded → Give the two nearest pets behind +2  health.,['Star Pack'],Tier 1 Pets
+Termite,1,4,1,Start of turn → Set  attack to the current shop tier + 1.,['Star Pack'],Tier 1 Pets
+Termite,1,4,2,Start of turn → Set  attack to the current shop tier + 2.,['Star Pack'],Tier 1 Pets
+Termite,1,4,2,Start of turn → Set  attack to the current shop tier + 2.,['Star Pack'],Tier 1 Pets
+Beetle,1,2,1,Start of battle → Gain  Honey Perk.,['Puppy Pack'],Tier 1 Pets
+Beetle,1,2,2,Start of battle → Gain  Meat Bone Perk.,['Puppy Pack'],Tier 1 Pets
+Beetle,1,2,2,Start of battle → Gain  Meat Bone Perk.,['Puppy Pack'],Tier 1 Pets
+Bluebird,2,1,1,End turn → Give one random friend +1  attack.,['Puppy Pack'],Tier 1 Pets
+Bluebird,2,1,2,End turn → Give one random friend +2  attack.,['Puppy Pack'],Tier 1 Pets
+Bluebird,2,1,2,End turn → Give one random friend +2  attack.,['Puppy Pack'],Tier 1 Pets
+Chinchilla,2,2,1,Sell → Summon one 2/2 level 1  Loyal Chinchilla.,"['Puppy Pack', 'Weekly Pack']",Tier 1 Pets
+Chinchilla,2,2,2,Sell → Summon one 4/4 level 2  Loyal Chinchilla.,"['Puppy Pack', 'Weekly Pack']",Tier 1 Pets
+Chinchilla,2,2,2,Sell → Summon one 4/4 level 2  Loyal Chinchilla.,"['Puppy Pack', 'Weekly Pack']",Tier 1 Pets
+Ferret,2,1,1,Buy → Choose one level 1 toy from tier 1.,['Puppy Pack'],Tier 1 Pets
+Ferret,2,1,2,Buy → Choose one level 2 toy from tier 1.,['Puppy Pack'],Tier 1 Pets
+Ferret,2,1,2,Buy → Choose one level 2 toy from tier 1.,['Puppy Pack'],Tier 1 Pets
+Gecko,3,1,1,"Start of battle → If you have a toy, gain +2  health.",['Puppy Pack'],Tier 1 Pets
+Gecko,3,1,2,"Start of battle → If you have a toy, gain +4  health.",['Puppy Pack'],Tier 1 Pets
+Gecko,3,1,2,"Start of battle → If you have a toy, gain +4  health.",['Puppy Pack'],Tier 1 Pets
+Ladybug,1,3,1,Friend gained perk → Gain +2  attack until end of battle.,['Puppy Pack'],Tier 1 Pets
+Ladybug,1,3,2,Friend gained perk → Gain +4  attack until end of battle.,['Puppy Pack'],Tier 1 Pets
+Ladybug,1,3,2,Friend gained perk → Gain +4  attack until end of battle.,['Puppy Pack'],Tier 1 Pets
+Moth,1,3,1,Start of battle → Give front-most friendly pet +2  attack.,"['Puppy Pack', 'Weekly Pack']",Tier 1 Pets
+Moth,1,3,2,Start of battle → Give front-most friendly pet +4  attack.,"['Puppy Pack', 'Weekly Pack']",Tier 1 Pets
+Moth,1,3,2,Start of battle → Give front-most friendly pet +4  attack.,"['Puppy Pack', 'Weekly Pack']",Tier 1 Pets
+Frilled Dragon,1,1,1,Start of battle → Gain +1  attack and +1  health per friend with a Faint ability.,['Weekly Pack'],Tier 1 Pets
+Frilled Dragon,1,1,2,Start of battle → Gain +2  attack and +2  health per friend with a Faint ability.,['Weekly Pack'],Tier 1 Pets
+Frilled Dragon,1,1,2,Start of battle → Gain +2  attack and +2  health per friend with a Faint ability.,['Weekly Pack'],Tier 1 Pets
+Budgie,1,1,1,Start of battle → Gain the  Popcorn perk and +1  health.,['Weekly Pack'],Tier 1 Pets
+Budgie,1,1,2,Start of battle → Gain the  Popcorn perk and +2  health.,['Weekly Pack'],Tier 1 Pets
+Budgie,1,1,2,Start of battle → Gain the  Popcorn perk and +2  health.,['Weekly Pack'],Tier 1 Pets
+Farmer Mouse,2,3,1,Faint → Feed one  Corncob to the nearest friend behind.,['Weekly Pack'],Tier 1 Pets
+Farmer Mouse,2,3,2,Faint → Feed one  Corncob to the nearest two friends behind.,['Weekly Pack'],Tier 1 Pets
+Farmer Mouse,2,3,2,Faint → Feed one  Corncob to the nearest two friends behind.,['Weekly Pack'],Tier 1 Pets
+Weevil,2,2,1,Friendly ate food → Give them +1  attack until next turn. Works three times per turn.,['Weekly Pack'],Tier 1 Pets
+Weevil,2,2,2,Friendly ate food → Give them +2  attack until next turn. Works three times per turn.,['Weekly Pack'],Tier 1 Pets
+Weevil,2,2,2,Friendly ate food → Give them +2  attack until next turn. Works three times per turn.,['Weekly Pack'],Tier 1 Pets
+Sloth,1,1,1,"""Sloth has no special ability. Is kind of lame combat-wise. But he truly believes in you!""","['Turtle Pack', 'Unicorn Pack', 'Golden Pack', 'Star Pack', 'Puppy Pack']",Tier 1 Pets
+Sloth,1,1,2,"""Sloth has no special ability. Is kind of lame combat-wise. But he truly believes in you!""","['Turtle Pack', 'Unicorn Pack', 'Golden Pack', 'Star Pack', 'Puppy Pack']",Tier 1 Pets
+Sloth,1,1,2,"""Sloth has no special ability. Is kind of lame combat-wise. But he truly believes in you!""","['Turtle Pack', 'Unicorn Pack', 'Golden Pack', 'Star Pack', 'Puppy Pack']",Tier 1 Pets
+Crab,4,1,1,Start of battle → Copy 50% of  health from the most healthy friend.,['Turtle Pack'],Tier 2 Pets
+Crab,4,1,2,Start of battle → Copy 100% of  health from the most healthy friend.,['Turtle Pack'],Tier 2 Pets
+Crab,4,1,2,Start of battle → Copy 100% of  health from the most healthy friend.,['Turtle Pack'],Tier 2 Pets
+Flamingo,3,2,1,Faint → Give the two nearest friends behind +1  attack and +1  health.,['Turtle Pack'],Tier 2 Pets
+Flamingo,3,2,2,Faint → Give the two nearest friends behind +2  attack and +2  health.,['Turtle Pack'],Tier 2 Pets
+Flamingo,3,2,2,Faint → Give the two nearest friends behind +2  attack and +2  health.,['Turtle Pack'],Tier 2 Pets
+Hedgehog,4,2,1,Faint → Deal 2  damage to all.,['Turtle Pack'],Tier 2 Pets
+Hedgehog,4,2,2,Faint → Deal 4  damage to all.,['Turtle Pack'],Tier 2 Pets
+Hedgehog,4,2,2,Faint → Deal 4  damage to all.,['Turtle Pack'],Tier 2 Pets
+Kangaroo,2,3,1,Friend ahead attacks → Gain +1  attack and +1  health.,['Turtle Pack'],Tier 2 Pets
+Kangaroo,2,3,2,Friend ahead attacks → Gain +2  attack and +2  health.,['Turtle Pack'],Tier 2 Pets
+Kangaroo,2,3,2,Friend ahead attacks → Gain +2  attack and +2  health.,['Turtle Pack'],Tier 2 Pets
+Peacock,2,5,1,Hurt → Gain +4  attack.,['Turtle Pack'],Tier 2 Pets
+Peacock,2,5,2,Hurt → Gain +8  attack.,['Turtle Pack'],Tier 2 Pets
+Peacock,2,5,2,Hurt → Gain +8  attack.,['Turtle Pack'],Tier 2 Pets
+Rat,3,6,1,Faint → Summon one 1/1  Dirty Rat up front for the opponent.,['Turtle Pack'],Tier 2 Pets
+Rat,3,6,2,Faint → Summon two 1/1  Dirty Rats up front for the opponent.,['Turtle Pack'],Tier 2 Pets
+Rat,3,6,2,Faint → Summon two 1/1  Dirty Rats up front for the opponent.,['Turtle Pack'],Tier 2 Pets
+Snail,2,2,1,"End turn → If you lost last battle, give friends +1  health.",['Turtle Pack'],Tier 2 Pets
+Snail,2,2,2,"End turn → If you lost last battle, give friends +2  health.",['Turtle Pack'],Tier 2 Pets
+Snail,2,2,2,"End turn → If you lost last battle, give friends +2  health.",['Turtle Pack'],Tier 2 Pets
+Spider,2,2,1,Faint → Summon one level 1 tier 3 pet as a 2/2.,['Turtle Pack'],Tier 2 Pets
+Spider,2,2,2,Faint → Summon one level 2 tier 3 pet as a 4/4.,['Turtle Pack'],Tier 2 Pets
+Spider,2,2,2,Faint → Summon one level 2 tier 3 pet as a 4/4.,['Turtle Pack'],Tier 2 Pets
+Swan,1,2,1,Start of turn → Gain +1  gold.,['Turtle Pack'],Tier 2 Pets
+Swan,1,2,2,Start of turn → Gain +2  gold.,['Turtle Pack'],Tier 2 Pets
+Swan,1,2,2,Start of turn → Gain +2  gold.,['Turtle Pack'],Tier 2 Pets
+Worm,1,3,1,Start of turn → Stock one 2-gold  Apple.,['Turtle Pack'],Tier 2 Pets
+Worm,1,3,2,Start of turn → Stock one 2-gold  Better Apple.,['Turtle Pack'],Tier 2 Pets
+Worm,1,3,2,Start of turn → Stock one 2-gold  Better Apple.,['Turtle Pack'],Tier 2 Pets
+Ghost Kitten,3,3,1,Take 3 less damage from abilities.,['Unicorn Pack'],Tier 2 Pets
+Ghost Kitten,3,3,2,Take 6 less damage from abilities.,['Unicorn Pack'],Tier 2 Pets
+Ghost Kitten,3,3,2,Take 6 less damage from abilities.,['Unicorn Pack'],Tier 2 Pets
+Frost Wolf,1,3,1,Faint → Make the first enemy  Cold.,['Unicorn Pack'],Tier 2 Pets
+Frost Wolf,1,3,2,Faint → Make the two first enemies  Cold.,['Unicorn Pack'],Tier 2 Pets
+Frost Wolf,1,3,2,Faint → Make the two first enemies  Cold.,['Unicorn Pack'],Tier 2 Pets
+Mothman,3,3,1,Faint → Deal 2  damage to one enemy with ailments.,['Unicorn Pack'],Tier 2 Pets
+Mothman,3,3,2,Faint → Deal 2  damage to two enemies with ailments.,['Unicorn Pack'],Tier 2 Pets
+Mothman,3,3,2,Faint → Deal 2  damage to two enemies with ailments.,['Unicorn Pack'],Tier 2 Pets
+Drop Bear,2,2,1,Empty front space → Jump to the front and deal 3  damage to the last enemy in battle.,['Unicorn Pack'],Tier 2 Pets
+Drop Bear,2,2,2,Empty front space → Jump to the front and deal 6  damage to the last enemy in battle.,['Unicorn Pack'],Tier 2 Pets
+Drop Bear,2,2,2,Empty front space → Jump to the front and deal 6  damage to the last enemy in battle.,['Unicorn Pack'],Tier 2 Pets
+Jackalope,1,3,1,Friend jumped → Deal 2  damage to one random enemy.,['Unicorn Pack'],Tier 2 Pets
+Jackalope,1,3,2,Friend jumped → Deal 4  damage to one random enemy.,['Unicorn Pack'],Tier 2 Pets
+Jackalope,1,3,2,Friend jumped → Deal 4  damage to one random enemy.,['Unicorn Pack'],Tier 2 Pets
+Lucky Cat,2,3,1,Level-up → Gain +2  attack and +2  health now and +1  gold next turn.,['Unicorn Pack'],Tier 2 Pets
+Lucky Cat,2,3,2,Level-up → Gain +2  attack and +2  health now and +1  gold next turn.,['Unicorn Pack'],Tier 2 Pets
+Lucky Cat,2,3,2,Level-up → Gain +2  attack and +2  health now and +1  gold next turn.,['Unicorn Pack'],Tier 2 Pets
+Ogopogo,1,2,1,Start of battle → Give front-most friend +1  experience.,['Unicorn Pack'],Tier 2 Pets
+Ogopogo,1,2,2,Start of battle → Give front-most friend +2  experience.,['Unicorn Pack'],Tier 2 Pets
+Ogopogo,1,2,2,Start of battle → Give front-most friend +2  experience.,['Unicorn Pack'],Tier 2 Pets
+Thunderbird,2,3,1,Start of battle → Give the front-most friend +3  mana.,['Unicorn Pack'],Tier 2 Pets
+Thunderbird,2,3,2,Start of battle → Give the front-most friend +6  mana.,['Unicorn Pack'],Tier 2 Pets
+Thunderbird,2,3,2,Start of battle → Give the front-most friend +6  mana.,['Unicorn Pack'],Tier 2 Pets
+Gargoyle,3,4,1,Faint → Spend  mana to give the nearest friend behind +3  health and +1 more per mana.,['Unicorn Pack'],Tier 2 Pets
+Gargoyle,3,4,2,Faint → Spend  mana to give the nearest friend behind +6  health and +2 more per mana.,['Unicorn Pack'],Tier 2 Pets
+Gargoyle,3,4,2,Faint → Spend  mana to give the nearest friend behind +6  health and +2 more per mana.,['Unicorn Pack'],Tier 2 Pets
+Bigfoot,2,3,1,Faint → Gain one free roll next turn.,['Unicorn Pack'],Tier 2 Pets
+Bigfoot,2,3,2,Faint → Gain two free rolls next turn.,['Unicorn Pack'],Tier 2 Pets
+Bigfoot,2,3,2,Faint → Gain two free rolls next turn.,['Unicorn Pack'],Tier 2 Pets
+Nightcrawler,1,1,1,"Faint → Summon one Crawler with 3  attack, and +1  health for each friend summoned this turn.",['Unicorn Pack'],Tier 2 Pets
+Nightcrawler,1,1,2,"Faint → Summon one Crawler with 6  attack, and +2  health for each friend summoned this turn.",['Unicorn Pack'],Tier 2 Pets
+Nightcrawler,1,1,2,"Faint → Summon one Crawler with 6  attack, and +2  health for each friend summoned this turn.",['Unicorn Pack'],Tier 2 Pets
+Sphinx,2,5,1,Buy → Choose one level 1 adventurous toy.,['Unicorn Pack'],Tier 2 Pets
+Sphinx,2,5,2,Buy → Choose one level 2 adventurous toy.,['Unicorn Pack'],Tier 2 Pets
+Sphinx,2,5,2,Buy → Choose one level 2 adventurous toy.,['Unicorn Pack'],Tier 2 Pets
+Chupacabra,4,2,1,Knock out → Give +1  health to one random friend. Triggers 3 times.,['Unicorn Pack'],Tier 2 Pets
+Chupacabra,4,2,2,Knock out → Give +1  health to one random friend. Triggers 6 times.,['Unicorn Pack'],Tier 2 Pets
+Chupacabra,4,2,2,Knock out → Give +1  health to one random friend. Triggers 6 times.,['Unicorn Pack'],Tier 2 Pets
+Golden Beetle,2,3,1,Sell → Gain +1  gold. Triple if attack is at least 10.,['Unicorn Pack'],Tier 2 Pets
+Golden Beetle,2,3,2,Sell → Gain +2  gold. Triple if attack is at least 10.,['Unicorn Pack'],Tier 2 Pets
+Golden Beetle,2,3,2,Sell → Gain +2  gold. Triple if attack is at least 10.,['Unicorn Pack'],Tier 2 Pets
+African Penguin,1,3,1,Buy → Give three random friends +1  attack.,['Golden Pack'],Tier 2 Pets
+African Penguin,1,3,2,Buy → Give three random friends +2  attack.,['Golden Pack'],Tier 2 Pets
+African Penguin,1,3,2,Buy → Give three random friends +2  attack.,['Golden Pack'],Tier 2 Pets
+Black Necked Stilt,3,2,1,Faint → Gain +2  Trumpets.,['Golden Pack'],Tier 2 Pets
+Black Necked Stilt,3,2,2,Faint → Gain +4  Trumpets.,['Golden Pack'],Tier 2 Pets
+Black Necked Stilt,3,2,2,Faint → Gain +4  Trumpets.,['Golden Pack'],Tier 2 Pets
+Door Head Ant,2,2,1,"Empty front space → If in battle, push this to the front and gain +4  health.",['Golden Pack'],Tier 2 Pets
+Door Head Ant,2,2,2,"Empty front space → If in battle, push this to the front and gain +8  health.",['Golden Pack'],Tier 2 Pets
+Door Head Ant,2,2,2,"Empty front space → If in battle, push this to the front and gain +8  health.",['Golden Pack'],Tier 2 Pets
+Gazelle,2,3,1,Start of turn → Gain +2  attack and +1  health until end of turn for each  gold over 10.,['Golden Pack'],Tier 2 Pets
+Gazelle,2,3,2,Start of turn → Gain +4  attack and +2  health until end of turn for each  gold over 10.,['Golden Pack'],Tier 2 Pets
+Gazelle,2,3,2,Start of turn → Gain +4  attack and +2  health until end of turn for each  gold over 10.,['Golden Pack'],Tier 2 Pets
+Hercules Beetle,3,4,1,Sell → Give friends +1  attack for each battle this has fought evenly spread.,['Golden Pack'],Tier 2 Pets
+Hercules Beetle,3,4,2,Sell → Give friends +2  attack for each battle this has fought evenly spread.,['Golden Pack'],Tier 2 Pets
+Hercules Beetle,3,4,2,Sell → Give friends +2  attack for each battle this has fought evenly spread.,['Golden Pack'],Tier 2 Pets
+Lizard,1,3,1,Hurt → Summon one 3/1  Lizard Tail. Works 2 times per turn.,['Golden Pack'],Tier 2 Pets
+Lizard,1,3,2,Hurt → Summon one 6/2  Lizard Tail. Works 2 times per turn.,['Golden Pack'],Tier 2 Pets
+Lizard,1,3,2,Hurt → Summon one 6/2  Lizard Tail. Works 2 times per turn.,['Golden Pack'],Tier 2 Pets
+Sea Turtle,2,5,1,"Friend Summoned → If in battle, give it +3  health.",['Golden Pack'],Tier 2 Pets
+Sea Turtle,2,5,2,"Friend Summoned → If in battle, give it +6  health.",['Golden Pack'],Tier 2 Pets
+Sea Turtle,2,5,2,"Friend Summoned → If in battle, give it +6  health.",['Golden Pack'],Tier 2 Pets
+Sea Urchin,3,2,1,Faint → Remove 5  health from the first enemy.,['Golden Pack'],Tier 2 Pets
+Sea Urchin,3,2,2,Faint → Remove 5  health from the first two enemies.,['Golden Pack'],Tier 2 Pets
+Sea Urchin,3,2,2,Faint → Remove 5  health from the first two enemies.,['Golden Pack'],Tier 2 Pets
+Squid,5,2,1,Faint → Spend 1  Trumpet to give the first enemy  Ink.,['Golden Pack'],Tier 2 Pets
+Squid,5,2,2,Faint → Spend 1  Trumpet to give the two first enemies  Ink.,['Golden Pack'],Tier 2 Pets
+Squid,5,2,2,Faint → Spend 1  Trumpet to give the two first enemies  Ink.,['Golden Pack'],Tier 2 Pets
+Stoat,3,3,1,Sell → Summon one level 1 pet from your current tier as a 1/1.,['Golden Pack'],Tier 2 Pets
+Stoat,3,3,2,Sell → Summon one level 2 pet from your current tier as a 1/1.,['Golden Pack'],Tier 2 Pets
+Stoat,3,3,2,Sell → Summon one level 2 pet from your current tier as a 1/1.,['Golden Pack'],Tier 2 Pets
+Atlantic Puffin,2,3,1,Friend attacks → Remove its  Strawberry perk to deal 2  damage to the last enemy.,['Star Pack'],Tier 2 Pets
+Atlantic Puffin,2,3,2,Friend attacks → Remove its  Strawberry perk to deal 4  damage to the last enemy.,['Star Pack'],Tier 2 Pets
+Atlantic Puffin,2,3,2,Friend attacks → Remove its  Strawberry perk to deal 4  damage to the last enemy.,['Star Pack'],Tier 2 Pets
+Bass,3,3,1,Faint & Sell → Give one level 2 Sell friend +1  experience,['Star Pack'],Tier 2 Pets
+Bass,3,3,2,Faint & Sell → Give one level 2 Sell friend +2  experience,['Star Pack'],Tier 2 Pets
+Bass,3,3,2,Faint & Sell → Give one level 2 Sell friend +2  experience,['Star Pack'],Tier 2 Pets
+Dove,1,1,1,Faint → Replace two random friendly  Strawberry perks with +2  attack and +2  health.,['Star Pack'],Tier 2 Pets
+Dove,1,1,2,Faint → Replace two random friendly  Strawberry perks with +4  attack and +4  health.,['Star Pack'],Tier 2 Pets
+Dove,1,1,2,Faint → Replace two random friendly  Strawberry perks with +4  attack and +4  health.,['Star Pack'],Tier 2 Pets
+Dumbo Octopus,2,5,1,Roll 4 times → Stock ANY food from the 3 most recent tiers and discount it by 1  Gold,['Star Pack'],Tier 2 Pets
+Dumbo Octopus,2,5,2,Roll 4 times → Stock ANY food from the 3 most recent tiers and discount it by 2  Gold,['Star Pack'],Tier 2 Pets
+Dumbo Octopus,2,5,2,Roll 4 times → Stock ANY food from the 3 most recent tiers and discount it by 2  Gold,['Star Pack'],Tier 2 Pets
+Guinea Pig,2,3,1,Buy → Summon one 1/1  Guinea Pig.,['Star Pack'],Tier 2 Pets
+Guinea Pig,2,3,2,Buy → Summon one 2/2  Guinea Pig.,['Star Pack'],Tier 2 Pets
+Guinea Pig,2,3,2,Buy → Summon one 2/2  Guinea Pig.,['Star Pack'],Tier 2 Pets
+Iguana,2,4,1,Enemy summoned or pushed → Deal 2  attack to it.,['Star Pack'],Tier 2 Pets
+Iguana,2,4,2,Enemy summoned or pushed → Deal 4  attack to it.,['Star Pack'],Tier 2 Pets
+Iguana,2,4,2,Enemy summoned or pushed → Deal 4  attack to it.,['Star Pack'],Tier 2 Pets
+Jellyfish,2,3,1,Friend level-up → Gain +1  attack and +1  health.,['Star Pack'],Tier 2 Pets
+Jellyfish,2,3,2,Friend level-up → Gain +2  attack and +2  health.,['Star Pack'],Tier 2 Pets
+Jellyfish,2,3,2,Friend level-up → Gain +2  attack and +2  health.,['Star Pack'],Tier 2 Pets
+Koala,2,2,1,Friend hurt → Give it the  Eucalyptus perk. Works 1 time per turn.,['Star Pack'],Tier 2 Pets
+Koala,2,2,2,Friend hurt → Give it the  Eucalyptus perk. Works 2 times per turn.,['Star Pack'],Tier 2 Pets
+Koala,2,2,2,Friend hurt → Give it the  Eucalyptus perk. Works 2 times per turn.,['Star Pack'],Tier 2 Pets
+Salamander,1,1,1,Start of battle → Gain +1  attack and +1  health for each level of each Sell friend.,['Star Pack'],Tier 2 Pets
+Salamander,1,1,2,Start of battle → Gain +2  attack and +2  health for each level of each Sell friend.,['Star Pack'],Tier 2 Pets
+Salamander,1,1,2,Start of battle → Gain +2  attack and +2  health for each level of each Sell friend.,['Star Pack'],Tier 2 Pets
+Stork,2,1,1,Faint → Summon one level 1 pet from the previous shop tier as a 3/2.,['Star Pack'],Tier 2 Pets
+Stork,2,1,2,Faint → Summon one level 2 pet from the previous shop tier as a 6/4.,['Star Pack'],Tier 2 Pets
+Stork,2,1,2,Faint → Summon one level 2 pet from the previous shop tier as a 6/4.,['Star Pack'],Tier 2 Pets
+Yak,3,5,1,End turn → Deal 1  damage to itself and gain +1  attack.,['Star Pack'],Tier 2 Pets
+Yak,3,5,2,End turn → Deal 1  damage to itself and gain +2  attack.,['Star Pack'],Tier 2 Pets
+Yak,3,5,2,End turn → Deal 1  damage to itself and gain +2  attack.,['Star Pack'],Tier 2 Pets
+Panda,2,4,1,"Start of battle → If friend ahead, give 50% of  attack and  health to it and then faint.",['Star Pack'],Tier 2 Pets
+Panda,2,4,2,"Start of battle → If friend ahead, give 100% of  attack and  health to it and then faint.",['Star Pack'],Tier 2 Pets
+Panda,2,4,2,"Start of battle → If friend ahead, give 100% of  attack and  health to it and then faint.",['Star Pack'],Tier 2 Pets
+Seahorse,2,4,1,Start of battle → Push the last enemy one space forward.,['Star Pack'],Tier 2 Pets
+Seahorse,2,4,2,Start of battle → Push the last enemy two spaces forward.,['Star Pack'],Tier 2 Pets
+Seahorse,2,4,2,Start of battle → Push the last enemy two spaces forward.,['Star Pack'],Tier 2 Pets
+Bat,1,2,1,Start of battle → Make one random enemy  Weak.,['Puppy Pack'],Tier 2 Pets
+Bat,1,2,2,Start of battle → Make two random enemies  Weak.,['Puppy Pack'],Tier 2 Pets
+Bat,1,2,2,Start of battle → Make two random enemies  Weak.,['Puppy Pack'],Tier 2 Pets
+Beluga Sturgeon,2,3,1,Faint → Summon one 2/3  Dolphin with  Rice in the back.,['Puppy Pack'],Tier 2 Pets
+Beluga Sturgeon,2,3,2,Faint → Summon two 2/3  Dolphins with  Rice in the back.,['Puppy Pack'],Tier 2 Pets
+Beluga Sturgeon,2,3,2,Faint → Summon two 2/3  Dolphins with  Rice in the back.,['Puppy Pack'],Tier 2 Pets
+Dromedary,2,4,1,Start of turn → Give the two left-most shop pets +1  attack and +1  health.,['Puppy Pack'],Tier 2 Pets
+Dromedary,2,4,2,Start of turn → Give the two left-most shop pets +2  attack and +2  health.,['Puppy Pack'],Tier 2 Pets
+Dromedary,2,4,2,Start of turn → Give the two left-most shop pets +2  attack and +2  health.,['Puppy Pack'],Tier 2 Pets
+Frigatebird,2,5,1,Friend gained ailment → Give it  Rice. Works 1 time per turn.,"['Puppy Pack', 'Weekly Pack']",Tier 2 Pets
+Frigatebird,2,5,2,Friend gained ailment → Give it  Rice. Works 2 times per turn.,"['Puppy Pack', 'Weekly Pack']",Tier 2 Pets
+Frigatebird,2,5,2,Friend gained ailment → Give it  Rice. Works 2 times per turn.,"['Puppy Pack', 'Weekly Pack']",Tier 2 Pets
+Lemur,3,3,1,Buy → Choose one level 1 toy from tier 2.,['Puppy Pack'],Tier 2 Pets
+Lemur,3,3,2,Buy → Choose one level 2 toy from tier 2.,['Puppy Pack'],Tier 2 Pets
+Lemur,3,3,2,Buy → Choose one level 2 toy from tier 2.,['Puppy Pack'],Tier 2 Pets
+Mandrill,3,4,1,Faint → Break friendly tier 2 or lower toy.,['Puppy Pack'],Tier 2 Pets
+Mandrill,3,4,2,Faint → Break friendly tier 4 or lower toy.,['Puppy Pack'],Tier 2 Pets
+Mandrill,3,4,2,Faint → Break friendly tier 4 or lower toy.,['Puppy Pack'],Tier 2 Pets
+Robin,2,3,1,Start of battle → Summon one 2/3 level 1  Nest and give it  Egg Perk.,['Puppy Pack'],Tier 2 Pets
+Robin,2,3,2,Start of battle → Summon one 4/6 level 2  Nest and give it  Egg Perk.,['Puppy Pack'],Tier 2 Pets
+Robin,2,3,2,Start of battle → Summon one 4/6 level 2  Nest and give it  Egg Perk.,['Puppy Pack'],Tier 2 Pets
+Shrimp,2,2,1,Friend sold → Give one random friend +1  health. Works 3 times per turn.,"['Puppy Pack', 'Weekly Pack']",Tier 2 Pets
+Shrimp,2,2,2,Friend sold → Give one random friend +2  health. Works 3 times per turn.,"['Puppy Pack', 'Weekly Pack']",Tier 2 Pets
+Shrimp,2,2,2,Friend sold → Give one random friend +2  health. Works 3 times per turn.,"['Puppy Pack', 'Weekly Pack']",Tier 2 Pets
+Tabby Cat,4,2,1,Friendly gained perk → Give two random friends +1  health until end of battle.,['Puppy Pack'],Tier 2 Pets
+Tabby Cat,4,2,2,Friendly gained perk → Give two random friends +2  health until end of battle.,['Puppy Pack'],Tier 2 Pets
+Tabby Cat,4,2,2,Friendly gained perk → Give two random friends +2  health until end of battle.,['Puppy Pack'],Tier 2 Pets
+Toucan,3,3,1,Faint → Copy food perk to the nearest friend behind.,"['Puppy Pack', 'Weekly Pack']",Tier 2 Pets
+Toucan,3,3,2,Faint → Copy food perk to the two nearest friends behind.,"['Puppy Pack', 'Weekly Pack']",Tier 2 Pets
+Toucan,3,3,2,Faint → Copy food perk to the two nearest friends behind.,"['Puppy Pack', 'Weekly Pack']",Tier 2 Pets
+Wombat,3,3,1,Start of battle → Copy Faint Ability as level 1 from the highest tier enemy.,['Weekly Pack'],Tier 2 Pets
+Wombat,3,3,2,Start of battle → Copy Faint Ability as level 2 from the highest tier enemy.,['Weekly Pack'],Tier 2 Pets
+Wombat,3,3,2,Start of battle → Copy Faint Ability as level 2 from the highest tier enemy.,['Weekly Pack'],Tier 2 Pets
+Badger,6,3,1,Faint → Deal 50% attack  damage to adjacent pets.,['Turtle Pack'],Tier 3 Pets
+Badger,6,3,2,Faint → Deal 100% attack  damage to adjacent pets.,['Turtle Pack'],Tier 3 Pets
+Badger,6,3,2,Faint → Deal 100% attack  damage to adjacent pets.,['Turtle Pack'],Tier 3 Pets
+Camel,3,4,1,Hurt → Give the nearest friend behind +1  attack and +2  health.,['Turtle Pack'],Tier 3 Pets
+Camel,3,4,2,Hurt → Give the nearest friend behind +2  attack and +4  health.,['Turtle Pack'],Tier 3 Pets
+Camel,3,4,2,Hurt → Give the nearest friend behind +2  attack and +4  health.,['Turtle Pack'],Tier 3 Pets
+Dodo,4,2,1,Start of battle → Give 50% of  attack to the nearest friend ahead.,['Turtle Pack'],Tier 3 Pets
+Dodo,4,2,2,Start of battle → Give 100% of  attack to the nearest friend ahead.,['Turtle Pack'],Tier 3 Pets
+Dodo,4,2,2,Start of battle → Give 100% of  attack to the nearest friend ahead.,['Turtle Pack'],Tier 3 Pets
+Dog,3,2,1,Friend summoned → Gain +2  attack and +1  health until end of battle.,['Turtle Pack'],Tier 3 Pets
+Dog,3,2,2,Friend summoned → Gain +4  attack and +2  health until end of battle.,['Turtle Pack'],Tier 3 Pets
+Dog,3,2,2,Friend summoned → Gain +4  attack and +2  health until end of battle.,['Turtle Pack'],Tier 3 Pets
+Dolphin,4,3,1,Start of battle → Deal 4  damage to the lowest health enemy.,['Turtle Pack'],Tier 3 Pets
+Dolphin,4,3,2,Start of battle → Deal 4  damage to the lowest health enemy. Triggers 2 times.,['Turtle Pack'],Tier 3 Pets
+Dolphin,4,3,2,Start of battle → Deal 4  damage to the lowest health enemy. Triggers 2 times.,['Turtle Pack'],Tier 3 Pets
+Elephant,3,7,1,After attack → Deal 1  damage to the nearest friend behind.,['Turtle Pack'],Tier 3 Pets
+Elephant,3,7,2,After attack → Deal 1  damage to the nearest friend behind. Triggers 2 times.,['Turtle Pack'],Tier 3 Pets
+Elephant,3,7,2,After attack → Deal 1  damage to the nearest friend behind. Triggers 2 times.,['Turtle Pack'],Tier 3 Pets
+Giraffe,1,2,1,End turn → Give the nearest friend ahead +1  attack and +1  health.,['Turtle Pack'],Tier 3 Pets
+Giraffe,1,2,2,End turn → Give the nearest two friends ahead +1  attack and +1  health.,['Turtle Pack'],Tier 3 Pets
+Giraffe,1,2,2,End turn → Give the nearest two friends ahead +1  attack and +1  health.,['Turtle Pack'],Tier 3 Pets
+Ox,1,3,1,Friend ahead faints → Gain  Melon perk and +1  attack. Works 1 time per turn.,['Turtle Pack'],Tier 3 Pets
+Ox,1,3,2,Friend ahead faints → Gain  Melon perk and +1  attack. Works 2 time per turn.,['Turtle Pack'],Tier 3 Pets
+Ox,1,3,2,Friend ahead faints → Gain  Melon perk and +1  attack. Works 2 time per turn.,['Turtle Pack'],Tier 3 Pets
+Rabbit,1,2,1,Friendly ate food → Give them +1  health. Works 4 times per turn.,['Turtle Pack'],Tier 3 Pets
+Rabbit,1,2,2,Friendly ate food → Give them +2  health. Works 4 times per turn.,['Turtle Pack'],Tier 3 Pets
+Rabbit,1,2,2,Friendly ate food → Give them +2  health. Works 4 times per turn.,['Turtle Pack'],Tier 3 Pets
+Sheep,2,2,1,Faint → Summon two 2/2  Rams.,['Turtle Pack'],Tier 3 Pets
+Sheep,2,2,2,Faint → Summon two 4/4  Rams.,['Turtle Pack'],Tier 3 Pets
+Sheep,2,2,2,Faint → Summon two 4/4  Rams.,['Turtle Pack'],Tier 3 Pets
+Skeleton Dog,3,3,1,Faint → Give one random friend permanent +1  attack and +1  health.,['Unicorn Pack'],Tier 3 Pets
+Skeleton Dog,3,3,2,Faint → Give two random friends permanent +1  attack and +1  health.,['Unicorn Pack'],Tier 3 Pets
+Skeleton Dog,3,3,2,Faint → Give two random friends permanent +1  attack and +1  health.,['Unicorn Pack'],Tier 3 Pets
+Mandrake,2,3,1,Start of Battle → Make one tier 2 or lower Faint enemy  Dazed.,['Unicorn Pack'],Tier 3 Pets
+Mandrake,2,3,2,Start of Battle → Make one tier 4 or lower Faint enemy  Dazed.,['Unicorn Pack'],Tier 3 Pets
+Mandrake,2,3,2,Start of Battle → Make one tier 4 or lower Faint enemy  Dazed.,['Unicorn Pack'],Tier 3 Pets
+Fur-Bearing Trout,2,2,1,Faint → Give  Rambutan perk to the nearest friend behind.,['Unicorn Pack'],Tier 3 Pets
+Fur-Bearing Trout,2,2,2,Faint → Give  Rambutan perk to the two nearest friends behind.,['Unicorn Pack'],Tier 3 Pets
+Fur-Bearing Trout,2,2,2,Faint → Give  Rambutan perk to the two nearest friends behind.,['Unicorn Pack'],Tier 3 Pets
+Mana Hound,2,5,1,"Start of battle → Give the nearest friend ahead +1  mana for each roll this turn, up to 5 rolls.",['Unicorn Pack'],Tier 3 Pets
+Mana Hound,2,5,2,"Start of battle → Give the nearest friend ahead +2  mana for each roll this turn, up to 5 rolls.",['Unicorn Pack'],Tier 3 Pets
+Mana Hound,2,5,2,"Start of battle → Give the nearest friend ahead +2  mana for each roll this turn, up to 5 rolls.",['Unicorn Pack'],Tier 3 Pets
+Calygreyhound,3,4,1,Faint → Spend  mana to remove 1  health per mana from the two most healthy enemies.,['Unicorn Pack'],Tier 3 Pets
+Calygreyhound,3,4,2,Faint → Spend  mana to remove 2  health per mana from the two most healthy enemies.,['Unicorn Pack'],Tier 3 Pets
+Calygreyhound,3,4,2,Faint → Spend  mana to remove 2  health per mana from the two most healthy enemies.,['Unicorn Pack'],Tier 3 Pets
+Brain Cramp,1,2,1,Empty front space → Jump to the front and gain +2  attack and  Melon perk in battle.,['Unicorn Pack'],Tier 3 Pets
+Brain Cramp,1,2,2,Empty front space → Jump to the front and gain +4  attack and  Melon perk in battle.,['Unicorn Pack'],Tier 3 Pets
+Brain Cramp,1,2,2,Empty front space → Jump to the front and gain +4  attack and  Melon perk in battle.,['Unicorn Pack'],Tier 3 Pets
+Minotaur,1,2,1,Friend ahead attacks → Gain +1  attack and +1  health for each of the friend's level.,['Unicorn Pack'],Tier 3 Pets
+Minotaur,1,2,2,Friend ahead attacks → Gain +2  attack and +2  health for each of the friend's level.,['Unicorn Pack'],Tier 3 Pets
+Minotaur,1,2,2,Friend ahead attacks → Gain +2  attack and +2  health for each of the friend's level.,['Unicorn Pack'],Tier 3 Pets
+Wyvern,3,4,1,Friendly level-up → Gain 1 extra shop reward.,['Unicorn Pack'],Tier 3 Pets
+Wyvern,3,4,2,Friendly level-up → Gain 2 extra shop reward.,['Unicorn Pack'],Tier 3 Pets
+Wyvern,3,4,2,Friendly level-up → Gain 2 extra shop reward.,['Unicorn Pack'],Tier 3 Pets
+Ouroboros,2,4,1,Roll → Give unfrozen shop pets +1  health until end of battle for each roll this turn.,['Unicorn Pack'],Tier 3 Pets
+Ouroboros,2,4,2,Roll → Give unfrozen shop pets +2  health until end of battle for each roll this turn.,['Unicorn Pack'],Tier 3 Pets
+Ouroboros,2,4,2,Roll → Give unfrozen shop pets +2  health until end of battle for each roll this turn.,['Unicorn Pack'],Tier 3 Pets
+Griffin,4,3,1,Sell → Summon a level 1  Treasure Map that leads to a  Treasure Chest.,['Unicorn Pack'],Tier 3 Pets
+Griffin,4,3,2,Sell → Summon a level 2  Treasure Map that leads to a  Treasure Chest.,['Unicorn Pack'],Tier 3 Pets
+Griffin,4,3,2,Sell → Summon a level 2  Treasure Map that leads to a  Treasure Chest.,['Unicorn Pack'],Tier 3 Pets
+Foo Dog,3,5,1,Buy → Give future shop pets from the next tier permanent +2  health.,['Unicorn Pack'],Tier 3 Pets
+Foo Dog,3,5,2,Buy → Give future shop pets from the next tier permanent +4  health.,['Unicorn Pack'],Tier 3 Pets
+Foo Dog,3,5,2,Buy → Give future shop pets from the next tier permanent +4  health.,['Unicorn Pack'],Tier 3 Pets
+Tree Ent,2,5,1,"Start of battle → If this has 6 or less attack, gain  Coconut Perk.",['Unicorn Pack'],Tier 3 Pets
+Tree Ent,2,5,2,"Start of battle → If this has 12 or less attack, gain  Coconut Perk.",['Unicorn Pack'],Tier 3 Pets
+Tree Ent,2,5,2,"Start of battle → If this has 12 or less attack, gain  Coconut Perk.",['Unicorn Pack'],Tier 3 Pets
+Slime,3,3,1,Faint → Summon one 2/2  Slime for each two battles fought.,['Unicorn Pack'],Tier 3 Pets
+Slime,3,3,2,Faint → Summon one 4/4  Slime for each two battles fought.,['Unicorn Pack'],Tier 3 Pets
+Slime,3,3,2,Faint → Summon one 4/4  Slime for each two battles fought.,['Unicorn Pack'],Tier 3 Pets
+Pegasus,1,3,1,Friend summoned → Give three friends +1  attack until end of battle.,['Unicorn Pack'],Tier 3 Pets
+Pegasus,1,3,2,Friend summoned → Give three friends +2  attack until end of battle.,['Unicorn Pack'],Tier 3 Pets
+Pegasus,1,3,2,Friend summoned → Give three friends +2  attack until end of battle.,['Unicorn Pack'],Tier 3 Pets
+Deer Lord,4,3,1,End turn → Knock out the nearest friend ahead and stock one free  Bacon.,['Unicorn Pack'],Tier 3 Pets
+Deer Lord,4,3,2,End turn → Knock out the nearest friend ahead and stock two free  Bacons.,['Unicorn Pack'],Tier 3 Pets
+Deer Lord,4,3,2,End turn → Knock out the nearest friend ahead and stock two free  Bacons.,['Unicorn Pack'],Tier 3 Pets
+Baboon,2,3,1,End turn → Give one random friend from the current or higher shop tier +1  attack and + 1  health.,['Golden Pack'],Tier 3 Pets
+Baboon,2,3,2,End turn → Give one random friend from the current or higher shop tier +2  attack and + 2  health.,['Golden Pack'],Tier 3 Pets
+Baboon,2,3,2,End turn → Give one random friend from the current or higher shop tier +2  attack and + 2  health.,['Golden Pack'],Tier 3 Pets
+Betta Fish,2,3,1,Faint → Give the nearest friend behind +4  attack and +2  health.,['Golden Pack'],Tier 3 Pets
+Betta Fish,2,3,2,Faint → Give the nearest friend behind +8  attack and +4  health.,['Golden Pack'],Tier 3 Pets
+Betta Fish,2,3,2,Faint → Give the nearest friend behind +8  attack and +4  health.,['Golden Pack'],Tier 3 Pets
+Flea,4,2,1,Faint → Make the most healthy enemy  Weak.,['Golden Pack'],Tier 3 Pets
+Flea,4,2,2,Faint → Make the two most healthy enemies  Weak.,['Golden Pack'],Tier 3 Pets
+Flea,4,2,2,Faint → Make the two most healthy enemies  Weak.,['Golden Pack'],Tier 3 Pets
+Flying Fish,3,2,1,"Friend summoned → If in battle, give it +2  experience. Works 2 times per turn.",['Golden Pack'],Tier 3 Pets
+Flying Fish,3,2,2,"Friend summoned → If in battle, give it +4  experience. Works 2 times per turn.",['Golden Pack'],Tier 3 Pets
+Flying Fish,3,2,2,"Friend summoned → If in battle, give it +4  experience. Works 2 times per turn.",['Golden Pack'],Tier 3 Pets
+Guineafowl,2,4,1,Hurt → Gain +2  Trumpets.,['Golden Pack'],Tier 3 Pets
+Guineafowl,2,4,2,Hurt → Gain +4  Trumpets.,['Golden Pack'],Tier 3 Pets
+Guineafowl,2,4,2,Hurt → Gain +4  Trumpets.,['Golden Pack'],Tier 3 Pets
+Meerkat,1,3,1,Start of battle → Give adjacent friends +2  attack for every 5  Gold spent this turn.,['Golden Pack'],Tier 3 Pets
+Meerkat,1,3,2,Start of battle → Give adjacent friends +4  attack for every 5  Gold spent this turn.,['Golden Pack'],Tier 3 Pets
+Meerkat,1,3,2,Start of battle → Give adjacent friends +4  attack for every 5  Gold spent this turn.,['Golden Pack'],Tier 3 Pets
+Musk Ox,2,4,1,Friend ahead faints → Gain +1  attack and +2  health until end of battle.,['Golden Pack'],Tier 3 Pets
+Musk Ox,2,4,2,Friend ahead faints → Gain +2  attack and +4  health until end of battle.,['Golden Pack'],Tier 3 Pets
+Musk Ox,2,4,2,Friend ahead faints → Gain +2  attack and +4  health until end of battle.,['Golden Pack'],Tier 3 Pets
+Osprey,3,3,1,Faint → Summon one 2/1  Groundhog.,['Golden Pack'],Tier 3 Pets
+Osprey,3,3,2,Faint → Summon two 2/1  Groundhogs.,['Golden Pack'],Tier 3 Pets
+Osprey,3,3,2,Faint → Summon two 2/1  Groundhogs.,['Golden Pack'],Tier 3 Pets
+Royal Flycatcher,2,4,1,Enemy summoned → Deal 3  damage to one random enemy.,['Golden Pack'],Tier 3 Pets
+Royal Flycatcher,2,4,2,Enemy summoned → Deal 6  damage to one random enemy.,['Golden Pack'],Tier 3 Pets
+Royal Flycatcher,2,4,2,Enemy summoned → Deal 6  damage to one random enemy.,['Golden Pack'],Tier 3 Pets
+Surgeon Fish,4,3,1,Faint → Spend 2  Trumpets to give the nearest friend behind +4  health.,['Golden Pack'],Tier 3 Pets
+Surgeon Fish,4,3,2,Faint → Spend 2  Trumpets to give the nearest friend behind +8  health.,['Golden Pack'],Tier 3 Pets
+Surgeon Fish,4,3,2,Faint → Spend 2  Trumpets to give the nearest friend behind +8  health.,['Golden Pack'],Tier 3 Pets
+Weasel,3,4,1,Faint → Gain +1  Gold on next turn.,['Golden Pack'],Tier 3 Pets
+Weasel,3,4,2,Faint → Gain +2  Gold on next turn.,['Golden Pack'],Tier 3 Pets
+Weasel,3,4,2,Faint → Gain +2  Gold on next turn.,['Golden Pack'],Tier 3 Pets
+Anteater,3,2,1,Faint → Summon one 1/1 level 3  Ant.,['Star Pack'],Tier 3 Pets
+Anteater,3,2,2,Faint → Summon two 1/1 level 3  Ants.,['Star Pack'],Tier 3 Pets
+Anteater,3,2,2,Faint → Summon two 1/1 level 3  Ants.,['Star Pack'],Tier 3 Pets
+Capybara,2,5,1,Roll & Sell → Give newly rolled shop pets +1  attack and +1  health.,['Star Pack'],Tier 3 Pets
+Capybara,2,5,2,Roll & Sell → Give newly rolled shop pets +2  attack and +2  health.,['Star Pack'],Tier 3 Pets
+Capybara,2,5,2,Roll & Sell → Give newly rolled shop pets +2  attack and +2  health.,['Star Pack'],Tier 3 Pets
+Cardinal,4,3,1,Start of turn → Stock one copy of the nearest perk ahead and discount it by 1  gold.,['Star Pack'],Tier 3 Pets
+Cardinal,4,3,2,Start of turn → Stock one copy of the nearest perk ahead and discount it by 2  gold.,['Star Pack'],Tier 3 Pets
+Cardinal,4,3,2,Start of turn → Stock one copy of the nearest perk ahead and discount it by 2  gold.,['Star Pack'],Tier 3 Pets
+Cassowary,4,2,1,Friend gained strawberry → Gain +1  health. Also gain +1  attack until end of battle.,['Star Pack'],Tier 3 Pets
+Cassowary,4,2,2,Friend gained strawberry → Gain +2  health. Also gain +2  attack until end of battle.,['Star Pack'],Tier 3 Pets
+Cassowary,4,2,2,Friend gained strawberry → Gain +2  health. Also gain +2  attack until end of battle.,['Star Pack'],Tier 3 Pets
+Leech,2,4,1,End turn → Deal 1  damage to the nearest pet ahead and gain damage as health,['Star Pack'],Tier 3 Pets
+Leech,2,4,2,End turn → Deal 2  damage to the nearest pet ahead and gain damage as health,['Star Pack'],Tier 3 Pets
+Leech,2,4,2,End turn → Deal 2  damage to the nearest pet ahead and gain damage as health,['Star Pack'],Tier 3 Pets
+Okapi,2,3,1,Roll → Gain +1  attack and +1  health until end of battle. Works 5 times per turn.,['Star Pack'],Tier 3 Pets
+Okapi,2,3,2,Roll → Gain +2  attack and +2  health until end of battle. Works 5 times per turn.,['Star Pack'],Tier 3 Pets
+Okapi,2,3,2,Roll → Gain +2  attack and +2  health until end of battle. Works 5 times per turn.,['Star Pack'],Tier 3 Pets
+Orangutan,1,4,1,End turn → Give the lowest health friendly pet +3  health.,['Star Pack'],Tier 3 Pets
+Orangutan,1,4,2,End turn → Give the lowest health friendly pet +4  health.,['Star Pack'],Tier 3 Pets
+Orangutan,1,4,2,End turn → Give the lowest health friendly pet +4  health.,['Star Pack'],Tier 3 Pets
+Pug,5,2,1,Start of battle → Give the nearest friend ahead +1  experience.,['Star Pack'],Tier 3 Pets
+Pug,5,2,2,Start of battle → Give the nearest friend ahead +2  experience.,['Star Pack'],Tier 3 Pets
+Pug,5,2,2,Start of battle → Give the nearest friend ahead +2  experience.,['Star Pack'],Tier 3 Pets
+Toad,3,3,1,Enemy hurt → Make it  weak. Works 2 times per battle.,['Star Pack'],Tier 3 Pets
+Toad,3,3,2,Enemy hurt → Make it  weak. Works 4 times per battle.,['Star Pack'],Tier 3 Pets
+Toad,3,3,2,Enemy hurt → Make it  weak. Works 4 times per battle.,['Star Pack'],Tier 3 Pets
+Tuna,1,5,1,Faint → Give one random friend +1  attack and +1  health for each time this was hurt.,['Star Pack'],Tier 3 Pets
+Tuna,1,5,2,Faint → Give one random friend +2  attack and +2  health for each time this was hurt.,['Star Pack'],Tier 3 Pets
+Tuna,1,5,2,Faint → Give one random friend +2  attack and +2  health for each time this was hurt.,['Star Pack'],Tier 3 Pets
+Eel,4,3,1,Start of battle → Gain 50%  health.,['Star Pack'],Tier 3 Pets
+Eel,4,3,2,Start of battle → Gain 100%  health.,['Star Pack'],Tier 3 Pets
+Eel,4,3,2,Start of battle → Gain 100%  health.,['Star Pack'],Tier 3 Pets
+Flying Squirrel,4,3,1,"Friendly toy broke → Re-summon the Toy, but its level can max be kept at 1.",['Puppy Pack'],Tier 3 Pets
+Flying Squirrel,4,3,2,"Friendly toy broke → Re-summon the Toy, but its level can max be kept at 2.",['Puppy Pack'],Tier 3 Pets
+Flying Squirrel,4,3,2,"Friendly toy broke → Re-summon the Toy, but its level can max be kept at 2.",['Puppy Pack'],Tier 3 Pets
+Gold Fish,1,5,1,End turn → Increase sell value by 1  Gold.,"['Puppy Pack', 'Weekly Pack']",Tier 3 Pets
+Gold Fish,1,5,2,End turn → Increase sell value by 2  Gold.,"['Puppy Pack', 'Weekly Pack']",Tier 3 Pets
+Gold Fish,1,5,2,End turn → Increase sell value by 2  Gold.,"['Puppy Pack', 'Weekly Pack']",Tier 3 Pets
+Hare,3,4,1,Before attack → Copy food perk from one random enemy. Works 1 time per battle.,['Puppy Pack'],Tier 3 Pets
+Hare,3,4,2,Before attack → Copy food perk from one random enemy. Works 2 time per battle.,['Puppy Pack'],Tier 3 Pets
+Hare,3,4,2,Before attack → Copy food perk from one random enemy. Works 2 time per battle.,['Puppy Pack'],Tier 3 Pets
+Hatching Chick,2,2,1,End turn → Give the nearest friend ahead +3  attack and +3  health until end of battle.,['Puppy Pack'],Tier 3 Pets
+Hatching Chick,2,2,2,End turn → Give the nearest friend ahead +2  attack and +2  health.,['Puppy Pack'],Tier 3 Pets
+Hatching Chick,2,2,2,End turn → Give the nearest friend ahead +2  attack and +2  health.,['Puppy Pack'],Tier 3 Pets
+Hoopoe Bird,3,2,1,Faint → Deal 2  damage to the first and last enemy.,['Puppy Pack'],Tier 3 Pets
+Hoopoe Bird,3,2,2,Faint → Deal 4  damage to the first and last enemy.,['Puppy Pack'],Tier 3 Pets
+Hoopoe Bird,3,2,2,Faint → Deal 4  damage to the first and last enemy.,['Puppy Pack'],Tier 3 Pets
+Mole,2,3,1,Faint → Remove the two nearest friendly perks to summon one 6/6 Mole.,"['Puppy Pack', 'Weekly Pack']",Tier 3 Pets
+Mole,2,3,2,Faint → Remove the two nearest friendly perks to summon one 12/12 Mole.,"['Puppy Pack', 'Weekly Pack']",Tier 3 Pets
+Mole,2,3,2,Faint → Remove the two nearest friendly perks to summon one 12/12 Mole.,"['Puppy Pack', 'Weekly Pack']",Tier 3 Pets
+Owl,1,2,1,Start of turn → Summon one level 1  Mouse.,['Puppy Pack'],Tier 3 Pets
+Owl,1,2,2,Start of turn → Summon one level 2  Mouse.,['Puppy Pack'],Tier 3 Pets
+Owl,1,2,2,Start of turn → Summon one level 2  Mouse.,['Puppy Pack'],Tier 3 Pets
+Pangolin,2,5,1,"Faint → If you have a toy, give the nearest friend behind +4  health.",['Puppy Pack'],Tier 3 Pets
+Pangolin,2,5,2,"Faint → If you have a toy, give the nearest friend behind +8  health.",['Puppy Pack'],Tier 3 Pets
+Pangolin,2,5,2,"Faint → If you have a toy, give the nearest friend behind +8  health.",['Puppy Pack'],Tier 3 Pets
+Puppy,3,3,1,Buy → Choose one level 1 toy from tier 3.,['Puppy Pack'],Tier 3 Pets
+Puppy,3,3,2,Buy → Choose one level 2 toy from tier 3.,['Puppy Pack'],Tier 3 Pets
+Puppy,3,3,2,Buy → Choose one level 2 toy from tier 3.,['Puppy Pack'],Tier 3 Pets
+Tropical Fish,2,4,1,End turn → Give adjacent friends +1  health.,['Puppy Pack'],Tier 3 Pets
+Tropical Fish,2,4,2,End turn → Give adjacent friends +2  health.,['Puppy Pack'],Tier 3 Pets
+Tropical Fish,2,4,2,End turn → Give adjacent friends +2  health.,['Puppy Pack'],Tier 3 Pets
+Aardvark,2,3,1,Enemy summoned → Gain +2  attack and +2  health.,['Weekly Pack'],Tier 3 Pets
+Aardvark,2,3,2,Enemy summoned → Gain +4  attack and +4  health.,['Weekly Pack'],Tier 3 Pets
+Aardvark,2,3,2,Enemy summoned → Gain +4  attack and +4  health.,['Weekly Pack'],Tier 3 Pets
+Bear,3,5,1,Faint → Give  Honey Perk to all pets within one space.,['Weekly Pack'],Tier 3 Pets
+Bear,3,5,2,Faint → Give  Honey Perk to all pets within two spaces.,['Weekly Pack'],Tier 3 Pets
+Bear,3,5,2,Faint → Give  Honey Perk to all pets within two spaces.,['Weekly Pack'],Tier 3 Pets
+Emperor Tamarin,3,3,1,Sell → Give 33%  attack and  health to the leftmost shop pet.,['Weekly Pack'],Tier 3 Pets
+Emperor Tamarin,3,3,2,Sell → Give 66%  attack and  health to the leftmost shop pet.,['Weekly Pack'],Tier 3 Pets
+Emperor Tamarin,3,3,2,Sell → Give 66%  attack and  health to the leftmost shop pet.,['Weekly Pack'],Tier 3 Pets
+Porcupine,2,6,1,Hurt → Deal 3  damage directly back.,['Weekly Pack'],Tier 3 Pets
+Porcupine,2,6,2,Hurt → Deal 6  damage directly back.,['Weekly Pack'],Tier 3 Pets
+Porcupine,2,6,2,Hurt → Deal 6  damage directly back.,['Weekly Pack'],Tier 3 Pets
+Wasp,2,2,1,Shop tier upgraded → Gain +50%  attack.,['Weekly Pack'],Tier 3 Pets
+Wasp,2,2,2,Shop tier upgraded → Gain +100%  attack.,['Weekly Pack'],Tier 3 Pets
+Wasp,2,2,2,Shop tier upgraded → Gain +100%  attack.,['Weekly Pack'],Tier 3 Pets
+Bison,4,4,1,"End turn → If this has a level 3 friend, gain +1  attack and +2  health.",['Turtle Pack'],Tier 4 Pets
+Bison,4,4,2,"End turn → If this has a level 3 friend, gain +2  attack and +4  health.",['Turtle Pack'],Tier 4 Pets
+Bison,4,4,2,"End turn → If this has a level 3 friend, gain +2  attack and +4  health.",['Turtle Pack'],Tier 4 Pets
+Blowfish,3,6,1,Hurt → Deal 3  damage to one random enemy.,['Turtle Pack'],Tier 4 Pets
+Blowfish,3,6,2,Hurt → Deal 6  damage to one random enemy.,['Turtle Pack'],Tier 4 Pets
+Blowfish,3,6,2,Hurt → Deal 6  damage to one random enemy.,['Turtle Pack'],Tier 4 Pets
+Deer,2,2,1,Faint → Summon one 5/3  Bus with  Chili.,['Turtle Pack'],Tier 4 Pets
+Deer,2,2,2,Faint → Summon one 10/6  Bus with  Chili.,['Turtle Pack'],Tier 4 Pets
+Deer,2,2,2,Faint → Summon one 10/6  Bus with  Chili.,['Turtle Pack'],Tier 4 Pets
+Hippo,4,5,1,Knock out → Gain +3  attack and +3  health.,['Turtle Pack'],Tier 4 Pets
+Hippo,4,5,2,Knock out → Gain +6  attack and +6  health.,['Turtle Pack'],Tier 4 Pets
+Hippo,4,5,2,Knock out → Gain +6  attack and +6  health.,['Turtle Pack'],Tier 4 Pets
+Parrot,4,2,1,End turn → Copy ability from the nearest pet ahead as level 1 until end of battle.,['Turtle Pack'],Tier 4 Pets
+Parrot,4,2,2,End turn → Copy ability from the nearest pet ahead as level 2 until end of battle.,['Turtle Pack'],Tier 4 Pets
+Parrot,4,2,2,End turn → Copy ability from the nearest pet ahead as level 2 until end of battle.,['Turtle Pack'],Tier 4 Pets
+Penguin,1,3,1,End turn → Give two level 2 or higher friends +1  attack and +1  health.,['Turtle Pack'],Tier 4 Pets
+Penguin,1,3,2,End turn → Give two level 2 or higher friends +2  attack and +2  health.,['Turtle Pack'],Tier 4 Pets
+Penguin,1,3,2,End turn → Give two level 2 or higher friends +2  attack and +2  health.,['Turtle Pack'],Tier 4 Pets
+Skunk,3,5,1,Start of battle → Reduce the highest health enemy by 33%  health.,['Turtle Pack'],Tier 4 Pets
+Skunk,3,5,2,Start of battle → Reduce the highest health enemy by 66%  health.,['Turtle Pack'],Tier 4 Pets
+Skunk,3,5,2,Start of battle → Reduce the highest health enemy by 66%  health.,['Turtle Pack'],Tier 4 Pets
+Squirrel,2,5,1,Start of turn → Discount all shop food by 1  gold.,['Turtle Pack'],Tier 4 Pets
+Squirrel,2,5,2,Start of turn → Discount all shop food by 2  gold.,['Turtle Pack'],Tier 4 Pets
+Squirrel,2,5,2,Start of turn → Discount all shop food by 2  gold.,['Turtle Pack'],Tier 4 Pets
+Turtle,2,5,1,Faint → Give  Melon Perk to the nearest friend behind.,['Turtle Pack'],Tier 4 Pets
+Turtle,2,5,2,Faint → Give  Melon Perk to the two nearest friends behind.,['Turtle Pack'],Tier 4 Pets
+Turtle,2,5,2,Faint → Give  Melon Perk to the two nearest friends behind.,['Turtle Pack'],Tier 4 Pets
+Whale,3,7,1,Start of battle → Swallow the nearest friend ahead and release it at level 1 on fainting.,['Turtle Pack'],Tier 4 Pets
+Whale,3,7,2,Start of battle → Swallow the nearest friend ahead and release it at level 2 on fainting.,['Turtle Pack'],Tier 4 Pets
+Whale,3,7,2,Start of battle → Swallow the nearest friend ahead and release it at level 2 on fainting.,['Turtle Pack'],Tier 4 Pets
+Unicorn,2,4,1,Friend gained ailment → Replace it with permanent +2  attack and +2  health. Works 1 time per turn.,['Unicorn Pack'],Tier 4 Pets
+Unicorn,2,4,2,Friend gained ailment → Replace it with permanent +2  attack and +2  health. Works 2 times per turn.,['Unicorn Pack'],Tier 4 Pets
+Unicorn,2,4,2,Friend gained ailment → Replace it with permanent +2  attack and +2  health. Works 2 times per turn.,['Unicorn Pack'],Tier 4 Pets
+Kraken,3,6,1,Start of battle → Remove 20%  health from ALL other pets.,['Unicorn Pack'],Tier 4 Pets
+Kraken,3,6,2,Start of battle → Remove 40%  health from ALL other pets.,['Unicorn Pack'],Tier 4 Pets
+Kraken,3,6,2,Start of battle → Remove 40%  health from ALL other pets.,['Unicorn Pack'],Tier 4 Pets
+Visitor,5,4,1,Faint → Make ALL pets within one space  Icky.,['Unicorn Pack'],Tier 4 Pets
+Visitor,5,4,2,Faint → Make ALL pets within two spaces  Icky.,['Unicorn Pack'],Tier 4 Pets
+Visitor,5,4,2,Faint → Make ALL pets within two spaces  Icky.,['Unicorn Pack'],Tier 4 Pets
+Tiger Bug,4,4,1,Empty front space → Jump to the front and deal 3  damage to the two first enemies.,['Unicorn Pack'],Tier 4 Pets
+Tiger Bug,4,4,2,Empty front space → Jump to the front and deal 6  damage to the two first enemies.,['Unicorn Pack'],Tier 4 Pets
+Tiger Bug,4,4,2,Empty front space → Jump to the front and deal 6  damage to the two first enemies.,['Unicorn Pack'],Tier 4 Pets
+Tatzelwurm,3,4,1,Friend ahead faints → Deal 2  damage for each of its level to one random enemy.,['Unicorn Pack'],Tier 4 Pets
+Tatzelwurm,3,4,2,Friend ahead faints → Deal 4  damage for each of its level to one random enemy.,['Unicorn Pack'],Tier 4 Pets
+Tatzelwurm,3,4,2,Friend ahead faints → Deal 4  damage for each of its level to one random enemy.,['Unicorn Pack'],Tier 4 Pets
+Cyclops,4,5,1,Friend level-up → Give it +2  mana and +1  experience. Works 1 time per turn.,['Unicorn Pack'],Tier 4 Pets
+Cyclops,4,5,2,Friend level-up → Give it +2  mana and +1  experience. Works 2 times per turn.,['Unicorn Pack'],Tier 4 Pets
+Cyclops,4,5,2,Friend level-up → Give it +2  mana and +1  experience. Works 2 times per turn.,['Unicorn Pack'],Tier 4 Pets
+Chimera,3,3,1,Faint → Spend  mana to summon one  pet with +1  attack and +1  health per mana.,['Unicorn Pack'],Tier 4 Pets
+Chimera,3,3,2,Faint → Spend  mana to summon two pets   pets with +1  attack and +1  health per mana.,['Unicorn Pack'],Tier 4 Pets
+Chimera,3,3,2,Faint → Spend  mana to summon two pets   pets with +1  attack and +1  health per mana.,['Unicorn Pack'],Tier 4 Pets
+Roc,4,4,1,Start of battle → Give one random friend ahead +2  mana. Triggers 3 times.,['Unicorn Pack'],Tier 4 Pets
+Roc,4,4,2,Start of battle → Give one random friend ahead +2  mana. Triggers 6 times.,['Unicorn Pack'],Tier 4 Pets
+Roc,4,4,2,Start of battle → Give one random friend ahead +2  mana. Triggers 6 times.,['Unicorn Pack'],Tier 4 Pets
+Worm of Sand,3,5,1,Roll 6 times → Give the two highest tier friends +1  attack and +1  health.,['Unicorn Pack'],Tier 4 Pets
+Worm of Sand,3,5,2,Roll 6 times → Give the two highest tier friends +2  attack and +2  health.,['Unicorn Pack'],Tier 4 Pets
+Worm of Sand,3,5,2,Roll 6 times → Give the two highest tier friends +2  attack and +2  health.,['Unicorn Pack'],Tier 4 Pets
+Abomination,6,3,1,End turn → Swallow and copy the left-most Start of battle shop pet until end of battle.,['Unicorn Pack'],Tier 4 Pets
+Abomination,6,3,2,End turn → Swallow and copy the two left-most Start of battle shop pets until end of battle.,['Unicorn Pack'],Tier 4 Pets
+Abomination,6,3,2,End turn → Swallow and copy the two left-most Start of battle shop pets until end of battle.,['Unicorn Pack'],Tier 4 Pets
+Fairy,1,1,1,Buy → Choose one level 1 wondrous toy.,['Unicorn Pack'],Tier 4 Pets
+Fairy,1,1,2,Buy → Choose one level 2 wondrous toy.,['Unicorn Pack'],Tier 4 Pets
+Fairy,1,1,2,Buy → Choose one level 2 wondrous toy.,['Unicorn Pack'],Tier 4 Pets
+Rootling,1,5,1,End turn → Give two friends with less health than this +1  attack and +1  health.,['Unicorn Pack'],Tier 4 Pets
+Rootling,1,5,2,End turn → Give two friends with less health than this +2  attack and +2  health.,['Unicorn Pack'],Tier 4 Pets
+Rootling,1,5,2,End turn → Give two friends with less health than this +2  attack and +2  health.,['Unicorn Pack'],Tier 4 Pets
+Anubis,3,4,1,Start of battle → Activate tier 2 or lower Faint friends front-to-back.,['Unicorn Pack'],Tier 4 Pets
+Anubis,3,4,2,Start of battle → Activate tier 4 or lower Faint friends front-to-back.,['Unicorn Pack'],Tier 4 Pets
+Anubis,3,4,2,Start of battle → Activate tier 4 or lower Faint friends front-to-back.,['Unicorn Pack'],Tier 4 Pets
+Old Mouse,1,2,1,End turn → Summon one random level 1 nostalgic toy.,['Unicorn Pack'],Tier 4 Pets
+Old Mouse,1,2,2,End turn → Summon one random level 2 nostalgic toy.,['Unicorn Pack'],Tier 4 Pets
+Old Mouse,1,2,2,End turn → Summon one random level 2 nostalgic toy.,['Unicorn Pack'],Tier 4 Pets
+Hippocampus,4,6,1,Friend ahead faints → Give it +1  mana for each roll this turn.,['Unicorn Pack'],Tier 4 Pets
+Hippocampus,4,6,2,Friend ahead faints → Give it +2  mana for each roll this turn.,['Unicorn Pack'],Tier 4 Pets
+Hippocampus,4,6,2,Friend ahead faints → Give it +2  mana for each roll this turn.,['Unicorn Pack'],Tier 4 Pets
+Cockatoo,4,2,1,Buy → Give the highest tier friend friend +2  attack and +2  health.,['Golden Pack'],Tier 4 Pets
+Cockatoo,4,2,2,Buy → Give the highest tier friend friend +4  attack and +4  health.,['Golden Pack'],Tier 4 Pets
+Cockatoo,4,2,2,Buy → Give the highest tier friend friend +4  attack and +4  health.,['Golden Pack'],Tier 4 Pets
+Cuttlefish,8,4,1,Faint → Remove 3 health from the last enemy and make it  Ink.,['Golden Pack'],Tier 4 Pets
+Cuttlefish,8,4,2,Faint → Remove 3 health from the last two enemies and make them  Ink.,['Golden Pack'],Tier 4 Pets
+Cuttlefish,8,4,2,Faint → Remove 3 health from the last two enemies and make them  Ink.,['Golden Pack'],Tier 4 Pets
+Falcon,5,5,1,Knock out → Summon one 3/3 level 1 copy of it. Works 3 times per battle.,['Golden Pack'],Tier 4 Pets
+Falcon,5,5,2,Knock out → Summon one 3/3 level 2 copy of it. Works 3 times per battle.,['Golden Pack'],Tier 4 Pets
+Falcon,5,5,2,Knock out → Summon one 3/3 level 2 copy of it. Works 3 times per battle.,['Golden Pack'],Tier 4 Pets
+Manatee,2,11,1,End turn → Take 5  damage and give the nearest friend ahead +2  attack and +1  health.,['Golden Pack'],Tier 4 Pets
+Manatee,2,11,2,End turn → Take 5  damage and give the nearest friend ahead +4  attack and +2  health.,['Golden Pack'],Tier 4 Pets
+Manatee,2,11,2,End turn → Take 5  damage and give the nearest friend ahead +4  attack and +2  health.,['Golden Pack'],Tier 4 Pets
+Manta Ray,5,6,1,"End turn → If there is an empty space, gain +2  gold next turn.",['Golden Pack'],Tier 4 Pets
+Manta Ray,5,6,2,"End turn → If there is an empty space, gain +4  gold next turn.",['Golden Pack'],Tier 4 Pets
+Manta Ray,5,6,2,"End turn → If there is an empty space, gain +4  gold next turn.",['Golden Pack'],Tier 4 Pets
+Poison Dart Frog,5,2,1,Friend ahead faints → Deal 4  damage to the highest health enemy.,['Golden Pack'],Tier 4 Pets
+Poison Dart Frog,5,2,2,Friend ahead faints → Deal 8  damage to the highest health enemy.,['Golden Pack'],Tier 4 Pets
+Poison Dart Frog,5,2,2,Friend ahead faints → Deal 8  damage to the highest health enemy.,['Golden Pack'],Tier 4 Pets
+Saiga Antelope,4,3,1,Two friends faints → Gain +3  trumpet.,['Golden Pack'],Tier 4 Pets
+Saiga Antelope,4,3,2,Two friends faints → Gain +6  trumpets.,['Golden Pack'],Tier 4 Pets
+Saiga Antelope,4,3,2,Two friends faints → Gain +6  trumpets.,['Golden Pack'],Tier 4 Pets
+Sealion,3,6,1,End turn → Give friends behind +1  attack and friends ahead +1  health.,['Golden Pack'],Tier 4 Pets
+Sealion,3,6,2,End turn → Give friends behind +2  attack and friends ahead +2  health.,['Golden Pack'],Tier 4 Pets
+Sealion,3,6,2,End turn → Give friends behind +2  attack and friends ahead +2  health.,['Golden Pack'],Tier 4 Pets
+Slug,4,4,1,Faint → Summon one 2/2  Smaller Slug that summons one 1/1  Smallest Slug.,['Golden Pack'],Tier 4 Pets
+Slug,4,4,2,Faint → Summon one 4/4  Smaller Slug that summons one 2/2  Smallest Slug.,['Golden Pack'],Tier 4 Pets
+Slug,4,4,2,Faint → Summon one 4/4  Smaller Slug that summons one 2/2  Smallest Slug.,['Golden Pack'],Tier 4 Pets
+Vaquita,3,4,1,Faint → Gain +50%  trumpets.,['Golden Pack'],Tier 4 Pets
+Vaquita,3,4,2,Faint → Gain +100%  trumpets.,['Golden Pack'],Tier 4 Pets
+Vaquita,3,4,2,Faint → Gain +100%  trumpets.,['Golden Pack'],Tier 4 Pets
+Clownfish,3,4,1,Friendly pet level-up → Give it +2  attack and +2  health.,['Star Pack'],Tier 4 Pets
+Clownfish,3,4,2,Friendly pet level-up → Give it +4  attack and +4  health.,['Star Pack'],Tier 4 Pets
+Clownfish,3,4,2,Friendly pet level-up → Give it +4  attack and +4  health.,['Star Pack'],Tier 4 Pets
+Donkey,4,6,1,Friend faints → Push the last enemy to the front. Works 1 time per battle.,['Star Pack'],Tier 4 Pets
+Donkey,4,6,2,Friend faints → Push the last enemy to the front. Works 2 times per battle.,['Star Pack'],Tier 4 Pets
+Donkey,4,6,2,Friend faints → Push the last enemy to the front. Works 2 times per battle.,['Star Pack'],Tier 4 Pets
+Elk,2,6,1,Faint → Increase sell value of one random Sell friend by 1  gold for each of their level.,['Star Pack'],Tier 4 Pets
+Elk,2,6,2,Faint → Increase sell value of one random Sell friend by 2  gold for each of their level.,['Star Pack'],Tier 4 Pets
+Elk,2,6,2,Faint → Increase sell value of one random Sell friend by 2  gold for each of their level.,['Star Pack'],Tier 4 Pets
+Fairy Armadillo,3,6,1,"Hurt → If still standing, gain permanent +2  health and transform into a  ball.",['Star Pack'],Tier 4 Pets
+Fairy Armadillo,3,6,2,"Hurt → If still standing, gain permanent +4  health and transform into a  ball.",['Star Pack'],Tier 4 Pets
+Fairy Armadillo,3,6,2,"Hurt → If still standing, gain permanent +4  health and transform into a  ball.",['Star Pack'],Tier 4 Pets
+Fossa,4,5,1,Start of battle → Remove 2  health from the first enemy for each roll this turn.,['Star Pack'],Tier 4 Pets
+Fossa,4,5,2,Start of battle → Remove 4  health from the first enemy for each roll this turn.,['Star Pack'],Tier 4 Pets
+Fossa,4,5,2,Start of battle → Remove 4  health from the first enemy for each roll this turn.,['Star Pack'],Tier 4 Pets
+Hawk,4,3,1,Start of battle → Deal 7  damage to the opposite enemy.,['Star Pack'],Tier 4 Pets
+Hawk,4,3,2,Start of battle → Deal 14  damage to the opposite enemy.,['Star Pack'],Tier 4 Pets
+Hawk,4,3,2,Start of battle → Deal 14  damage to the opposite enemy.,['Star Pack'],Tier 4 Pets
+Platypus,2,2,1,Faint & Sell → Summon one 3/3 level 1  Duck and  Beaver.,['Star Pack'],Tier 4 Pets
+Platypus,2,2,2,Faint & Sell → Summon one 6/6 level 2  Duck and  Beaver.,['Star Pack'],Tier 4 Pets
+Platypus,2,2,2,Faint & Sell → Summon one 6/6 level 2  Duck and  Beaver.,['Star Pack'],Tier 4 Pets
+Praying Mantis,7,2,1,Start of turn → Deal 50 damage to adjacent friends and gain +2  attack and +2  health.,['Star Pack'],Tier 4 Pets
+Praying Mantis,7,2,2,Start of turn → Deal 50 damage to adjacent friends and gain +4  attack and +4  health.,['Star Pack'],Tier 4 Pets
+Praying Mantis,7,2,2,Start of turn → Deal 50 damage to adjacent friends and gain +4  attack and +4  health.,['Star Pack'],Tier 4 Pets
+Siamese,1,4,1,Start of turn → Remove one discounted food to give adjacent pets +1  attack and +2  health.,['Star Pack'],Tier 4 Pets
+Siamese,1,4,2,Start of turn → Remove one discounted food to give adjacent pets +2  attack and +4  health.,['Star Pack'],Tier 4 Pets
+Siamese,1,4,2,Start of turn → Remove one discounted food to give adjacent pets +2  attack and +4  health.,['Star Pack'],Tier 4 Pets
+Sparrow,3,2,1,"Friendly pets with  Strawberries take 10 less damage, once.",['Star Pack'],Tier 4 Pets
+Sparrow,3,2,2,"Friendly pets with  Strawberries take 20 less damage, once.",['Star Pack'],Tier 4 Pets
+Sparrow,3,2,2,"Friendly pets with  Strawberries take 20 less damage, once.",['Star Pack'],Tier 4 Pets
+Crow,3,3,1,Sell → Stock one  Chocolate.,['Star Pack'],Tier 4 Pets
+Crow,3,3,2,Sell → Stock one  Better Chocolate.,['Star Pack'],Tier 4 Pets
+Crow,3,3,2,Sell → Stock one  Better Chocolate.,['Star Pack'],Tier 4 Pets
+Sea Anemone,3,4,1,"Friend sold → If it had a Sell ability, give +1  attack and +1  health to one random friend.",['Star Pack'],Tier 4 Pets
+Sea Anemone,3,4,2,"Friend sold → If it had a Sell ability, give +2  attack and +2  health to one random friend.",['Star Pack'],Tier 4 Pets
+Sea Anemone,3,4,2,"Friend sold → If it had a Sell ability, give +2  attack and +2  health to one random friend.",['Star Pack'],Tier 4 Pets
+Buffalo,4,4,1,Three friends sold → Gain +2  attack and +2  health.,['Puppy Pack'],Tier 4 Pets
+Buffalo,4,4,2,Three friends sold → Gain +4  attack and +4  health.,['Puppy Pack'],Tier 4 Pets
+Buffalo,4,4,2,Three friends sold → Gain +4  attack and +4  health.,['Puppy Pack'],Tier 4 Pets
+Caterpillar,1,1,1,Start of turn → Gain +1  experience.,['Puppy Pack'],Tier 4 Pets
+Caterpillar,1,1,2,Start of turn → Gain +1  experience.,['Puppy Pack'],Tier 4 Pets
+Caterpillar,1,1,2,Start of turn → Gain +1  experience.,['Puppy Pack'],Tier 4 Pets
+Chameleon,3,5,1,End turn → Copy friendly toy ability as level 1 until end of battle.,['Puppy Pack'],Tier 4 Pets
+Chameleon,3,5,2,End turn → Copy friendly toy ability as level 2 until end of battle.,['Puppy Pack'],Tier 4 Pets
+Chameleon,3,5,2,End turn → Copy friendly toy ability as level 2 until end of battle.,['Puppy Pack'],Tier 4 Pets
+Doberman,4,5,1,"Start of battle → If this is your lowest tier pet, gain  Coconut Perk and +8  attack.","['Puppy Pack', 'Weekly Pack']",Tier 4 Pets
+Doberman,4,5,2,"Start of battle → If this is your lowest tier pet, gain  Coconut Perk and +16  attack.","['Puppy Pack', 'Weekly Pack']",Tier 4 Pets
+Doberman,4,5,2,"Start of battle → If this is your lowest tier pet, gain  Coconut Perk and +16  attack.","['Puppy Pack', 'Weekly Pack']",Tier 4 Pets
+Gharial,5,3,1,Buy → Choose one level 1 toy from tier 4.,['Puppy Pack'],Tier 4 Pets
+Gharial,5,3,2,Buy → Choose one level 2 toy from tier 4.,['Puppy Pack'],Tier 4 Pets
+Gharial,5,3,2,Buy → Choose one level 2 toy from tier 4.,['Puppy Pack'],Tier 4 Pets
+Llama,2,5,1,"End turn → If there is an empty space, gain +1  attack and +2  health.",['Puppy Pack'],Tier 4 Pets
+Llama,2,5,2,"End turn → If there is an empty space, gain +2  attack and +4  health.",['Puppy Pack'],Tier 4 Pets
+Llama,2,5,2,"End turn → If there is an empty space, gain +2  attack and +4  health.",['Puppy Pack'],Tier 4 Pets
+Lobster,3,3,1,"Friend summoned → If outside battle, gain +2  attack and +2  health.",['Puppy Pack'],Tier 4 Pets
+Lobster,3,3,2,"Friend summoned → If outside battle, gain +4  attack and +4  health.",['Puppy Pack'],Tier 4 Pets
+Lobster,3,3,2,"Friend summoned → If outside battle, gain +4  attack and +4  health.",['Puppy Pack'],Tier 4 Pets
+Microbe,1,1,1,Faint → Make all pets  weak.,['Puppy Pack'],Tier 4 Pets
+Microbe,1,1,2,Faint → Make all pets  weak.,['Puppy Pack'],Tier 4 Pets
+Microbe,1,1,2,Faint → Make all pets  weak.,['Puppy Pack'],Tier 4 Pets
+Tahr,5,3,1,Faint → Give  Chili Perk to the nearest friend behind.,['Puppy Pack'],Tier 4 Pets
+Tahr,5,3,2,Faint → Give  Chili Perk to the two nearest friends behind.,['Puppy Pack'],Tier 4 Pets
+Tahr,5,3,2,Faint → Give  Chili Perk to the two nearest friends behind.,['Puppy Pack'],Tier 4 Pets
+Whale Shark,1,4,1,Gain perk or ailment → Remove it and gain +2  attack and +2  health.,['Puppy Pack'],Tier 4 Pets
+Whale Shark,1,4,2,Gain perk or ailment → Remove it and gain +4  attack and +4  health.,['Puppy Pack'],Tier 4 Pets
+Whale Shark,1,4,2,Gain perk or ailment → Remove it and gain +4  attack and +4  health.,['Puppy Pack'],Tier 4 Pets
+Dragonfly,1,1,1,End turn → Give +1  attack and +1  health to one friend of each level.,['Weekly Pack'],Tier 4 Pets
+Dragonfly,1,1,2,End turn → Give +2  attack and +2  health to one friend of each level.,['Weekly Pack'],Tier 4 Pets
+Dragonfly,1,1,2,End turn → Give +2  attack and +2  health to one friend of each level.,['Weekly Pack'],Tier 4 Pets
+Jerboa,1,3,1,Eats  Apple → Give friends +1  attack and +1  health. Works 2 times per turn.,['Weekly Pack'],Tier 4 Pets
+Jerboa,1,3,2,Eats  Apple → Give friends +2  attack and +2  health. Works 2 times per turn.,['Weekly Pack'],Tier 4 Pets
+Jerboa,1,3,2,Eats  Apple → Give friends +2  attack and +2  health. Works 2 times per turn.,['Weekly Pack'],Tier 4 Pets
+Lynx,5,3,1,Start of battle → Deal  damage to one random enemy equal to the sum of all friendly levels.,['Weekly Pack'],Tier 4 Pets
+Lynx,5,3,2,Start of battle → Deal  damage to two random enemies equal to the sum of all friendly levels.,['Weekly Pack'],Tier 4 Pets
+Lynx,5,3,2,Start of battle → Deal  damage to two random enemies equal to the sum of all friendly levels.,['Weekly Pack'],Tier 4 Pets
+Seagull,4,3,1,Friend summoned → Copy this pet's food perk to it. Works 1 time per turn.,['Weekly Pack'],Tier 4 Pets
+Seagull,4,3,2,Friend summoned → Copy this pet's food perk to it. Works 2 times per turn.,['Weekly Pack'],Tier 4 Pets
+Seagull,4,3,2,Friend summoned → Copy this pet's food perk to it. Works 2 times per turn.,['Weekly Pack'],Tier 4 Pets
+Armadillo,2,6,1,Start of battle → Give ALL pets +8  health.,['Turtle Pack'],Tier 5 Pets
+Armadillo,2,6,2,Start of battle → Give ALL pets +16  health.,['Turtle Pack'],Tier 5 Pets
+Armadillo,2,6,2,Start of battle → Give ALL pets +16  health.,['Turtle Pack'],Tier 5 Pets
+Cow,4,6,1,Buy → Replace food shop with two free  Milk.,['Turtle Pack'],Tier 5 Pets
+Cow,4,6,2,Buy → Replace food shop with two free Better  Milk.,['Turtle Pack'],Tier 5 Pets
+Cow,4,6,2,Buy → Replace food shop with two free Better  Milk.,['Turtle Pack'],Tier 5 Pets
+Crocodile,8,4,1,Start of battle → Deal 8  damage to the last enemy.,['Turtle Pack'],Tier 5 Pets
+Crocodile,8,4,2,Start of battle → Deal 8  damage to the last enemy. Triggers 2 times.,['Turtle Pack'],Tier 5 Pets
+Crocodile,8,4,2,Start of battle → Deal 8  damage to the last enemy. Triggers 2 times.,['Turtle Pack'],Tier 5 Pets
+Monkey,1,2,1,End turn → Give front-most friendly pet +2  attack and +2  health.,['Turtle Pack'],Tier 5 Pets
+Monkey,1,2,2,End turn → Give front-most friendly pet +4  attack and +4  health.,['Turtle Pack'],Tier 5 Pets
+Monkey,1,2,2,End turn → Give front-most friendly pet +4  attack and +4  health.,['Turtle Pack'],Tier 5 Pets
+Rhino,6,9,1,Knock out → Deal 4  damage to the first enemy. Double against tier 1 pets.,['Turtle Pack'],Tier 5 Pets
+Rhino,6,9,2,Knock out → Deal 8  damage to the first enemy. Double against tier 1 pets.,['Turtle Pack'],Tier 5 Pets
+Rhino,6,9,2,Knock out → Deal 8  damage to the first enemy. Double against tier 1 pets.,['Turtle Pack'],Tier 5 Pets
+Rooster,6,4,1,Faint → Summon one  Chick with 1  health and 50%  attack of this.,['Turtle Pack'],Tier 5 Pets
+Rooster,6,4,2,Faint → Summon two  Chicks with 1  health and 50%  attack of this.,['Turtle Pack'],Tier 5 Pets
+Rooster,6,4,2,Faint → Summon two  Chicks with 1  health and 50%  attack of this.,['Turtle Pack'],Tier 5 Pets
+Scorpion,1,1,1,Summoned → Gain  Peanut perk.,['Turtle Pack'],Tier 5 Pets
+Scorpion,1,1,2,Summoned → Gain  Peanut perk.,['Turtle Pack'],Tier 5 Pets
+Scorpion,1,1,2,Summoned → Gain  Peanut perk.,['Turtle Pack'],Tier 5 Pets
+Seal,3,8,1,Eats food → Give three random friends +1  attack.,['Turtle Pack'],Tier 5 Pets
+Seal,3,8,2,Eats food → Give three random friends +2  attack.,['Turtle Pack'],Tier 5 Pets
+Seal,3,8,2,Eats food → Give three random friends +2  attack.,['Turtle Pack'],Tier 5 Pets
+Shark,2,2,1,Friend faints → Gain +2  attack and +2  health.,['Turtle Pack'],Tier 5 Pets
+Shark,2,2,2,Friend faints → Gain +4  attack and +4  health.,['Turtle Pack'],Tier 5 Pets
+Shark,2,2,2,Friend faints → Gain +4  attack and +4  health.,['Turtle Pack'],Tier 5 Pets
+Turkey,3,4,1,Friend summoned → Give it +3  attack and +1  health.,['Turtle Pack'],Tier 5 Pets
+Turkey,3,4,2,Friend summoned → Give it +6  attack and +2  health.,['Turtle Pack'],Tier 5 Pets
+Turkey,3,4,2,Friend summoned → Give it +6  attack and +2  health.,['Turtle Pack'],Tier 5 Pets
+Amalgamation,4,5,1,Friend summoned → Give it +3  attack and +4  mana and  Spooked. Works 2 times per turn.,['Unicorn Pack'],Tier 5 Pets
+Amalgamation,4,5,2,Friend summoned → Give it +6  attack and +8  mana and  Spooked. Works 2 times per turn.,['Unicorn Pack'],Tier 5 Pets
+Amalgamation,4,5,2,Friend summoned → Give it +6  attack and +8  mana and  Spooked. Works 2 times per turn.,['Unicorn Pack'],Tier 5 Pets
+Red Dragon,3,7,1,Start of Battle → Make the last enemy  Crisp.,['Unicorn Pack'],Tier 5 Pets
+Red Dragon,3,7,2,Start of Battle → Make the two last enemies  Crisp.,['Unicorn Pack'],Tier 5 Pets
+Red Dragon,3,7,2,Start of Battle → Make the two last enemies  Crisp.,['Unicorn Pack'],Tier 5 Pets
+Vampire Bat,2,5,1,Enemy gained ailment → Deal 3  damage to it and gain damage as  health. Works 2 times per battle.,['Unicorn Pack'],Tier 5 Pets
+Vampire Bat,2,5,2,Enemy gained ailment → Deal 6  damage to it and gain damage as  health. Works 2 times per battle.,['Unicorn Pack'],Tier 5 Pets
+Vampire Bat,2,5,2,Enemy gained ailment → Deal 6  damage to it and gain damage as  health. Works 2 times per battle.,['Unicorn Pack'],Tier 5 Pets
+Loveland Frogman,1,5,1,Friend jumped → Give it permanent +2  attack and +2  health.,['Unicorn Pack'],Tier 5 Pets
+Loveland Frogman,1,5,2,Friend jumped → Give it permanent +4  attack and +4  health.,['Unicorn Pack'],Tier 5 Pets
+Loveland Frogman,1,5,2,Friend jumped → Give it permanent +4  attack and +4  health.,['Unicorn Pack'],Tier 5 Pets
+Salmon of Knowledge,5,5,1,Start of battle → Give the two front-most friends AND enemies +2  experience.,['Unicorn Pack'],Tier 5 Pets
+Salmon of Knowledge,5,5,2,Start of battle → Give the two front-most friends AND enemies +4  experience.,['Unicorn Pack'],Tier 5 Pets
+Salmon of Knowledge,5,5,2,Start of battle → Give the two front-most friends AND enemies +4  experience.,['Unicorn Pack'],Tier 5 Pets
+Jersey Devil,5,4,1,"Friend Summoned → Give it +1  attack and +1  health for each level 3 pet sold this game, up to 5 sold.",['Unicorn Pack'],Tier 5 Pets
+Jersey Devil,5,4,2,"Friend Summoned → Give it +2  attack and +2  health for each level 3 pet sold this game, up to 5 sold.",['Unicorn Pack'],Tier 5 Pets
+Jersey Devil,5,4,2,"Friend Summoned → Give it +2  attack and +2  health for each level 3 pet sold this game, up to 5 sold.",['Unicorn Pack'],Tier 5 Pets
+Pixiu,4,5,1,Faint → Spend 6  mana to gain +3  gold next turn.,['Unicorn Pack'],Tier 5 Pets
+Pixiu,4,5,2,Faint → Spend 6  mana to gain +6  gold next turn.,['Unicorn Pack'],Tier 5 Pets
+Pixiu,4,5,2,Faint → Spend 6  mana to gain +6  gold next turn.,['Unicorn Pack'],Tier 5 Pets
+Kitsune,3,7,1,Friend Faints → transfer all friendly  mana +2 to the nearest friend ahead.,['Unicorn Pack'],Tier 5 Pets
+Kitsune,3,7,2,Friend Faints → transfer all friendly  mana +4 to the nearest friend ahead.,['Unicorn Pack'],Tier 5 Pets
+Kitsune,3,7,2,Friend Faints → transfer all friendly  mana +4 to the nearest friend ahead.,['Unicorn Pack'],Tier 5 Pets
+Nessie,4,6,1,"Faint → Summon one  Nessie with +2  attack and +2  health for each roll this turn, up to 7.",['Unicorn Pack'],Tier 5 Pets
+Nessie,4,6,2,"Faint → Summon one  Nessie with +4  attack and +4  health for each roll this turn, up to 7.",['Unicorn Pack'],Tier 5 Pets
+Nessie,4,6,2,"Faint → Summon one  Nessie with +4  attack and +4  health for each roll this turn, up to 7.",['Unicorn Pack'],Tier 5 Pets
+Bad Dog,3,3,1,Buy → Choose one level 1 toy that brings doom and chaos!,['Unicorn Pack'],Tier 5 Pets
+Bad Dog,3,3,2,Buy → Choose one level 2 toy that brings doom and chaos!,['Unicorn Pack'],Tier 5 Pets
+Bad Dog,3,3,2,Buy → Choose one level 2 toy that brings doom and chaos!,['Unicorn Pack'],Tier 5 Pets
+Werewolf,7,7,1,"Start of battle → If turn number is even, gain +100%  attack and +100%  health.",['Unicorn Pack'],Tier 5 Pets
+Werewolf,7,7,2,"Start of battle → If turn number is even, gain +200%  attack and +200%  health.",['Unicorn Pack'],Tier 5 Pets
+Werewolf,7,7,2,"Start of battle → If turn number is even, gain +200%  attack and +200%  health.",['Unicorn Pack'],Tier 5 Pets
+Boitata,2,12,1,Before Attack → Make the target  Crisp. Works 2 time per battle.,['Unicorn Pack'],Tier 5 Pets
+Boitata,2,12,2,Before Attack → Make the target  Crisp. Works 4 times per battle.,['Unicorn Pack'],Tier 5 Pets
+Boitata,2,12,2,Before Attack → Make the target  Crisp. Works 4 times per battle.,['Unicorn Pack'],Tier 5 Pets
+Kappa,4,5,1,Faint → Summon one random 14/16 pet from tier 3 up front for you and the opponent.,['Unicorn Pack'],Tier 5 Pets
+Kappa,4,5,2,Faint → Summon two random 14/16 pets from tier 3 up front for you and the opponent.,['Unicorn Pack'],Tier 5 Pets
+Kappa,4,5,2,Faint → Summon two random 14/16 pets from tier 3 up front for you and the opponent.,['Unicorn Pack'],Tier 5 Pets
+Mimic,3,6,1,Three friends faint → Gain +1  gold on next turn.,['Unicorn Pack'],Tier 5 Pets
+Mimic,3,6,2,Three friends faint → Gain +2  gold on next turn.,['Unicorn Pack'],Tier 5 Pets
+Mimic,3,6,2,Three friends faint → Gain +2  gold on next turn.,['Unicorn Pack'],Tier 5 Pets
+Nurikabe,5,6,1,Takes 4 less damage. Works 3 times per turn.,['Unicorn Pack'],Tier 5 Pets
+Nurikabe,5,6,2,Takes 8 less damage. Works 3 times per turn.,['Unicorn Pack'],Tier 5 Pets
+Nurikabe,5,6,2,Takes 8 less damage. Works 3 times per turn.,['Unicorn Pack'],Tier 5 Pets
+Tandgnost,6,2,1,End turn → Give one random  Tandgrisner +3  health. Can also...,['Unicorn Pack'],Tier 5 Pets
+Tandgnost,6,2,2,End turn → Give one random  Tandgrisner +6  health. Can also...,['Unicorn Pack'],Tier 5 Pets
+Tandgnost,6,2,2,End turn → Give one random  Tandgrisner +6  health. Can also...,['Unicorn Pack'],Tier 5 Pets
+Tandgrisner,2,6,1,End turn → Give one random  Tandgnost +3  attack. Can also...,['Unicorn Pack'],Tier 5 Pets
+Tandgrisner,2,6,2,End turn → Give one random  Tandgnost +6  attack. Can also...,['Unicorn Pack'],Tier 5 Pets
+Tandgrisner,2,6,2,End turn → Give one random  Tandgnost +6  attack. Can also...,['Unicorn Pack'],Tier 5 Pets
+Beluga Whale,2,5,1,Eats food → Swallow the left-most shop pet and summon it at level 1 with base stats on faint.,['Golden Pack'],Tier 5 Pets
+Beluga Whale,2,5,2,Eats food → Swallow the left-most shop pet and summon it at level 2 with double base stats on faint.,['Golden Pack'],Tier 5 Pets
+Beluga Whale,2,5,2,Eats food → Swallow the left-most shop pet and summon it at level 2 with double base stats on faint.,['Golden Pack'],Tier 5 Pets
+Blue Ringed Octopus,2,4,1,Buy → Give friends +1  attack and +1  health.,['Golden Pack'],Tier 5 Pets
+Blue Ringed Octopus,2,4,2,Buy → Give friends +2  attack and +2  health.,['Golden Pack'],Tier 5 Pets
+Blue Ringed Octopus,2,4,2,Buy → Give friends +2  attack and +2  health.,['Golden Pack'],Tier 5 Pets
+Crane,6,5,1,Friend ahead hurt → Give it  Melon perk and +5  attack. Works 1 time per turn.,['Golden Pack'],Tier 5 Pets
+Crane,6,5,2,Friend ahead hurt → Give it  Melon perk and +5  attack. Works 2 times per turn.,['Golden Pack'],Tier 5 Pets
+Crane,6,5,2,Friend ahead hurt → Give it  Melon perk and +5  attack. Works 2 times per turn.,['Golden Pack'],Tier 5 Pets
+Egyptian Vulture,7,4,1,Knock out → Activate ability on the nearest Faint friend behind. Works 1 time per battle.,['Golden Pack'],Tier 5 Pets
+Egyptian Vulture,7,4,2,Knock out → Activate ability on the nearest Faint friend behind. Works 2 times per battle.,['Golden Pack'],Tier 5 Pets
+Egyptian Vulture,7,4,2,Knock out → Activate ability on the nearest Faint friend behind. Works 2 times per battle.,['Golden Pack'],Tier 5 Pets
+Emu,3,4,1,Empty front space → Push nearest friend ahead to the front and give it +4  health in battle.,['Golden Pack'],Tier 5 Pets
+Emu,3,4,2,Empty front space → Push nearest friend ahead to the front and give it +8  health in battle.,['Golden Pack'],Tier 5 Pets
+Emu,3,4,2,Empty front space → Push nearest friend ahead to the front and give it +8  health in battle.,['Golden Pack'],Tier 5 Pets
+Fire Ant,6,4,1,Faint → Give  attack to the highest tier friend.,['Golden Pack'],Tier 5 Pets
+Fire Ant,6,4,2,Faint → Give  attack to the two highest tier friends.,['Golden Pack'],Tier 5 Pets
+Fire Ant,6,4,2,Faint → Give  attack to the two highest tier friends.,['Golden Pack'],Tier 5 Pets
+Giant Isopod,5,6,1,Faint → Give friends +2  health. Spend 2  trumpets to give 1 more  health in the future.,['Golden Pack'],Tier 5 Pets
+Giant Isopod,5,6,2,Faint → Give friends +4  health. Spend 2  trumpets to give 2 more  health in the future.,['Golden Pack'],Tier 5 Pets
+Giant Isopod,5,6,2,Faint → Give friends +4  health. Spend 2  trumpets to give 2 more  health in the future.,['Golden Pack'],Tier 5 Pets
+Macaque,2,2,1,Start of battle → Summon one 12/12  Orangutan with the same food perk as this.,['Golden Pack'],Tier 5 Pets
+Macaque,2,2,2,Start of battle → Summon one 24/24  Orangutan with the same food perk as this.,['Golden Pack'],Tier 5 Pets
+Macaque,2,2,2,Start of battle → Summon one 24/24  Orangutan with the same food perk as this.,['Golden Pack'],Tier 5 Pets
+Nurse Shark,4,6,1,Faint → Spend up to 6  trumpets and deal triple as  damage to one random enemy.,['Golden Pack'],Tier 5 Pets
+Nurse Shark,4,6,2,Faint → Spend up to 6  trumpets and deal triple as  damage to two random enemies.,['Golden Pack'],Tier 5 Pets
+Nurse Shark,4,6,2,Faint → Spend up to 6  trumpets and deal triple as  damage to two random enemies.,['Golden Pack'],Tier 5 Pets
+Nyala,3,4,1,Faint → Gain +8  trumpets.,['Golden Pack'],Tier 5 Pets
+Nyala,3,4,2,Faint → Gain +16  trumpets.,['Golden Pack'],Tier 5 Pets
+Nyala,3,4,2,Faint → Gain +16  trumpets.,['Golden Pack'],Tier 5 Pets
+Secretary Bird,3,5,1,Two friends faint → Give the nearest friend ahead +3  attack and +4  health.,['Golden Pack'],Tier 5 Pets
+Secretary Bird,3,5,2,Two friends faint → Give the nearest friend ahead +6  attack and +8  health.,['Golden Pack'],Tier 5 Pets
+Secretary Bird,3,5,2,Two friends faint → Give the nearest friend ahead +6  attack and +8  health.,['Golden Pack'],Tier 5 Pets
+Silver Fox,3,6,1,Before attack → Gain +1  gold on next turn. Works 3 times per battle.,['Golden Pack'],Tier 5 Pets
+Silver Fox,3,6,2,Before attack → Gain +2  gold on next turn. Works 3 times per battle.,['Golden Pack'],Tier 5 Pets
+Silver Fox,3,6,2,Before attack → Gain +2  gold on next turn. Works 3 times per battle.,['Golden Pack'],Tier 5 Pets
+Wolf,4,4,1,Faint → Summon three 3/2  Pigs.,['Golden Pack'],Tier 5 Pets
+Wolf,4,4,2,Faint → Summon three 6/4  Pigs.,['Golden Pack'],Tier 5 Pets
+Wolf,4,4,2,Faint → Summon three 6/4  Pigs.,['Golden Pack'],Tier 5 Pets
+Blobfish,2,10,1,Faint → Give the nearest friend behind +1  experience. Give to one more friend in battle.,['Star Pack'],Tier 5 Pets
+Blobfish,2,10,2,Faint → Give the nearest friend behind +2  experience. Give to one more friend in battle.,['Star Pack'],Tier 5 Pets
+Blobfish,2,10,2,Faint → Give the nearest friend behind +2  experience. Give to one more friend in battle.,['Star Pack'],Tier 5 Pets
+Hamster,2,4,1,Roll → Gain +1  gold. Works 2 times per turn.,['Star Pack'],Tier 5 Pets
+Hamster,2,4,2,Roll → Gain +1  gold. Works 4 times per turn.,['Star Pack'],Tier 5 Pets
+Hamster,2,4,2,Roll → Gain +1  gold. Works 4 times per turn.,['Star Pack'],Tier 5 Pets
+Ibex,6,4,1,Enemy hurt or pushed → Remove 70%  health from it. Works 1 time per turn.,['Star Pack'],Tier 5 Pets
+Ibex,6,4,2,Enemy hurt or pushed → Remove 70%  health from it. Works 2 times per turn.,['Star Pack'],Tier 5 Pets
+Ibex,6,4,2,Enemy hurt or pushed → Remove 70%  health from it. Works 2 times per turn.,['Star Pack'],Tier 5 Pets
+Pelican,2,5,1,Start of battle → Swallow one  Strawberry friend ahead and turn it into a  Salmon on faint.,['Star Pack'],Tier 5 Pets
+Pelican,2,5,2,Start of battle → Swallow two  Strawberry friends ahead and turn them into  Salmons on faint.,['Star Pack'],Tier 5 Pets
+Pelican,2,5,2,Start of battle → Swallow two  Strawberry friends ahead and turn them into  Salmons on faint.,['Star Pack'],Tier 5 Pets
+Shoebill,3,6,1,Start of turn → Replace the nearest  Strawberry ahead with +4  attack and +4  health.,['Star Pack'],Tier 5 Pets
+Shoebill,3,6,2,Start of turn → Replace the nearest  Strawberry ahead with +8  attack and +8  health.,['Star Pack'],Tier 5 Pets
+Shoebill,3,6,2,Start of turn → Replace the nearest  Strawberry ahead with +8  attack and +8  health.,['Star Pack'],Tier 5 Pets
+Starfish,3,7,1,Level 3 friend sold → Give friends +1  attack and +1  health. Triple if sold pet had atleast 10  attack,['Star Pack'],Tier 5 Pets
+Starfish,3,7,2,Level 3 friend sold → Give friends +2  attack and +2  health. Triple if sold pet had atleast 10  attack,['Star Pack'],Tier 5 Pets
+Starfish,3,7,2,Level 3 friend sold → Give friends +2  attack and +2  health. Triple if sold pet had atleast 10  attack,['Star Pack'],Tier 5 Pets
+Sword Fish,5,5,1,Start of battle → Deal 100% attack  damage to the most healthy enemy and itself.,['Star Pack'],Tier 5 Pets
+Sword Fish,5,5,2,Start of battle → Deal 200% attack  damage to the most healthy enemy and itself.,['Star Pack'],Tier 5 Pets
+Sword Fish,5,5,2,Start of battle → Deal 200% attack  damage to the most healthy enemy and itself.,['Star Pack'],Tier 5 Pets
+Triceratops,5,6,1,Hurt → Give one random friend +3  attack and +3  health.,['Star Pack'],Tier 5 Pets
+Triceratops,5,6,2,Hurt → Give one random friend +6  attack and +6  health.,['Star Pack'],Tier 5 Pets
+Triceratops,5,6,2,Hurt → Give one random friend +6  attack and +6  health.,['Star Pack'],Tier 5 Pets
+Vulture,4,3,1,Two friends faint → Deal 4  damage to one random enemy.,['Star Pack'],Tier 5 Pets
+Vulture,4,3,2,Two friends faint → Deal 8  damage to one random enemy.,['Star Pack'],Tier 5 Pets
+Vulture,4,3,2,Two friends faint → Deal 8  damage to one random enemy.,['Star Pack'],Tier 5 Pets
+Woodpecker,4,3,1,Start of battle → Deal 2  damage to the nearest two pets ahead. Triggers 2 times.,['Star Pack'],Tier 5 Pets
+Woodpecker,4,3,2,Start of battle → Deal 2  damage to the nearest two pets ahead. Triggers 4 times.,['Star Pack'],Tier 5 Pets
+Woodpecker,4,3,2,Start of battle → Deal 2  damage to the nearest two pets ahead. Triggers 4 times.,['Star Pack'],Tier 5 Pets
+Fox,6,4,1,End turn → Steal the right-most shop food.,['Star Pack'],Tier 5 Pets
+Fox,6,4,2,End turn → Steal the right-most shop food and double its attack and health effects.,['Star Pack'],Tier 5 Pets
+Fox,6,4,2,End turn → Steal the right-most shop food and double its attack and health effects.,['Star Pack'],Tier 5 Pets
+Lion,6,6,1,"Start of battle → If this is your highest tier pet, gain +50%  attack and  health.",['Star Pack'],Tier 5 Pets
+Lion,6,6,2,"Start of battle → If this is your highest tier pet, gain +100%  attack and  health.",['Star Pack'],Tier 5 Pets
+Lion,6,6,2,"Start of battle → If this is your highest tier pet, gain +100%  attack and  health.",['Star Pack'],Tier 5 Pets
+Polar Bear,4,8,1,Start of turn → Give one random frozen shop pet +4  attack and +4  health.,['Star Pack'],Tier 5 Pets
+Polar Bear,4,8,2,Start of turn → Give one random frozen shop pet +8  attack and +8  health.,['Star Pack'],Tier 5 Pets
+Polar Bear,4,8,2,Start of turn → Give one random frozen shop pet +8  attack and +8  health.,['Star Pack'],Tier 5 Pets
+Siberian Husky,4,3,1,End turn → Give friends with no food perks +1  attack and +1  health.,['Star Pack'],Tier 5 Pets
+Siberian Husky,4,3,2,End turn → Give friends with no food perks +2  attack and +2  health.,['Star Pack'],Tier 5 Pets
+Siberian Husky,4,3,2,End turn → Give friends with no food perks +2  attack and +2  health.,['Star Pack'],Tier 5 Pets
+Zebra,3,5,1,Buy & Sell → Give one random friend +2  attack and +2  health.,['Star Pack'],Tier 5 Pets
+Zebra,3,5,2,Buy & Sell → Give one random friend +4  attack and +4  health.,['Star Pack'],Tier 5 Pets
+Zebra,3,5,2,Buy & Sell → Give one random friend +4  attack and +4  health.,['Star Pack'],Tier 5 Pets
+Axolotl,2,3,1,Friend gained perk → Give it permanent +1  attack and +1  health.,['Puppy Pack'],Tier 5 Pets
+Axolotl,2,3,2,Friend gained perk → Give it permanent +2  attack and +2  health.,['Puppy Pack'],Tier 5 Pets
+Axolotl,2,3,2,Friend gained perk → Give it permanent +2  attack and +2  health.,['Puppy Pack'],Tier 5 Pets
+Chicken,3,4,1,Faint → Give future shop pets permanent +1  attack and +1  health.,['Puppy Pack'],Tier 5 Pets
+Chicken,3,4,2,Faint → Give future shop pets permanent +2  attack and +2  health.,['Puppy Pack'],Tier 5 Pets
+Chicken,3,4,2,Faint → Give future shop pets permanent +2  attack and +2  health.,['Puppy Pack'],Tier 5 Pets
+Eagle,6,5,1,Faint → Summon one 5/5 level 1 pet from the next shop tier.,['Puppy Pack'],Tier 5 Pets
+Eagle,6,5,2,Faint → Summon one 10/10 level 2 pet from the next shop tier.,['Puppy Pack'],Tier 5 Pets
+Eagle,6,5,2,Faint → Summon one 10/10 level 2 pet from the next shop tier.,['Puppy Pack'],Tier 5 Pets
+Goat,4,6,1,Friend bought → Gain +1  gold. Works 2 times per turn.,['Puppy Pack'],Tier 5 Pets
+Goat,4,6,2,Friend bought → Gain +2  gold. Works 2 times per turn.,['Puppy Pack'],Tier 5 Pets
+Goat,4,6,2,Friend bought → Gain +2  gold. Works 2 times per turn.,['Puppy Pack'],Tier 5 Pets
+Mosasaurus,5,6,1,Toy broke → Give adjacent friends +2  attack and +3  health.,['Puppy Pack'],Tier 5 Pets
+Mosasaurus,5,6,2,Toy broke → Give adjacent friends +4  attack and +6  health.,['Puppy Pack'],Tier 5 Pets
+Mosasaurus,5,6,2,Toy broke → Give adjacent friends +4  attack and +6  health.,['Puppy Pack'],Tier 5 Pets
+Panther,3,5,1,Perks are two times stronger on this in battle,['Puppy Pack'],Tier 5 Pets
+Panther,3,5,2,Perks are three times stronger on this in battle,['Puppy Pack'],Tier 5 Pets
+Panther,3,5,2,Perks are three times stronger on this in battle,['Puppy Pack'],Tier 5 Pets
+Poodle,2,2,1,End turn → Give +1  attack and +1  health to one friend of each tier.,['Puppy Pack'],Tier 5 Pets
+Poodle,2,2,2,End turn → Give +2  attack and +2  health to one friend of each tier.,['Puppy Pack'],Tier 5 Pets
+Poodle,2,2,2,End turn → Give +2  attack and +2  health to one friend of each tier.,['Puppy Pack'],Tier 5 Pets
+Snapping Turtle,4,5,1,Faint → Give  Skewer Perk to the nearest friend behind.,['Puppy Pack'],Tier 5 Pets
+Snapping Turtle,4,5,2,Faint → Give  Skewer Perk to the two nearest friends behind.,['Puppy Pack'],Tier 5 Pets
+Snapping Turtle,4,5,2,Faint → Give  Skewer Perk to the two nearest friends behind.,['Puppy Pack'],Tier 5 Pets
+Sting Ray,4,6,1,Buy → Choose one level 1 toy from tier 5.,['Puppy Pack'],Tier 5 Pets
+Sting Ray,4,6,2,Buy → Choose one level 2 toy from tier 5.,['Puppy Pack'],Tier 5 Pets
+Sting Ray,4,6,2,Buy → Choose one level 2 toy from tier 5.,['Puppy Pack'],Tier 5 Pets
+Stonefish,7,4,1,Faint → Deal attack  damage directly back to whoever knocked this out.,['Puppy Pack'],Tier 5 Pets
+Stonefish,7,4,2,Faint → Deal double attack  damage directly back to whoever knocked this out.,['Puppy Pack'],Tier 5 Pets
+Stonefish,7,4,2,Faint → Deal double attack  damage directly back to whoever knocked this out.,['Puppy Pack'],Tier 5 Pets
+Hyena,5,5,1,Start of battle → Swap attack and health of ALL pets.,['Weekly Pack'],Tier 5 Pets
+Hyena,5,5,2,Start of battle → Shuffle positions of ALL pets.,['Weekly Pack'],Tier 5 Pets
+Hyena,5,5,2,Start of battle → Shuffle positions of ALL pets.,['Weekly Pack'],Tier 5 Pets
+Moose,5,6,1,End turn → Unfreeze shop and give one random friend +3  for each tier 1 shop pet.,['Weekly Pack'],Tier 5 Pets
+Moose,5,6,2,End turn → Unfreeze shop and give one random friend +3  for each tier 1 shop pet.,['Weekly Pack'],Tier 5 Pets
+Moose,5,6,2,End turn → Unfreeze shop and give one random friend +3  for each tier 1 shop pet.,['Weekly Pack'],Tier 5 Pets
+Raccoon,4,5,1,Before attack → Steal food perk from target. Works 1 time per battle.,['Weekly Pack'],Tier 5 Pets
+Raccoon,4,5,2,Before attack → Steal food perk from target. Works 2 times per battle.,['Weekly Pack'],Tier 5 Pets
+Raccoon,4,5,2,Before attack → Steal food perk from target. Works 2 times per battle.,['Weekly Pack'],Tier 5 Pets
+Boar,10,6,1,Before attack → Gain +4  attack and +2  health.,['Turtle Pack'],Tier 6 Pets
+Boar,10,6,2,Before attack → Gain +8  attack and +4  health.,['Turtle Pack'],Tier 6 Pets
+Boar,10,6,2,Before attack → Gain +8  attack and +4  health.,['Turtle Pack'],Tier 6 Pets
+Cat,4,5,1,Food gives double  health and  attack. Works 2 times per turn.,['Turtle Pack'],Tier 6 Pets
+Cat,4,5,2,Food gives triple  health and  attack. Works 2 times per turn.,['Turtle Pack'],Tier 6 Pets
+Cat,4,5,2,Food gives triple  health and  attack. Works 2 times per turn.,['Turtle Pack'],Tier 6 Pets
+Dragon,6,8,1,Tier 1 friend bought → Give friends +1  attack and +1  health.,"['Turtle Pack', 'Puppy Pack']",Tier 6 Pets
+Dragon,6,8,2,Tier 1 friend bought → Give friends +2  attack and +2  health.,"['Turtle Pack', 'Puppy Pack']",Tier 6 Pets
+Dragon,6,8,2,Tier 1 friend bought → Give friends +2  attack and +2  health.,"['Turtle Pack', 'Puppy Pack']",Tier 6 Pets
+Fly,5,5,1,Friend faints → Summon one 4/4  Zombie Fly in its place. Works 3 times per turn.,['Turtle Pack'],Tier 6 Pets
+Fly,5,5,2,Friend faints → Summon one 8/8  Zombie Fly in its place. Works 3 times per turn.,['Turtle Pack'],Tier 6 Pets
+Fly,5,5,2,Friend faints → Summon one 8/8  Zombie Fly in its place. Works 3 times per turn.,['Turtle Pack'],Tier 6 Pets
+Gorilla,7,10,1,Hurt → Gain  Coconut 1 time per battle.,['Turtle Pack'],Tier 6 Pets
+Gorilla,7,10,2,Hurt → Gain  Coconut 2 times per battle.,['Turtle Pack'],Tier 6 Pets
+Gorilla,7,10,2,Hurt → Gain  Coconut 2 times per battle.,['Turtle Pack'],Tier 6 Pets
+Leopard,10,4,1,Start of battle → Deal 50% attack  damage to one random enemy.,['Turtle Pack'],Tier 6 Pets
+Leopard,10,4,2,Start of battle → Deal 50% attack  damage to two random enemy.,['Turtle Pack'],Tier 6 Pets
+Leopard,10,4,2,Start of battle → Deal 50% attack  damage to two random enemy.,['Turtle Pack'],Tier 6 Pets
+Mammoth,4,12,1,Faint → Give all friends +2  attack and +2  health.,['Turtle Pack'],Tier 6 Pets
+Mammoth,4,12,2,Faint → Give all friends +4  attack and +4  health.,['Turtle Pack'],Tier 6 Pets
+Mammoth,4,12,2,Faint → Give all friends +4  attack and +4  health.,['Turtle Pack'],Tier 6 Pets
+Snake,6,6,1,Friend ahead attacks → Deal 5  damage to one random enemy.,['Turtle Pack'],Tier 6 Pets
+Snake,6,6,2,Friend ahead attacks → Deal 10  damage to one random enemy.,['Turtle Pack'],Tier 6 Pets
+Snake,6,6,2,Friend ahead attacks → Deal 10  damage to one random enemy.,['Turtle Pack'],Tier 6 Pets
+Tiger,6,4,1,The friend ahead repeats their ability in battle as if they were level 1.,['Turtle Pack'],Tier 6 Pets
+Tiger,6,4,2,The friend ahead repeats their ability in battle as if they were level 2.,['Turtle Pack'],Tier 6 Pets
+Tiger,6,4,2,The friend ahead repeats their ability in battle as if they were level 2.,['Turtle Pack'],Tier 6 Pets
+Wolverine,5,4,1,Four friends hurt → Remove 2  health from all enemies.,['Turtle Pack'],Tier 6 Pets
+Wolverine,5,4,2,Four friends hurt → Remove 4  health from all enemies.,['Turtle Pack'],Tier 6 Pets
+Wolverine,5,4,2,Four friends hurt → Remove 4  health from all enemies.,['Turtle Pack'],Tier 6 Pets
+Manticore,7,4,1,Enemy ailments are two times worse.,['Unicorn Pack'],Tier 6 Pets
+Manticore,7,4,2,Enemy ailments are three times worse.,['Unicorn Pack'],Tier 6 Pets
+Manticore,7,4,2,Enemy ailments are three times worse.,['Unicorn Pack'],Tier 6 Pets
+Phoenix,8,8,1,"Faint → Make ANY three random pets  Crisp, then summon one 6/6  Young Phoenix.",['Unicorn Pack'],Tier 6 Pets
+Phoenix,8,8,2,"Faint → Make ANY six random pets  Crisp, then summon one 12/12  Young Phoenix.",['Unicorn Pack'],Tier 6 Pets
+Phoenix,8,8,2,"Faint → Make ANY six random pets  Crisp, then summon one 12/12  Young Phoenix.",['Unicorn Pack'],Tier 6 Pets
+Quetzalcoatl,2,8,1,End Turn → Give one random tier 3 or lower friend +2  experience.,['Unicorn Pack'],Tier 6 Pets
+Quetzalcoatl,2,8,2,End Turn → Give one random tier 3 or lower friend +2  experience. Triggers 2 times.,['Unicorn Pack'],Tier 6 Pets
+Quetzalcoatl,2,8,2,End Turn → Give one random tier 3 or lower friend +2  experience. Triggers 2 times.,['Unicorn Pack'],Tier 6 Pets
+Team Spirit,3,4,1,Friend level-up → Give friends +1  attack and +2  health.,['Unicorn Pack'],Tier 6 Pets
+Team Spirit,3,4,2,Friend level-up → Give friends +2  attack and +4  health.,['Unicorn Pack'],Tier 6 Pets
+Team Spirit,3,4,2,Friend level-up → Give friends +2  attack and +4  health.,['Unicorn Pack'],Tier 6 Pets
+Sleipnir,8,5,1,Start of battle → Give the front-most friend +1  mana for each 2 attack this has.,['Unicorn Pack'],Tier 6 Pets
+Sleipnir,8,5,2,Start of battle → Give the two front-most friends +1  mana for each 2 attack this has.,['Unicorn Pack'],Tier 6 Pets
+Sleipnir,8,5,2,Start of battle → Give the two front-most friends +1  mana for each 2 attack this has.,['Unicorn Pack'],Tier 6 Pets
+Sea Serpent,6,6,1,Faint → Spend  mana to deal 2  damage per mana to the most healthy enemy.,['Unicorn Pack'],Tier 6 Pets
+Sea Serpent,6,6,2,Faint → Spend  mana to deal 2  damage per mana to the two most healthy enemies.,['Unicorn Pack'],Tier 6 Pets
+Sea Serpent,6,6,2,Faint → Spend  mana to deal 2  damage per mana to the two most healthy enemies.,['Unicorn Pack'],Tier 6 Pets
+Yeti,5,7,1,End Turn → Roll three times while freezing duplicate pets.,['Unicorn Pack'],Tier 6 Pets
+Yeti,5,7,2,End Turn → Roll six times while freezing duplicate pets.,['Unicorn Pack'],Tier 6 Pets
+Yeti,5,7,2,End Turn → Roll six times while freezing duplicate pets.,['Unicorn Pack'],Tier 6 Pets
+Cerberus,8,8,1,Empty front space → Summon one 8/8  Fire Pup up front. Works 1 time per turn.,['Unicorn Pack'],Tier 6 Pets
+Cerberus,8,8,2,Empty front space → Summon one 8/8  Fire Pup up front. Works 2 times per turn.,['Unicorn Pack'],Tier 6 Pets
+Cerberus,8,8,2,Empty front space → Summon one 8/8  Fire Pup up front. Works 2 times per turn.,['Unicorn Pack'],Tier 6 Pets
+Hydra,10,6,1,Faint → Summon one 5/5  Head for each 10 attack this has.,['Unicorn Pack'],Tier 6 Pets
+Hydra,10,6,2,Faint → Summon one 10/10  Head for each 10 attack this has.,['Unicorn Pack'],Tier 6 Pets
+Hydra,10,6,2,Faint → Summon one 10/10  Head for each 10 attack this has.,['Unicorn Pack'],Tier 6 Pets
+Behemoth,12,12,1,End Turn → Gain +2  attack and +2  health. Attack and health can go up to 100!,['Unicorn Pack'],Tier 6 Pets
+Behemoth,12,12,2,End Turn → Gain +4  attack and +4  health. Attack and health can go up to 100!,['Unicorn Pack'],Tier 6 Pets
+Behemoth,12,12,2,End Turn → Gain +4  attack and +4  health. Attack and health can go up to 100!,['Unicorn Pack'],Tier 6 Pets
+Great One,7,13,1,Summoned → Deal 6  damage to ALL other pets.,['Unicorn Pack'],Tier 6 Pets
+Great One,7,13,2,Summoned → Deal 12  damage to ALL other pets.,['Unicorn Pack'],Tier 6 Pets
+Great One,7,13,2,Summoned → Deal 12  damage to ALL other pets.,['Unicorn Pack'],Tier 6 Pets
+Leviathan,4,8,1,End turn → Summon one 6/6  Fish and give it +2  experience.,['Unicorn Pack'],Tier 6 Pets
+Leviathan,4,8,2,End turn → Summon one 12/12  Fish and give it +4  experience.,['Unicorn Pack'],Tier 6 Pets
+Leviathan,4,8,2,End turn → Summon one 12/12  Fish and give it +4  experience.,['Unicorn Pack'],Tier 6 Pets
+Questing Beast,7,9,1,Sell → Choose one level 1 king toy.,['Unicorn Pack'],Tier 6 Pets
+Questing Beast,7,9,2,Sell → Choose one level 2 king toy.,['Unicorn Pack'],Tier 6 Pets
+Questing Beast,7,9,2,Sell → Choose one level 2 king toy.,['Unicorn Pack'],Tier 6 Pets
+Cockatrice,5,7,1,Start of battle → Transform the back-most level 1 or lower enemy to a  Rock.,['Unicorn Pack'],Tier 6 Pets
+Cockatrice,5,7,2,Start of battle → Transform the back-most level 2 or lower enemy to a  Rock.,['Unicorn Pack'],Tier 6 Pets
+Cockatrice,5,7,2,Start of battle → Transform the back-most level 2 or lower enemy to a  Rock.,['Unicorn Pack'],Tier 6 Pets
+Bird of Paradise,3,3,1,Spend 7 gold → Give three random friends +1  attack and +1  health.,['Golden Pack'],Tier 6 Pets
+Bird of Paradise,3,3,2,Spend 7 gold → Give three random friends +2  attack and +2  health.,['Golden Pack'],Tier 6 Pets
+Bird of Paradise,3,3,2,Spend 7 gold → Give three random friends +2  attack and +2  health.,['Golden Pack'],Tier 6 Pets
+Catfish,4,6,1,Start of turn → Activate Buy ability on the nearest friend ahead.,['Golden Pack'],Tier 6 Pets
+Catfish,4,6,2,Start of turn → Activate Buy ability on the nearest friend ahead. Triggers 2 times.,['Golden Pack'],Tier 6 Pets
+Catfish,4,6,2,Start of turn → Activate Buy ability on the nearest friend ahead. Triggers 2 times.,['Golden Pack'],Tier 6 Pets
+Cobra,12,6,1,Friend ahead attacks → Deal 20% attack  damage to one random enemy.,['Golden Pack'],Tier 6 Pets
+Cobra,12,6,2,Friend ahead attacks → Deal 40% attack  damage to one random enemy.,['Golden Pack'],Tier 6 Pets
+Cobra,12,6,2,Friend ahead attacks → Deal 40% attack  damage to one random enemy.,['Golden Pack'],Tier 6 Pets
+German Shepherd,10,4,1,Friend summoned → Give 25% of  attack to it until end of battle.,['Golden Pack'],Tier 6 Pets
+German Shepherd,10,4,2,Friend summoned → Give 50% of  attack to it until end of battle.,['Golden Pack'],Tier 6 Pets
+German Shepherd,10,4,2,Friend summoned → Give 50% of  attack to it until end of battle.,['Golden Pack'],Tier 6 Pets
+Grizzly Bear,6,6,1,Five friendly attacks → Deal 6  damage to two random enemies.,['Golden Pack'],Tier 6 Pets
+Grizzly Bear,6,6,2,Five friendly attacks → Deal 12  damage to two random enemies.,['Golden Pack'],Tier 6 Pets
+Grizzly Bear,6,6,2,Five friendly attacks → Deal 12  damage to two random enemies.,['Golden Pack'],Tier 6 Pets
+Highland Cow,4,12,1,Start of battle → Gain +1  trumpet for each 3 health this has.,['Golden Pack'],Tier 6 Pets
+Highland Cow,4,12,2,Start of battle → Gain +2  trumpets for each 3 health this has.,['Golden Pack'],Tier 6 Pets
+Highland Cow,4,12,2,Start of battle → Gain +2  trumpets for each 3 health this has.,['Golden Pack'],Tier 6 Pets
+Oyster,2,10,1,Sell → Gain +3  gold.,['Golden Pack'],Tier 6 Pets
+Oyster,2,10,2,Sell → Gain +6  gold.,['Golden Pack'],Tier 6 Pets
+Oyster,2,10,2,Sell → Gain +6  gold.,['Golden Pack'],Tier 6 Pets
+Pteranodon,5,3,1,Friend faints → Re-summon it behind this as a 1/1. Works 1 time per turn.,['Golden Pack'],Tier 6 Pets
+Pteranodon,5,3,2,Friend faints → Re-summon it behind this as a 1/1. Works 2 times per turn.,['Golden Pack'],Tier 6 Pets
+Pteranodon,5,3,2,Friend faints → Re-summon it behind this as a 1/1. Works 2 times per turn.,['Golden Pack'],Tier 6 Pets
+Warthog,9,6,1,Faint → Give random friends +1  attack and +1  health for every 3 attack this has.,['Golden Pack'],Tier 6 Pets
+Warthog,9,6,2,Faint → Give random friends +2  attack and +2  health for every 3 attack this has.,['Golden Pack'],Tier 6 Pets
+Warthog,9,6,2,Faint → Give random friends +2  attack and +2  health for every 3 attack this has.,['Golden Pack'],Tier 6 Pets
+Wildebeest,8,6,1,Before attack → Spend 4  trumpets to gain  Coconut Perk. Works 1 time per battle.,['Golden Pack'],Tier 6 Pets
+Wildebeest,8,6,2,Before attack → Spend 4  trumpets to gain  Coconut Perk. Works 2 times per battle.,['Golden Pack'],Tier 6 Pets
+Wildebeest,8,6,2,Before attack → Spend 4  trumpets to gain  Coconut Perk. Works 2 times per battle.,['Golden Pack'],Tier 6 Pets
+Alpaca,3,7,1,Friend summoned → Give it +1  experience. Triple in battle. Works 1 time per turn.,"['Star Pack', 'Weekly Pack']",Tier 6 Pets
+Alpaca,3,7,2,Friend summoned → Give it +1  experience. Triple in battle. Works 2 times per turn.,"['Star Pack', 'Weekly Pack']",Tier 6 Pets
+Alpaca,3,7,2,Friend summoned → Give it +1  experience. Triple in battle. Works 2 times per turn.,"['Star Pack', 'Weekly Pack']",Tier 6 Pets
+Ammonite,2,3,1,Faint → Transform the front-most friend into a  Butterfly with +1  experience for every 3rd roll this turn.,['Star Pack'],Tier 6 Pets
+Ammonite,2,3,2,Faint → Transform the two front-most friends into a  Butterfly with +1  experience for every 3rd roll this turn.,['Star Pack'],Tier 6 Pets
+Ammonite,2,3,2,Faint → Transform the two front-most friends into a  Butterfly with +1  experience for every 3rd roll this turn.,['Star Pack'],Tier 6 Pets
+Orca,5,7,1,Faint → Summon one random Faint pet from ANY pack as 6/6.,['Star Pack'],Tier 6 Pets
+Orca,5,7,2,Faint → Summon two random Faint pets from ANY pack as 6/6.,['Star Pack'],Tier 6 Pets
+Orca,5,7,2,Faint → Summon two random Faint pets from ANY pack as 6/6.,['Star Pack'],Tier 6 Pets
+Ostrich,2,8,1,"Roll → If there are four tier 6 shop pets, roll pets and give friends +1  attack and +1  health.",['Star Pack'],Tier 6 Pets
+Ostrich,2,8,2,"Roll → If there are four tier 6 shop pets, roll pets and give friends +2  attack and +2  health.",['Star Pack'],Tier 6 Pets
+Ostrich,2,8,2,"Roll → If there are four tier 6 shop pets, roll pets and give friends +2  attack and +2  health.",['Star Pack'],Tier 6 Pets
+Piranha,10,4,1,Hurt → Give friends +3  attack.,['Star Pack'],Tier 6 Pets
+Piranha,10,4,2,Hurt → Give friends +6  attack.,['Star Pack'],Tier 6 Pets
+Piranha,10,4,2,Hurt → Give friends +6  attack.,['Star Pack'],Tier 6 Pets
+Real Velociraptor,2,3,1,Friend lost perk → Return its perk. Works 1 time per turn.,['Star Pack'],Tier 6 Pets
+Real Velociraptor,2,3,2,Friend lost perk → Return its perk. Works 1 time per turn and only once per friend in battle.,['Star Pack'],Tier 6 Pets
+Real Velociraptor,2,3,2,Friend lost perk → Return its perk. Works 1 time per turn and only once per friend in battle.,['Star Pack'],Tier 6 Pets
+Reindeer,6,4,1,Before attack → Gain  Melon. Works 1 time per battle.,['Star Pack'],Tier 6 Pets
+Reindeer,6,4,2,Before attack → Gain  Melon. Works 2 times per battle.,['Star Pack'],Tier 6 Pets
+Reindeer,6,4,2,Before attack → Gain  Melon. Works 2 times per battle.,['Star Pack'],Tier 6 Pets
+Sabertooth Tiger,3,5,1,Faint → Summon one  Mammoth with +2  attack and +3  health for each time this was hurt.,['Star Pack'],Tier 6 Pets
+Sabertooth Tiger,3,5,2,Faint → Summon two  Mammoths with +2  attack and +3  health for each time this was hurt.,['Star Pack'],Tier 6 Pets
+Sabertooth Tiger,3,5,2,Faint → Summon two  Mammoths with +2  attack and +3  health for each time this was hurt.,['Star Pack'],Tier 6 Pets
+Spinosaurus,4,4,1,Friend faints → Give one random friend +2  attack and +3  health.,['Star Pack'],Tier 6 Pets
+Spinosaurus,4,4,2,Friend faints → Give one random friend +4  attack and +6  health.,['Star Pack'],Tier 6 Pets
+Spinosaurus,4,4,2,Friend faints → Give one random friend +4  attack and +6  health.,['Star Pack'],Tier 6 Pets
+Velociraptor,3,2,1,Friend attacks → Steal friendly  Strawberry ahead to give friends +2  attack and +3  health.,['Star Pack'],Tier 6 Pets
+Velociraptor,3,2,2,Friend attacks → Steal friendly  Strawberry ahead to give friends +4  attack and +6  health.,['Star Pack'],Tier 6 Pets
+Velociraptor,3,2,2,Friend attacks → Steal friendly  Strawberry ahead to give friends +4  attack and +6  health.,['Star Pack'],Tier 6 Pets
+Hammerhead Shark,5,5,1,"Start of turn → If this has a level 3 friend, gain +3  gold.",['Star Pack'],Tier 6 Pets
+Hammerhead Shark,5,5,2,"Start of turn → If this has a level 3 friend, gain +6  gold.",['Star Pack'],Tier 6 Pets
+Hammerhead Shark,5,5,2,"Start of turn → If this has a level 3 friend, gain +6  gold.",['Star Pack'],Tier 6 Pets
+Komodo,6,6,1,End turn → Give friends ahead +1  attack and +1  health and then shuffle their positions.,['Star Pack'],Tier 6 Pets
+Komodo,6,6,2,End turn → Give friends ahead +2  attack and +2  health and then shuffle their positions.,['Star Pack'],Tier 6 Pets
+Komodo,6,6,2,End turn → Give friends ahead +2  attack and +2  health and then shuffle their positions.,['Star Pack'],Tier 6 Pets
+Stegosaurus,3,8,1,Start of battle → Give one random friend without held food +1  attack and +1  health until end of battle. Multiply with turn number.,['Star Pack'],Tier 6 Pets
+Stegosaurus,3,8,2,Start of battle → Give one random friend without held food +2  attack and +2  health until end of battle. Multiply with turn number.,['Star Pack'],Tier 6 Pets
+Stegosaurus,3,8,2,Start of battle → Give one random friend without held food +2  attack and +2  health until end of battle. Multiply with turn number.,['Star Pack'],Tier 6 Pets
+Anglerfish,7,4,1,Buy → Choose one free pet from your last opponent to stock.,['Puppy Pack'],Tier 6 Pets
+Anglerfish,7,4,2,Buy → Choose one free pet from your last opponent to stock twice.,['Puppy Pack'],Tier 6 Pets
+Anglerfish,7,4,2,Buy → Choose one free pet from your last opponent to stock twice.,['Puppy Pack'],Tier 6 Pets
+Elephant Seal,3,9,1,Gain perk → Give friends +1  attack and +1  health. Double in battle.,['Puppy Pack'],Tier 6 Pets
+Elephant Seal,3,9,2,Gain perk → Give friends +2  attack and +2  health. Double in battle.,['Puppy Pack'],Tier 6 Pets
+Elephant Seal,3,9,2,Gain perk → Give friends +2  attack and +2  health. Double in battle.,['Puppy Pack'],Tier 6 Pets
+Lionfish,8,4,1,Faint → Deal 3  damage to one random enemy. Repeat for each 10  attack this has.,"['Puppy Pack', 'Weekly Pack']",Tier 6 Pets
+Lionfish,8,4,2,Faint → Deal 6  damage to one random enemy. Repeat for each 10  attack this has.,"['Puppy Pack', 'Weekly Pack']",Tier 6 Pets
+Lionfish,8,4,2,Faint → Deal 6  damage to one random enemy. Repeat for each 10  attack this has.,"['Puppy Pack', 'Weekly Pack']",Tier 6 Pets
+Mantis Shrimp,9,3,1,Start of battle → Deal 10  damage to the first enemy.,['Puppy Pack'],Tier 6 Pets
+Mantis Shrimp,9,3,2,Start of battle → Deal 10  damage to the first enemy. Triggers 2 times.,['Puppy Pack'],Tier 6 Pets
+Mantis Shrimp,9,3,2,Start of battle → Deal 10  damage to the first enemy. Triggers 2 times.,['Puppy Pack'],Tier 6 Pets
+Mongoose,4,3,1,Buy → Choose one level 1 toy from tier 6.,['Puppy Pack'],Tier 6 Pets
+Mongoose,4,3,2,Buy → Choose one level 2 toy from tier 6.,['Puppy Pack'],Tier 6 Pets
+Mongoose,4,3,2,Buy → Choose one level 2 toy from tier 6.,['Puppy Pack'],Tier 6 Pets
+Octopus,8,8,1,After attack → Deal 6  damage to one random enemy.,['Puppy Pack'],Tier 6 Pets
+Octopus,8,8,2,After attack → Deal 6  damage to two random enemies.,['Puppy Pack'],Tier 6 Pets
+Octopus,8,8,2,After attack → Deal 6  damage to two random enemies.,['Puppy Pack'],Tier 6 Pets
+Puma,6,5,1,Friendly toy repeats its ability as level 1.,['Puppy Pack'],Tier 6 Pets
+Puma,6,5,2,Friendly toy repeats its ability as level 2.,['Puppy Pack'],Tier 6 Pets
+Puma,6,5,2,Friendly toy repeats its ability as level 2.,['Puppy Pack'],Tier 6 Pets
+Sauropod,4,12,1,Shop food bought → Gain +1  gold. Works 3 times per turn.,['Puppy Pack'],Tier 6 Pets
+Sauropod,4,12,2,Shop food bought → Gain +2  gold. Works 3 times per turn.,['Puppy Pack'],Tier 6 Pets
+Sauropod,4,12,2,Shop food bought → Gain +2  gold. Works 3 times per turn.,['Puppy Pack'],Tier 6 Pets
+Tyrannosaurus,6,4,1,End turn → Give two tier 5 friends or higher +2  attack and +2  health.,['Puppy Pack'],Tier 6 Pets
+Tyrannosaurus,6,4,2,End turn → Give two tier 5 friends or higher +4  attack and +4  health.,['Puppy Pack'],Tier 6 Pets
+Tyrannosaurus,6,4,2,End turn → Give two tier 5 friends or higher +4  attack and +4  health.,['Puppy Pack'],Tier 6 Pets
+Albatross,5,4,1,Adjacent tier 4 or lower friends deal 3 ability damage extra.,['Weekly Pack'],Tier 6 Pets
+Albatross,5,4,2,Adjacent tier 4 or lower friends deal 6 ability damage extra.,['Weekly Pack'],Tier 6 Pets
+Albatross,5,4,2,Adjacent tier 4 or lower friends deal 6 ability damage extra.,['Weekly Pack'],Tier 6 Pets
+Harpy Eagle,6,6,1,Hurt → Summon one random tier 1 pet as a 5/5. Works 3 times per turn.,['Star Pack'],Tier 6 Pets
+Harpy Eagle,6,6,2,Hurt → Summon one random tier 1 pet as a 10/10. Works 3 times per turn.,['Star Pack'],Tier 6 Pets
+Harpy Eagle,6,6,2,Hurt → Summon one random tier 1 pet as a 10/10. Works 3 times per turn.,['Star Pack'],Tier 6 Pets
+Lioness,4,5,1,End turn → Give current and future shop pets +2  attack and +2  health.,['Weekly Pack'],Tier 6 Pets
+Lioness,4,5,2,End turn → Give current and future shop pets +4  attack and +4  health.,['Weekly Pack'],Tier 6 Pets
+Lioness,4,5,2,End turn → Give current and future shop pets +4  attack and +4  health.,['Weekly Pack'],Tier 6 Pets
+Tapir,4,3,1,Faint → Summon one level 1 copy of a random friendly pet. Except other Tapirs!,['Weekly Pack'],Tier 6 Pets
+Tapir,4,3,2,Faint → Summon one level 2 copy of a random friendly pet. Except other Tapirs!,['Weekly Pack'],Tier 6 Pets
+Tapir,4,3,2,Faint → Summon one level 2 copy of a random friendly pet. Except other Tapirs!,['Weekly Pack'],Tier 6 Pets
+Walrus,7,5,1,Faint → Give one random friend  Peanuts.,['Weekly Pack'],Tier 6 Pets
+Walrus,7,5,2,Faint → Give two random friends  Peanuts.,['Weekly Pack'],Tier 6 Pets
+Walrus,7,5,2,Faint → Give two random friends  Peanuts.,['Weekly Pack'],Tier 6 Pets
+White Tiger,4,3,1,Start of battle → Make the nearest friend behind +3  experience.,['Weekly Pack'],Tier 6 Pets
+White Tiger,4,3,2,Start of battle → Make the nearest two friends behind +3  experience.,['Weekly Pack'],Tier 6 Pets
+White Tiger,4,3,2,Start of battle → Make the nearest two friends behind +3  experience.,['Weekly Pack'],Tier 6 Pets
