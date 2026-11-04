@@ -6,7 +6,6 @@ from sap import config
 from sap.battle import Outcome, fight
 from sap.errors import ActionError
 from sap.game import Game, Stage
-from sap.items import ITEM_POOL
 from sap.pets import Pet, make_pet
 from sap.store import Store
 from sap.team import Team
@@ -43,8 +42,8 @@ def test_new_visit_resets_credits():
     store.credits = 2
     store.new_visit()
     assert store.credits == config.CREDITS_PER_TURN
-    assert len(store.pet_slots) == config.STORE_PET_SLOTS
-    assert len(store.item_slots) == config.STORE_ITEM_SLOTS
+    assert len(store.pet_slots) == store.pet_slot_count == 3
+    assert len(store.item_slots) == store.item_slot_count == 1
 
 
 def test_buy_pet_costs_credits_and_empties_slot():
@@ -71,13 +70,22 @@ def test_cannot_buy_without_credits_or_space():
     assert store.credits == 100
 
 
-def test_item_replaces_old_item():
-    store, team = new_store(), Team("T", [make_pet("Dog")])
-    store.item_slots = [ITEM_POOL["Apple"], ITEM_POOL["Bone"]]
-    assert store.buy_item(0, team, 0) is None
-    assert (team[0].attack, team[0].health) == (4, 4)
-    assert store.buy_item(1, team, 0) == ITEM_POOL["Apple"]
-    assert (team[0].attack, team[0].health) == (6, 3)  # Apple bonus gone, Bone applied
+def test_new_perk_replaces_old_perk():
+    store, team = new_store(), Team("T", [Pet("Dog", 3, 3)])
+    store.stock("Honey", 3)
+    store.stock("Garlic", 3)
+    honey, garlic = len(store.item_slots) - 2, len(store.item_slots) - 1
+    assert store.buy_item(honey, team, 0) is None
+    assert team[0].perk.name == "Honey"
+    assert store.buy_item(garlic, team, 0).name == "Honey"
+    assert team[0].perk.name == "Garlic"
+
+
+def test_eaten_item_gives_permanent_stats():
+    store, team = new_store(), Team("T", [Pet("Dog", 3, 3)])
+    store.stock("Apple", 3)
+    store.buy_item(len(store.item_slots) - 1, team, 0)
+    assert (team[0].attack, team[0].health, team[0].perk) == (4, 4, None)
 
 
 def test_buy_item_needs_valid_pet():
@@ -99,13 +107,13 @@ def test_sell():
     store, team = new_store(), Team("T", [make_pet("Dog"), make_pet("Cat")])
     sold = store.sell(team, 0)
     assert sold.name == "Dog" and [p.name for p in team] == ["Cat"]
-    assert store.credits == config.CREDITS_PER_TURN + config.SELL_PRICE
+    assert store.credits == config.CREDITS_PER_TURN + config.SELL_PRICE_PER_LEVEL
 
 
 # --- battle -------------------------------------------------------------
 def test_simultaneous_strikes_can_draw():
     # 3/3 vs 3/3: both faint in the same exchange
-    result = fight(Team("A", [make_pet("Dog")]), Team("B", [make_pet("Dog")]))
+    result = fight(Team("A", [Pet("Dog", 3, 3)]), Team("B", [Pet("Dog", 3, 3)]))
     assert result.outcome is Outcome.DRAW
     assert result.turns == 1
 
@@ -119,14 +127,14 @@ def test_next_pet_steps_up_and_damage_is_deterministic():
 
 
 def test_fight_does_not_mutate_teams():
-    a = Team("A", [make_pet("Snake")])
-    b = Team("B", [make_pet("Duck")])
+    a = Team("A", [Pet("Glass", 5, 1)])
+    b = Team("B", [Pet("Wall", 1, 5)])
     fight(a, b)
     assert a[0].health == 1 and b[0].health == 5
 
 
 def test_loss():
-    result = fight(Team("A", [make_pet("Fish")]), Team("B", [make_pet("Fox")]))
+    result = fight(Team("A", [Pet("Weak", 2, 3)]), Team("B", [Pet("Strong", 3, 4)]))
     assert result.outcome is Outcome.LOSS
 
 

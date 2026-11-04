@@ -1,0 +1,4 @@
+# The game engine itself has no dependencies; these are for the RL environment and tests.
+gymnasium>=1.0
+numpy>=1.26
+pytest>=8

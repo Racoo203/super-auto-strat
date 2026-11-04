@@ -4,7 +4,8 @@ from enum import Enum
 from sap import config
 from sap.battle import BattleResult, Outcome, fight
 from sap.errors import ActionError
-from sap.items import Item
+from sap.events import Event, Trigger
+from sap.perks import Perk
 from sap.pets import Pet, random_pet
 from sap.store import Store
 from sap.team import Team
@@ -41,8 +42,18 @@ class Game:
 
     def _begin_round(self) -> None:
         self.round += 1
+        self.store.round = self.round
+        self.store.max_tier = self.max_tier
         self.store.new_visit()
         self.stage = Stage.STORE
+        for pet in self.team:
+            pet.reset_uses()  # "N times per turn" limits start fresh
+        self.store.trigger(self.team, Event(Trigger.START_TURN))
+
+    @property
+    def max_tier(self) -> int:
+        """Highest pet/item tier unlocked this round (a new tier every TIER_UNLOCK_ROUNDS rounds)."""
+        return config.max_tier_for_round(self.round)
 
     def _require_store(self) -> None:
         if self.stage is not Stage.STORE:
@@ -57,13 +68,30 @@ class Game:
         return self.wins >= config.WIN_TARGET
 
     # --- store actions ---------------------------------------------------
-    def buy_pet(self, slot: int) -> Pet:
+    def buy_pet(self, slot: int, target: int | None = None) -> Pet:
+        """Buy into a free slot, or stack onto the same pet at team position `target`."""
         self._require_store()
-        return self.store.buy_pet(slot, self.team)
+        return self.store.buy_pet(slot, self.team, target)
 
-    def buy_item(self, slot: int, pet_idx: int) -> Item | None:
+    def combine(self, src: int, dst: int) -> Pet:
+        """Stack the pet at `src` onto the same pet at `dst`. Cannot be undone."""
+        self._require_store()
+        return self.store.combine(self.team, src, dst)
+
+    def buy_item(self, slot: int, pet_idx: int | None = None) -> Perk | None:
+        """Buy an item; targeted items go to the pet at `pet_idx`. Returns any perk it replaced."""
         self._require_store()
         return self.store.buy_item(slot, self.team, pet_idx)
+
+    def freeze_pet(self, slot: int) -> bool:
+        """Toggle freezing a shop pet slot (kept through rerolls and into the next round)."""
+        self._require_store()
+        return self.store.freeze_pet(slot)
+
+    def freeze_item(self, slot: int) -> bool:
+        """Toggle freezing a shop item slot."""
+        self._require_store()
+        return self.store.freeze_item(slot)
 
     def reroll(self) -> None:
         self._require_store()
@@ -84,17 +112,22 @@ class Game:
     # --- fight -----------------------------------------------------------
     def make_opponent(self) -> Team:
         size = max(1, len(self.team))
-        return Team("Opponent", [random_pet(self.rng) for _ in range(size)])
+        return Team("Opponent", [random_pet(self.rng, self.max_tier) for _ in range(size)])
 
     def end_turn(self, opponent: Team | None = None) -> BattleResult:
         """Leave the store and fight, apply the result, then start the next round or end the game."""
         self._require_store()
         opponent = opponent or self.make_opponent()
+        self.store.trigger(self.team, Event(Trigger.END_TURN))
 
         if not self.team:
             result = BattleResult(Outcome.LOSS, 0, ["Your team has no pets: automatic loss."])
         else:
-            result = fight(self.team, opponent)
+            result = fight(self.team, opponent, rng=self.rng)
+
+        for pet in self.team:
+            pet.end_battle()  # "until end of battle" buffs and Parrot copies wear off
+        self.store.lost_last_battle = result.outcome is Outcome.LOSS
 
         if result.outcome is Outcome.WIN:
             self.wins += 1

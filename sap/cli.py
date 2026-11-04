@@ -8,7 +8,7 @@ MENU = (
     "Actions:\n"
     f"  [1] Buy pet   [2] Buy item   [3] Reroll ({config.REROLL_COST}c)\n"
     "  [4] Sell pet  [5] Swap pets  [6] Move pet\n"
-    "  [7] FIGHT!    [0] Quit"
+    "  [7] Combine   [8] Freeze    [9] FIGHT!  [0] Quit"
 )
 
 
@@ -44,17 +44,28 @@ def do_action(game: Game, choice: str) -> str | None:
         slot = ask_index("Pet slot", len(store.pet_slots))
         if slot is None:
             return None
-        return f"Bought {game.buy_pet(slot)}."
+        shop_pet = store.pet_slots[slot]
+        target = None
+        if shop_pet and any(p.name == shop_pet.name for p in team):
+            raw = input(f"Stack onto a {shop_pet.name} at position (Enter for a new slot): ").strip()
+            if raw.isdigit():
+                target = int(raw) - 1
+        return f"Bought {game.buy_pet(slot, target)}."
     if choice == "2":
         slot = ask_index("Item slot", len(store.item_slots))
-        if slot is None or not team:
-            return None if slot is None else "You have no pets to give items to."
-        pet_idx = ask_index("Give to pet at position", len(team))
-        if pet_idx is None:
+        if slot is None:
             return None
+        shop_item = store.item_slots[slot]
+        pet_idx = None
+        if shop_item and shop_item.item.targeted:
+            if not team:
+                return "You have no pets to give items to."
+            pet_idx = ask_index("Give to pet at position", len(team))
+            if pet_idx is None:
+                return None
+        name = shop_item.item.name if shop_item else "item"
         replaced = game.buy_item(slot, pet_idx)
-        msg = f"{team[pet_idx].name} now holds {team[pet_idx].item.name}."
-        return msg + (f" ({replaced.name} was replaced.)" if replaced else "")
+        return f"Used {name}." + (f" ({replaced.name} was replaced.)" if replaced else "")
     if choice == "3":
         game.reroll()
         return "Store rerolled."
@@ -62,7 +73,28 @@ def do_action(game: Game, choice: str) -> str | None:
         if not team:
             return "You have no pets to sell."
         idx = ask_index("Sell pet at position", len(team))
-        return None if idx is None else f"Sold {game.sell(idx).name} for {config.SELL_PRICE}c."
+        if idx is None:
+            return None
+        value = store.sell_value(team[idx])
+        return f"Sold {game.sell(idx).name} for {value}c."
+    if choice == "7":
+        if len(team) < 2:
+            return "You need at least two pets to combine."
+        src = ask_index("Stack pet at position", len(team))
+        dst = None if src is None else ask_index("Onto the same pet at position", len(team))
+        if dst is None:
+            return None
+        return f"Combined into {game.combine(src, dst)}."
+    if choice == "8":
+        kind = input("Freeze a (p)et or an (i)tem slot? ").strip().lower()[:1]
+        if kind not in ("p", "i"):
+            return None
+        slots = store.pet_slots if kind == "p" else store.item_slots
+        slot = ask_index("Slot to freeze/unfreeze", len(slots))
+        if slot is None:
+            return None
+        frozen = (game.freeze_pet if kind == "p" else game.freeze_item)(slot)
+        return f"Slot {slot + 1} {'frozen' if frozen else 'unfrozen'}."
     if choice in ("5", "6"):
         if len(team) < 2:
             return "You need at least two pets to reorder."
@@ -80,16 +112,19 @@ def store_phase(game: Game) -> bool:
     while True:
         render(game)
         choice = input("> ").strip()
-        if choice == "7":
+        if choice == "9":
             return True
         if choice == "0":
             return False
+        game.store.log = []
         try:
             msg = do_action(game, choice)
         except ActionError as err:
             msg = f"Can't do that: {err}"
         if msg:
             print(f"\n>> {msg}")
+        if game.store.log:
+            print("\n".join(game.store.log))
 
 
 def main(seed: int | None = None) -> None:
