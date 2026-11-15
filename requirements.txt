@@ -2,3 +2,4 @@
 gymnasium>=1.0
 numpy>=1.26
 pytest>=8
+torch>=2.5  # agents/ppo (install the CUDA build on a GPU machine)

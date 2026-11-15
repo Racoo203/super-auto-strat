@@ -84,12 +84,19 @@ sap/
   events.py        # Trigger, Event, ability registry, Context + dispatcher
   abilities.py     # every pet (and perk) ability
   data/pets.csv    # scraped pet table (all packs)
-  env.py           # gymnasium environment (optional: needs gymnasium + numpy)
+  env/             # gymnasium environment (optional: needs gymnasium + numpy)
+    actions.py     #   Discrete action table, labels, apply_action(game, a)
+    masking.py     #   is_legal / action_mask (mirror of the store rules) + undo masking
+    observation.py #   Game -> float32 vector, observation_layout()
+    sap_env.py     #   SapEnv: wires the gym API; __init__.py registers SuperAutoStrat-v0
   team.py          # Team: fixed-size roster, add/remove/swap/move, alive pets
   store.py         # Store: display, credits, buy/sell/reroll (no input())
   battle.py        # simultaneous-strike battle on copied teams -> result + log
   game.py          # Game: state (lives, wins, stage) + action API, no I/O
   cli.py           # text interface: render state, read choices, call Game
+agents/
+  ppo/             # PPO: config, network, envs (parallel actors), rollout, buffer,
+                   # advantages (GAE), losses, tracking; one concept per module
 main.py            # entry point: `python main.py`
 tests/             # pytest tests for store, team, battle, game flow
 ```
@@ -186,7 +193,7 @@ Shop items are Super Auto Pets food (`sap/items.py`). Values from the Super Auto
 
 ---
 
-## 8. Gymnasium environment (`sap/env.py`)
+## 8. Gymnasium environment (`sap/env/`)
 
 `import sap.env` registers **`SuperAutoStrat-v0`**. The agent plays the shop; battles resolve
 automatically when it ends the turn.

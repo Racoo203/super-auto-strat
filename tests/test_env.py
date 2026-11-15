@@ -7,7 +7,7 @@ gym = pytest.importorskip("gymnasium")
 
 from gymnasium.utils.env_checker import check_env  # noqa: E402
 
-from sap.env import ACTIONS, ENV_ID, OBS_SIZE, SapEnv  # noqa: E402
+from sap.env import ACTIONS, ENV_ID, OBS_SIZE, SapEnv, apply_action, undoes_last  # noqa: E402
 from sap.errors import ActionError  # noqa: E402
 
 
@@ -47,11 +47,11 @@ def test_end_turn_gives_battle_reward():
 def test_round_ends_after_max_shop_actions():
     env = SapEnv(max_shop_actions=3)
     env.reset(seed=0)
-    freeze = ACTIONS.index(("freeze_pet", 0, None))
-    for _ in range(2):
-        *_, info = env.step(freeze)
+    freezes = [ACTIONS.index(("freeze_pet", s, None)) for s in (0, 1, 0)]  # alternate: no undo
+    for a in freezes[:2]:
+        *_, info = env.step(a)
         assert "forced_end_turn" not in info
-    *_, info = env.step(freeze)
+    *_, info = env.step(freezes[2])
     assert info["forced_end_turn"] and info["round"] == 2
 
 
@@ -68,7 +68,7 @@ def test_mask_matches_the_real_rules(seed):
                 continue
             probe = copy.deepcopy(env)
             try:
-                probe._apply(a)
+                apply_action(probe.game, a)
                 ok = True
             except ActionError:
                 ok = False
@@ -78,6 +78,7 @@ def test_mask_matches_the_real_rules(seed):
             if ok and kind == "buy_item" and target != 0:
                 # untargeted items (Salad Bowl...) are only offered once, as target 0
                 ok = env.game.store.item_slots[slot].item.targeted
+            ok = ok and not undoes_last(a, env.last_action)  # undo moves are masked on purpose
             assert ok == mask[a], (SapEnv.describe_action(a), ok, mask[a])
         _, _, term, trunc, info = env.step(int(rng.choice(np.flatnonzero(mask))))
         if term or trunc:
@@ -101,3 +102,34 @@ def test_render_shows_state():
     env.reset(seed=0)
     text = env.render()
     assert "Store" in text and "Agent" in text
+
+
+def test_undo_moves_and_double_freezes_are_masked():
+    env = SapEnv()
+    env.reset(seed=0)
+    env.game.store.credits = 10
+    for slot in range(2):  # a bought shop slot stays empty, so buy slots 0 and 1
+        env.step(ACTIONS.index(("buy_pet", slot, None)))
+    move_01, move_10 = ACTIONS.index(("move", 0, 1)), ACTIONS.index(("move", 1, 0))
+    *_, info = env.step(move_01)
+    # neighbours: 0->1 is a swap, so both 1->0 and a repeated 0->1 undo it
+    assert not info["action_mask"][move_10] and not info["action_mask"][move_01]
+
+    freeze0, freeze1 = ACTIONS.index(("freeze_pet", 2, None)), ACTIONS.index(("freeze_item", 0, None))
+    *_, info = env.step(freeze0)
+    assert not info["action_mask"][freeze0] and info["action_mask"][freeze1]
+    assert info["action_mask"][move_10]  # the move is no longer the last action
+
+    *_, info = env.step(ACTIONS.index(("end_turn", None, None)))
+    assert env.last_action is None  # a new round forgets the last action
+
+
+def test_non_adjacent_move_only_masks_its_reverse():
+    env = SapEnv()
+    env.reset(seed=0)
+    env.game.store.credits = 10
+    for slot in range(3):
+        env.step(ACTIONS.index(("buy_pet", slot, None)))
+    *_, info = env.step(ACTIONS.index(("move", 0, 2)))
+    assert not info["action_mask"][ACTIONS.index(("move", 2, 0))]
+    assert info["action_mask"][ACTIONS.index(("move", 0, 2))]  # [b,c,a] -> [c,a,b]: a new order
