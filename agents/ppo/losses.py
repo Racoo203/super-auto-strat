@@ -47,12 +47,10 @@ def ppo_clip_loss(
 
 def value_loss(values: torch.Tensor, returns: torch.Tensor) -> torch.Tensor:
     """L^VF = mean((V_theta(s_t) - V_t^targ)^2), with V_t^targ = the GAE returns (A_t + V_old(s_t))."""
-    raise NotImplementedError("your turn")
-
+    return ((values - returns)**2).mean()
 
 def entropy_bonus(entropy: torch.Tensor) -> torch.Tensor:
     """S = mean entropy of the policy over the minibatch (pass in `dist.entropy()`)."""
-    raise NotImplementedError("your turn")
-
+    return entropy.mean()
 
 # Total to minimise: ppo_clip_loss(...) + c1 * value_loss(...) - c2 * entropy_bonus(...)

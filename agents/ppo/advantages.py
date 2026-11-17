@@ -1,6 +1,7 @@
 """Generalized Advantage Estimation, as a pure function of the rollout tensors."""
 
 import torch
+import numpy as np
 
 
 def compute_gae(
@@ -29,4 +30,16 @@ def compute_gae(
 
     tests/test_ppo.py::test_compute_gae checks a hand-computed case once you implement this.
     """
-    raise NotImplementedError("your turn: implement GAE here")
+    T, N = rewards.shape
+    advantages = torch.zeros_like(rewards)
+    rewards 
+    A_t = 0
+    for t in reversed(range(T)):
+        next_value = last_value if t == T - 1 else values[t + 1]
+        nonterminal = 1 - dones[t]
+        delta_t = rewards[t] + gamma * nonterminal * next_value - values[t]
+        A_t = delta_t + gae_lambda * gamma * nonterminal * A_t
+        advantages[t] = A_t
+    
+    new_returns = values + advantages
+    return advantages, new_returns
