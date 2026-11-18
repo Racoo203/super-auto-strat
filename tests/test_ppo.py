@@ -80,8 +80,21 @@ def test_episode_tracker_reports_finished_episodes():
     tr = EpisodeTracker(2)
     tr.update(np.array([1.0, 0.5]), np.array([False, True]))
     tr.update(np.array([1.0, 0.0]), np.array([True, False]))
-    assert tr.pop() == [(0.5, 1), (2.0, 2)]
+    assert [(e.ret, e.length) for e in tr.pop()] == [(0.5, 1), (2.0, 2)]
     assert tr.pop() == []
+
+
+def test_episode_tracker_reads_game_result_from_final_info():
+    import numpy as np
+
+    tr = EpisodeTracker(2)
+    final = {
+        "won": np.array([False, True]), "wins": np.array([0, 10]), "losses": np.array([0, 3]),
+        "lives": np.array([0, 2]), "round": np.array([0, 14]), "_wins": np.array([False, True]),
+    }
+    tr.update(np.array([0.0, 1.0]), np.array([False, True]), {"final_info": final})
+    (ep,) = tr.pop()
+    assert ep.won and ep.wins == 10 and ep.losses == 3 and ep.lives == 2 and ep.rounds == 14
 
 
 def test_collect_rollout_fills_buffer_from_parallel_envs():

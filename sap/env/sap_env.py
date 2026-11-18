@@ -19,7 +19,6 @@ from typing import Callable
 import gymnasium as gym
 from gymnasium import spaces
 
-from sap import config
 from sap.battle import Outcome
 from sap.errors import ActionError
 from sap.game import Game
@@ -28,10 +27,11 @@ from sap.team import Team
 from .actions import ACTIONS, apply_action, describe_action
 from .masking import action_mask, is_legal
 from .observation import OBS_HIGH, OBS_SIZE, encode_observation
+from .render import render_frame
 
 
 class SapEnv(gym.Env):
-    metadata = {"render_modes": ["ansi", "human"]}
+    metadata = {"render_modes": ["ansi", "human"], "render_fps": 4}
     describe_action = staticmethod(describe_action)
 
     def __init__(
@@ -58,6 +58,7 @@ class SapEnv(gym.Env):
         self.game: Game | None = None
         self.shop_actions = 0
         self.last_action: int | None = None  # last applied shop action this round (undo masking)
+        self.last_step: dict = {}  # what the last step did, for render(): action, reward, battle
 
     # --- gym API -------------------------------------------------------------
     def reset(self, *, seed: int | None = None, options: dict | None = None):
@@ -66,6 +67,7 @@ class SapEnv(gym.Env):
         self.game.start("Agent")
         self.shop_actions = 0
         self.last_action = None
+        self.last_step = {}
         return self._obs(), self._info()
 
     def step(self, action: int):
@@ -97,17 +99,22 @@ class SapEnv(gym.Env):
         terminated = self.game.is_over
         truncated = not terminated and self.game.round > self.max_rounds
         info.update(self._info())
+        self.last_step = {
+            "last_action": action, "last_reward": reward,
+            "invalid": bool(info.get("invalid_action")), "battle": info.get("battle_record"),
+        }
         if self.render_mode == "human":
             print(self.render())
         return self._obs(), reward, terminated, truncated, info
 
-    def render(self) -> str | None:
-        g = self.game
-        if g is None:
+    def render(self, policy: str | None = None) -> str | None:
+        """Text frame of the current state (see render.py). `policy` adds an overlay of the agent's
+        action probabilities (agents/ppo/watch.py passes one)."""
+        if self.game is None:
             return None
-        return (
-            f"Round {g.round} | Lives {g.lives} | Wins {g.wins}/{config.WIN_TARGET} | "
-            f"Losses {g.losses} | Draws {g.draws}\n{g.store}\n{g.team}"
+        return render_frame(
+            self.game, shop_actions=self.shop_actions, max_shop_actions=self.max_shop_actions,
+            policy=policy, **self.last_step,
         )
 
     def action_masks(self):
@@ -116,19 +123,22 @@ class SapEnv(gym.Env):
 
     # --- helpers ---------------------------------------------------------------
     def _end_turn(self, info: dict) -> float:
-        opponent = self.opponent_fn(self.game) if self.opponent_fn else None
+        opponent = self.opponent_fn(self.game) if self.opponent_fn else self.game.make_opponent()
+        opponent_str = str(opponent)
         result = self.game.end_turn(opponent)
         self.shop_actions = 0
         self.last_action = None  # new round: nothing to undo
         info["battle"] = result.outcome.value
         info["battle_log"] = result.log
+        info["battle_record"] = {"outcome": result.outcome.value, "opponent": opponent_str, "log": result.log}
         return self.rewards[result.outcome]
 
     def _info(self) -> dict:
         g = self.game
         return {
             "action_mask": self.action_masks(),
-            "round": g.round, "lives": g.lives, "wins": g.wins, "credits": g.store.credits,
+            "round": g.round, "lives": g.lives, "wins": g.wins, "losses": g.losses,
+            "draws": g.draws, "credits": g.store.credits, "won": g.won,
         }
 
     def _obs(self):

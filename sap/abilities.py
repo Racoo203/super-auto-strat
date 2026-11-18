@@ -12,7 +12,7 @@ Sloth is the only pet with no ability.
 
 from sap.events import Context, Event, Trigger, ability, has_ability, perk_ability
 from sap.perks import PERKS
-from sap.pets import Pet, make_pet, pets_of_tier, xp_for
+from sap.pets import PET_POOL, Pet, make_pet, pets_of_tier, xp_for
 
 
 def token(name: str, attack: int, health: int, level: int = 1, perk: str | None = None) -> Pet:
@@ -326,6 +326,7 @@ def whale_swallow(ctx, pet, ev, lv):
     for friend in ctx.ahead(pet, 1):
         ctx.team_of(pet).pets.remove(friend)  # leaves the team without fainting
         pet.state["swallowed"] = friend.name
+        pet.state["swallowed_stats"] = (friend.base_attack, friend.base_health)  # for tokens
         ctx.say(f"{pet.name} swallows {friend.name}")
 
 
@@ -333,8 +334,11 @@ def whale_swallow(ctx, pet, ev, lv):
 def whale_release(ctx, pet, ev, lv):
     """...and release it at level L when the Whale faints."""
     name = pet.state.pop("swallowed", None)
+    stats = pet.state.pop("swallowed_stats", (1, 1))
     if name:
-        ctx.summon(ev.team, make_pet(name, level=lv), ev.index, source=pet)
+        # Tokens (Bee, Ram, Zombie Cricket...) aren't in the pet pool: rebuild them from their stats.
+        released = make_pet(name, level=lv) if name in PET_POOL else token(name, *stats, level=lv)
+        ctx.summon(ev.team, released, ev.index, source=pet)
 
 
 # =============================================================================

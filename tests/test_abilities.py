@@ -463,3 +463,10 @@ def test_wolverine_triggers_every_four_friend_hurts():
     team = [dummy(a=0), dummy(a=0), dummy(a=0), dummy(a=0), P("Wolverine", 5, 4)]
     r = battle([P("Hedgehog", 0, 1)] + team[:3] + [team[4]], [dummy(a=5, h=50)], turns=1)
     assert "Wolverine removes 2 health" in logtext(r)
+
+
+def test_whale_can_swallow_and_release_a_token():
+    """Regression: a swallowed Bee (not in PET_POOL) used to crash with KeyError on release."""
+    result = battle([P("Bee", 1, 1), P("Whale", 1, 1)], [dummy(a=5)])
+    assert "Whale swallows Bee" in logtext(result)
+    assert "Whale summons Bee" in logtext(result)

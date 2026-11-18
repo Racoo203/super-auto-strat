@@ -60,3 +60,30 @@ while not done:
 
 With sb3-contrib, `MaskablePPO("MlpPolicy", env)` picks up `env.action_masks()` automatically.
 See Context.md §8 for the action, observation and reward layout.
+
+## Training and monitoring (PPO)
+
+`agents/ppo/` is a from-scratch PPO; [PPO.ipynb](PPO.ipynb) walks through it.
+
+```python
+from agents.ppo import PPOConfig, train
+result = train(PPOConfig(n_updates=300), "baseline")   # tracked run -> runs/baseline/
+```
+
+Run `python -m agents.ppo.tune --trials 20` from a script rather than a notebook (async envs need the
+`__main__` guard on Windows).
+
+| Question | Tool |
+|---|---|
+| How is it training? (live) | `tensorboard --logdir runs`: win rate, wins, return, entropy, KL, clip fraction |
+| How did it play? | `python -m agents.ppo.replay runs/baseline` summarises the latest evaluation games; add `-e 0 --play [--battles-only]` to step through one |
+| How is it playing? (live) | `python -m agents.ppo.watch runs/baseline --delay 0.5` plays a fresh game, showing the board, the last battle and the policy's top actions with V(s) |
+| How do runs compare? | `optuna-dashboard sqlite:///runs/optuna.db`, or `load_runs()` (a DataFrame) in a notebook |
+| Hyperparameter search | `python -m agents.ppo.tune --trials 20 --updates 200` (study `ppo-tune`, median pruning) |
+
+Each run writes `runs/<run>/{metrics.jsonl, config.json, tb/, replays/, checkpoints/{latest,best,update_XXXX}.pt}`
+and is one trial in `runs/optuna.db`. The objective is the best eval win rate, and crashed runs are kept and marked FAIL.
+Evaluation games use fixed seeds, so evaluations of the same run are comparable over time.
+
+The environment renders itself as text: `gym.make("SuperAutoStrat-v0", render_mode="ansi")` and `env.render()`
+(or `render_mode="human"` to print every step).

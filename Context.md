@@ -97,6 +97,7 @@ sap/
 agents/
   ppo/             # PPO: config, network, envs (parallel actors), rollout, buffer,
                    # advantages (GAE), losses, tracking; one concept per module
+                   # + train, experiments (Optuna/TensorBoard), evaluate, replay, watch, tune
 main.py            # entry point: `python main.py`
 tests/             # pytest tests for store, team, battle, game flow
 ```
@@ -211,5 +212,9 @@ automatically when it ends the turn.
   automatically after `max_shop_actions` (50) shop actions, so an agent can't stall.
 - **Opponent**: random team of the round's tiers by default; pass `opponent_fn(game) -> Team` for
   self-play or scripted opponents.
+- **Rendering**: `render_mode="ansi"` makes `render()` return a text frame (`sap/env/render.py`):
+  status line, last action and reward, the last battle (opponent team and log) when a turn just
+  ended, the store and the team. `"human"` prints it every step. `render(policy=...)` adds an overlay
+  of the agent's top actions (used by `agents/ppo/watch.py`).
 - Tests check the mask against the real rules: every allowed action succeeds and every forbidden
   one is refused.

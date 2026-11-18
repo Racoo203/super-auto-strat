@@ -6,6 +6,9 @@ __pycache__/
 .venv/
 venv/
 
+# Training runs (checkpoints, replays, TensorBoard, optuna.db)
+runs/
+
 # Jupyter
 .ipynb_checkpoints/
 

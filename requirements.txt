@@ -3,3 +3,9 @@ gymnasium>=1.0
 numpy>=1.26
 pytest>=8
 torch>=2.5  # agents/ppo (install the CUDA build on a GPU machine)
+# run tracking and visualisation for agents/ppo
+optuna>=4.0
+optuna-dashboard>=0.17
+tensorboard>=2.17
+pandas>=2.0
+matplotlib>=3.8

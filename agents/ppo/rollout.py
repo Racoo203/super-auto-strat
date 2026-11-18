@@ -29,7 +29,7 @@ def collect_rollout(
         buffer.add(obs_t, mask_t, action, log_prob, value, to_t(reward), to_t(done))
         mask = info["action_mask"]
         if tracker is not None:
-            tracker.update(reward, done)
+            tracker.update(reward, done, info)
 
     with torch.no_grad():
         _, last_value = model(to_t(obs))

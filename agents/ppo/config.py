@@ -1,6 +1,6 @@
 """Hyperparameters and device selection, in one place so the notebook and a script share them."""
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 
 import torch
 
@@ -29,9 +29,30 @@ class PPOConfig:
 
     n_updates: int = 1000
 
+    # --- network ---
+    hidden: tuple[int, ...] = (2048, 1024, 512)  # trunk layer sizes of ActorCritic
+
+    # --- tracking / evaluation (agents/ppo/train.py) ---
+    seed: int = 0
+    eval_every: int = 25        # updates between evaluations (0 = never); also saves replays
+    eval_episodes: int = 20     # games per evaluation
+    eval_greedy: bool = False   # evaluate with argmax actions instead of sampling
+    checkpoint_every: int = 50  # updates between numbered checkpoints (latest.pt: each eval + at the end)
+    runs_dir: str = "runs"      # runs/<run name>/{checkpoints,replays,tb,metrics.jsonl}
+
     @property
     def batch_size(self) -> int:
         return self.n_envs * self.n_steps
+
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, d: dict) -> "PPOConfig":
+        known = {k: v for k, v in d.items() if k in cls.__dataclass_fields__}
+        if "hidden" in known:
+            known["hidden"] = tuple(known["hidden"])
+        return cls(**known)
 
 
 def get_device() -> torch.device:
