@@ -3,8 +3,8 @@ import pytest
 torch = pytest.importorskip("torch")
 
 from agents.ppo import (  # noqa: E402
-    ActorCritic, EpisodeTracker, RolloutBuffer, collect_rollout, compute_gae, make_vec_env,
-    ppo_clip_loss,
+    ActorCritic, EpisodeTracker, PPOConfig, RolloutBuffer, collect_rollout, compute_gae,
+    make_vec_env, ppo_clip_loss, ppo_update,
 )
 
 N_STATES, N_ACTIONS = 8, 5
@@ -162,3 +162,43 @@ def test_minibatches_can_be_restricted_to_some_envs():
     buf.actions = torch.arange(12).reshape(4, 3)  # column j holds j, j+3, j+6, j+9
     seen = torch.cat([mb["actions"] for mb in buf.minibatches(3, envs=[0, 2])])
     assert sorted(seen.tolist()) == [0, 2, 3, 5, 6, 8, 9, 11]
+
+
+# --- ppo_update: divergence guard ---------------------------------------------------------
+def filled_buffer(n_steps=2, n_envs=2):
+    buf = RolloutBuffer(n_steps=n_steps, n_envs=n_envs, n_states=N_STATES, n_actions=N_ACTIONS, device="cpu")
+    buf.obs = torch.rand(n_steps, n_envs, N_STATES)
+    buf.masks = torch.ones(n_steps, n_envs, N_ACTIONS, dtype=torch.bool)
+    buf.actions = torch.zeros(n_steps, n_envs, dtype=torch.long)
+    buf.log_probs = torch.zeros(n_steps, n_envs)
+    buf.advantages = torch.randn(n_steps, n_envs)
+    buf.returns = torch.zeros(n_steps, n_envs)
+    return buf
+
+
+def test_ppo_update_raises_on_non_finite_loss():
+    model = small_model()
+    opt = torch.optim.Adam(model.parameters(), lr=1e-3)
+    cfg = PPOConfig(n_epochs=1, minibatch_size=4, normalize_advantage=False)
+    buf = filled_buffer()
+    buf.returns[:] = float("inf")  # value loss, and so the total loss, becomes non-finite
+
+    with pytest.raises(FloatingPointError):
+        ppo_update(model, opt, buf, cfg)
+
+
+def test_normalize_advantage_shrinks_the_policy_loss_toward_zero_mean():
+    """Same model, obs, actions and (unnormalized) advantages; only normalize_advantage differs.
+    Advantages here have mean 25, so leaving them raw should give a much larger-magnitude policy
+    loss than standardizing them to mean 0 first."""
+    buf = filled_buffer()
+    buf.advantages[:] = torch.tensor([[10.0, 20.0], [30.0, 40.0]])
+
+    model_a = small_model()
+    normalized = ppo_update(model_a, torch.optim.Adam(model_a.parameters()), buf,
+                             PPOConfig(n_epochs=1, minibatch_size=4, normalize_advantage=True))
+    model_b = small_model()
+    raw = ppo_update(model_b, torch.optim.Adam(model_b.parameters()), buf,
+                      PPOConfig(n_epochs=1, minibatch_size=4, normalize_advantage=False))
+
+    assert abs(normalized["loss/policy"]) < abs(raw["loss/policy"])

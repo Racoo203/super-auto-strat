@@ -1,6 +1,7 @@
 """Observability: env rendering, recorded episodes, checkpoints and run tracking (Optuna + files)."""
 
 import json
+from dataclasses import replace
 
 import numpy as np
 import pytest
@@ -10,7 +11,7 @@ optuna = pytest.importorskip("optuna")
 
 from agents.ppo import (  # noqa: E402
     ActorCritic, PPOConfig, Run, load_checkpoint, load_metrics, load_replays, load_runs,
-    play_episode, save_checkpoint, save_replays, train,
+    play_episode, prune_checkpoints, save_checkpoint, save_replays, train,
 )
 from agents.ppo.replay import summarize  # noqa: E402
 from sap.env import ACTIONS, OBS_SIZE, SapEnv, describe_action  # noqa: E402
@@ -129,6 +130,48 @@ def test_two_policy_self_play_trains_both_and_tracks_each(tmp_path):
 def test_random_opponent_mode_has_no_ghosts(tmp_path):
     result = train(tiny_cfg(tmp_path, opponent="random", n_updates=1, eval_every=0), "rand", log_fn=None)
     assert "ghosts/pool_size" not in load_metrics(result.run_dir).columns
+
+
+def test_resume_continues_from_the_last_checkpoint_update(tmp_path):
+    cfg = tiny_cfg(tmp_path, n_updates=2, eval_every=0, checkpoint_every=0)
+    r1 = train(cfg, "resumed", log_fn=None)
+    r2 = train(replace(cfg, n_updates=4), "resumed", log_fn=None, resume=True)
+
+    assert r2.run_dir == r1.run_dir  # same directory: resume must not trigger the collision rename
+    assert list(load_metrics(r2.run_dir).index) == [0, 1, 2, 3]  # appended, not restarted
+
+    resumed_row = load_runs(runs_dir=str(tmp_path))
+    resumed_row = resumed_row[resumed_row["user_attrs_run_name"] == "resumed"].iloc[-1]
+    assert resumed_row["user_attrs_resumed_from_update"] == 2
+
+
+def test_resume_without_a_prior_checkpoint_just_starts_from_zero(tmp_path):
+    cfg = tiny_cfg(tmp_path, n_updates=2, eval_every=0, checkpoint_every=0)
+    result = train(cfg, "fresh", log_fn=None, resume=True)
+    assert list(load_metrics(result.run_dir).index) == [0, 1]
+
+
+def test_checkpoint_rotation_keeps_only_the_newest(tmp_path):
+    cfg = tiny_cfg(tmp_path, n_updates=6, eval_every=0, checkpoint_every=2, keep_checkpoints=1)
+    result = train(cfg, "rotate", log_fn=None)
+    numbered = sorted(p.name for p in (result.run_dir / "checkpoints").glob("update_*.pt"))
+    assert numbered == ["update_0005.pt"]
+
+
+def test_prune_checkpoints_keeps_each_policy_suffix_separately(tmp_path):
+    for i in range(3):
+        (tmp_path / f"update_{i:04d}.pt").write_bytes(b"x")
+        (tmp_path / f"update_{i:04d}_p1.pt").write_bytes(b"x")
+    prune_checkpoints(tmp_path, keep=1)
+    remaining = sorted(p.name for p in tmp_path.glob("update_*.pt"))
+    assert remaining == ["update_0002.pt", "update_0002_p1.pt"]
+
+
+def test_prune_checkpoints_keeps_everything_when_keep_is_zero(tmp_path):
+    for i in range(3):
+        (tmp_path / f"update_{i:04d}.pt").write_bytes(b"x")
+    prune_checkpoints(tmp_path, keep=0)
+    assert len(list(tmp_path.glob("update_*.pt"))) == 3
 
 
 def test_watch_against_another_policys_ghosts():

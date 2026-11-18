@@ -37,3 +37,19 @@ def load_checkpoint(path: str | Path, device=None) -> tuple[ActorCritic, PPOConf
     model.load_state_dict(ckpt["model"])
     model.eval()
     return model, cfg, ckpt
+
+
+def prune_checkpoints(ckpt_dir: str | Path, keep: int = 3, stem_prefix: str = "update_") -> None:
+    """Delete numbered checkpoints (e.g. update_0049.pt) beyond the newest `keep`, per policy
+    suffix (update_0049.pt vs update_0049_p1.pt are pruned separately). latest.pt / best.pt use a
+    different prefix and are never touched. keep <= 0 keeps everything (no-op)."""
+    if keep <= 0:
+        return
+    ckpt_dir = Path(ckpt_dir)
+    by_suffix: dict[str, list[Path]] = {}
+    for p in sorted(ckpt_dir.glob(f"{stem_prefix}*.pt")):
+        suffix = p.stem[len(stem_prefix) + 4:]  # "update_0049_p1" -> "_p1"; "update_0049" -> ""
+        by_suffix.setdefault(suffix, []).append(p)
+    for paths in by_suffix.values():
+        for old in paths[:-keep]:
+            old.unlink(missing_ok=True)

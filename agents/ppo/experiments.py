@@ -79,10 +79,12 @@ class Run:
         study_name: str = STUDY_NAME,
         trial: optuna.Trial | None = None,
         tensorboard: bool = True,
+        resume: bool = False,
     ):
         self.cfg = cfg
         self.name = name or datetime.now().strftime("%Y%m%d-%H%M%S")
         self.dir = Path(cfg.runs_dir) / self.name
+        self.resume = resume
         self.storage = storage or default_storage(cfg.runs_dir)
         self.study_name = study_name
         self.trial = trial
@@ -96,7 +98,7 @@ class Run:
 
     # --- context manager -------------------------------------------------------
     def __enter__(self) -> "Run":
-        if self.dir.exists() and any(self.dir.iterdir()):
+        if not self.resume and self.dir.exists() and any(self.dir.iterdir()):
             self.name = f"{self.name}-{datetime.now().strftime('%H%M%S')}"
             self.dir = Path(self.cfg.runs_dir) / self.name
         for sub in ("checkpoints", "replays"):

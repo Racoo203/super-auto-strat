@@ -24,7 +24,11 @@ runs/<run>/replays/update_XXXX.jsonl, reports eval/win_rate to Optuna and saves 
 With ghosts it also plays policy 0 against the live pool (eval/vs_ghosts/*) and, with 2+ policies,
 against policy 1's own ghosts (eval/h2h_p0_vs_p1/*).
 Checkpoints: latest.pt / best.pt are policy 0; other policies get latest_p1.pt, best_p1.pt, ...
+cfg.keep_checkpoints caps how many numbered update_XXXX.pt checkpoints are kept per policy.
 If training crashes or is interrupted, latest.pt is still written and the trial is marked FAIL.
+train(cfg, run_name, resume=True) continues runs/<run_name>/checkpoints/latest*.pt instead of
+starting over (see agents/ppo/run.py for a script that can relaunch with --resume after a crash).
+A non-finite loss (training diverged) raises instead of quietly burning the rest of n_updates.
 """
 
 import random
@@ -41,7 +45,7 @@ from sap.ghosts import GhostOpponent, GhostPool
 
 from .advantages import compute_gae
 from .buffer import RolloutBuffer
-from .checkpoints import save_checkpoint
+from .checkpoints import prune_checkpoints, save_checkpoint
 from .config import PPOConfig, get_device
 from .envs import make_vec_env
 from .evaluate import evaluate, head_to_head, save_replays, summarize_records
@@ -75,10 +79,20 @@ def ppo_update(model, optimizer, buffer: RolloutBuffer, cfg: PPOConfig, envs=Non
             new_log_probs = dist.log_prob(mb["actions"])
             entropy = dist.entropy()
 
-            pl = ppo_clip_loss(new_log_probs, mb["log_probs"], mb["advantages"], cfg.clip_eps)
+            advantages = mb["advantages"]
+            if cfg.normalize_advantage:
+                advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
+
+            pl = ppo_clip_loss(new_log_probs, mb["log_probs"], advantages, cfg.clip_eps)
             vl = value_loss(new_values, mb["returns"])
             ent = entropy_bonus(entropy)
             loss = pl + cfg.value_coef * vl - cfg.entropy_coef * ent
+            if not torch.isfinite(loss):
+                raise FloatingPointError(
+                    f"non-finite PPO loss (policy={pl.item():.4g}, value={vl.item():.4g}, "
+                    f"entropy={ent.item():.4g}) -- training diverged, stopping before it corrupts "
+                    "the model further"
+                )
 
             optimizer.zero_grad()
             loss.backward()
@@ -88,8 +102,12 @@ def ppo_update(model, optimizer, buffer: RolloutBuffer, cfg: PPOConfig, envs=Non
             with torch.no_grad():
                 log_ratio = new_log_probs - mb["log_probs"]
                 ratio = log_ratio.exp()
-                stats["approx_kl"].append(((ratio - 1) - log_ratio).mean().item())  # k3 estimator
-                stats["clip_frac"].append(((ratio - 1).abs() > cfg.clip_eps).float().mean().item())
+                approx_kl = ((ratio - 1) - log_ratio).mean()  # k3 estimator
+                clip_frac = ((ratio - 1).abs() > cfg.clip_eps).float().mean()
+            if not torch.isfinite(approx_kl):
+                raise FloatingPointError(f"non-finite approx_kl ({approx_kl.item()}) -- training diverged")
+            stats["approx_kl"].append(approx_kl.item())
+            stats["clip_frac"].append(clip_frac.item())
             stats["policy"].append(pl.item())
             stats["value"].append(vl.item())
             stats["entropy"].append(ent.item())
@@ -102,6 +120,23 @@ def ppo_update(model, optimizer, buffer: RolloutBuffer, cfg: PPOConfig, envs=Non
     return out
 
 
+def _resume_from(ckpt_dir: Path, models: list[ActorCritic], optimizers: list, device) -> int:
+    """Load each policy's latest.pt in place (model + optimizer state). Returns the update to
+    resume from (one past the highest `update` recorded), or 0 if no checkpoint exists yet."""
+    starts = []
+    for p, (model, opt) in enumerate(zip(models, optimizers)):
+        stem = "latest" if p == 0 else f"latest_p{p}"
+        path = ckpt_dir / f"{stem}.pt"
+        if not path.exists():
+            return 0
+        ckpt = torch.load(path, map_location=device, weights_only=False)
+        model.load_state_dict(ckpt["model"])
+        if ckpt.get("optimizer") is not None:
+            opt.load_state_dict(ckpt["optimizer"])
+        starts.append(ckpt["update"] + 1)
+    return max(starts)
+
+
 def train(
     cfg: PPOConfig,
     run_name: str | None = None,
@@ -112,11 +147,16 @@ def train(
     env_kwargs: dict | None = None,
     log_every: int = 1,
     log_fn: Callable[[str], None] | None = print,
+    resume: bool = False,
 ) -> TrainResult:
     """Train PPO and track the run. See the module docstring.
 
     storage: Optuna storage URL (default sqlite:///<runs_dir>/optuna.db).
     trial / prune: used by tune.py; a normal run creates its own trial.
+    resume: continue runs/<run_name>/checkpoints/latest*.pt instead of starting from scratch
+    (model + optimizer state and the update counter; the self-play ghost pool is not persisted
+    and rebuilds within a few updates). Writes append to the same run directory. Opens a new
+    Optuna trial either way -- Optuna's ask/tell doesn't support resuming one across restarts.
     """
     if cfg.opponent not in ("ghosts", "random"):
         raise ValueError(f"cfg.opponent must be 'ghosts' or 'random', not {cfg.opponent!r}")
@@ -126,7 +166,7 @@ def train(
     selfplay = cfg.opponent == "ghosts"
     n_policies = cfg.n_policies if selfplay else 1
 
-    with Run(cfg, run_name, storage=storage, trial=trial) as run:
+    with Run(cfg, run_name, storage=storage, trial=trial, resume=resume) as run:
         run.trial.set_user_attr("device", str(device))
         envs, obs, mask = make_vec_env(cfg.n_envs, async_envs=cfg.async_envs, seed=cfg.seed, **env_kwargs)
         n_states = envs.single_observation_space.shape[0]
@@ -138,7 +178,11 @@ def train(
         buffer = RolloutBuffer(cfg.n_steps, cfg.n_envs, n_states, n_actions, device)
         tracker = EpisodeTracker(cfg.n_envs)
         ckpt_dir = run.dir / "checkpoints"
-        update = -1
+
+        start_update = _resume_from(ckpt_dir, models, optimizers, device) if resume else 0
+        if start_update:
+            run.trial.set_user_attr("resumed_from_update", start_update)
+        update = start_update - 1
 
         def save(name: str, p: int, **extra) -> None:
             stem = name if p == 0 else f"{name}_p{p}"
@@ -146,9 +190,10 @@ def train(
 
         if log_fn:
             mode = f"self-play, {n_policies} polic{'y' if n_policies == 1 else 'ies'}" if selfplay else "vs random teams"
-            log_fn(f"run '{run.name}' -> {run.dir}  (trial #{run.trial.number}, {device}, {mode})")
+            resume_note = f", resuming from update {start_update}" if start_update else ""
+            log_fn(f"run '{run.name}' -> {run.dir}  (trial #{run.trial.number}, {device}, {mode}{resume_note})")
         try:
-            for update in range(cfg.n_updates):
+            for update in range(start_update, cfg.n_updates):
                 t0 = time.time()
                 obs, mask, last_value = collect_rollout(envs, policies, buffer, obs, mask, device, tracker)
                 if selfplay:  # this rollout's teams become the next rollout's opponents
@@ -190,6 +235,7 @@ def train(
                 if cfg.checkpoint_every and (update + 1) % cfg.checkpoint_every == 0:
                     for p in range(n_policies):
                         save(f"update_{update:04d}", p)
+                    prune_checkpoints(ckpt_dir, keep=cfg.keep_checkpoints)
 
                 run.log(update, metrics)
                 if log_fn and (update % log_every == 0 or "eval/win_rate" in metrics):

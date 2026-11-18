@@ -80,7 +80,13 @@ train(PPOConfig(n_updates=300, opponent="random"), "random") # the original: ran
 ```
 
 Run `python -m agents.ppo.tune --trials 20` from a script rather than a notebook (async envs need the
-`__main__` guard on Windows).
+`__main__` guard on Windows). For one long run meant to go for hours, use `agents/ppo/run.py` instead
+of a notebook so it isn't tied to a kernel staying open, and so it can be resumed if interrupted:
+
+```
+python -m agents.ppo.run --name final --updates 5000
+python -m agents.ppo.run --name final --updates 5000 --resume   # after a crash/interrupt
+```
 
 | Question | Tool |
 |---|---|

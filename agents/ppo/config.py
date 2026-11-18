@@ -26,6 +26,7 @@ class PPOConfig:
     # --- loss weights (paper: L = L_clip - c1 * L_vf + c2 * S) ---
     value_coef: float = 0.5    # c1
     entropy_coef: float = 0.01  # c2
+    normalize_advantage: bool = True  # per-minibatch (adv - mean) / std, before the clipped loss
 
     n_updates: int = 1000
 
@@ -47,6 +48,7 @@ class PPOConfig:
     eval_episodes: int = 20     # games per evaluation
     eval_greedy: bool = False   # evaluate with argmax actions instead of sampling
     checkpoint_every: int = 50  # updates between numbered checkpoints (latest.pt: each eval + at the end)
+    keep_checkpoints: int = 3  # numbered update_XXXX.pt kept per policy (0 = keep all)
     runs_dir: str = "runs"      # runs/<run name>/{checkpoints,replays,tb,metrics.jsonl}
 
     @property
