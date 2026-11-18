@@ -12,6 +12,10 @@ are masked too, so an agent can't waste the round toggling back and forth.
 Reward: +1 for a won battle, -1 for a lost one, 0 for a draw (tunable).
 The episode ends when the game is over (out of lives or WIN_TARGET wins), and is truncated after
 `max_rounds` rounds.
+
+Opponents: `opponent_fn(game) -> Team` (default: a random team). For self-play pass a
+`sap.ghosts.GhostOpponent`; every team that fights is kept in `snapshots` (`pop_snapshots()`) so
+a trainer can turn it into a ghost for the other players.
 """
 
 from typing import Callable
@@ -22,6 +26,7 @@ from gymnasium import spaces
 from sap.battle import Outcome
 from sap.errors import ActionError
 from sap.game import Game
+from sap.ghosts import RANDOM_SOURCE
 from sap.team import Team
 
 from .actions import ACTIONS, apply_action, describe_action
@@ -50,7 +55,10 @@ class SapEnv(gym.Env):
         self.invalid_action_penalty = invalid_action_penalty
         self.max_shop_actions = max_shop_actions  # the round ends automatically after this many
         self.max_rounds = max_rounds
-        self.opponent_fn = opponent_fn  # e.g. self-play; default: a random team (Game.make_opponent)
+        # e.g. sap.ghosts.GhostOpponent for self-play; default: a random team (Game.make_opponent).
+        # Vector envs swap it with envs.set_attr("opponent_fn", [...]).
+        self.opponent_fn = opponent_fn
+        self.snapshots: list[tuple[int, Team]] = []  # fought teams, kept across episodes until popped
 
         self.actions = ACTIONS
         self.action_space = spaces.Discrete(len(ACTIONS))
@@ -124,14 +132,29 @@ class SapEnv(gym.Env):
     # --- helpers ---------------------------------------------------------------
     def _end_turn(self, info: dict) -> float:
         opponent = self.opponent_fn(self.game) if self.opponent_fn else self.game.make_opponent()
+        source = getattr(self.opponent_fn, "last_source", RANDOM_SOURCE)
         opponent_str = str(opponent)
-        result = self.game.end_turn(opponent)
+        round_ = self.game.round
+        team = self.game.finish_shop()
+        self.snapshots.append((round_, team.copy()))  # this team becomes a ghost for others
+        result = self.game.play_battle(opponent)
+        self.game.record_result(result)
         self.shop_actions = 0
         self.last_action = None  # new round: nothing to undo
         info["battle"] = result.outcome.value
         info["battle_log"] = result.log
-        info["battle_record"] = {"outcome": result.outcome.value, "opponent": opponent_str, "log": result.log}
+        info["opponent_source"] = source
+        info["battle_record"] = {
+            "outcome": result.outcome.value, "opponent": opponent_str, "log": result.log,
+            "opponent_source": source,
+        }
         return self.rewards[result.outcome]
+
+    def pop_snapshots(self) -> list[tuple[int, Team]]:
+        """(round, team) of every team that fought since the last call: ghosts for other players.
+        Vector envs: `envs.call("pop_snapshots")`."""
+        out, self.snapshots = self.snapshots, []
+        return out
 
     def _info(self) -> dict:
         g = self.game

@@ -3,6 +3,7 @@
     python -m agents.ppo.watch runs/baseline/checkpoints/latest.pt --delay 0.5
     python -m agents.ppo.watch runs/baseline --greedy --episodes 3      # a run dir -> best.pt / latest.pt
     python -m agents.ppo.watch --random                                 # untrained policy, for comparison
+    python -m agents.ppo.watch runs/duel --vs runs/duel/checkpoints/latest_p1.pt  # vs another policy's ghosts
 
 In a notebook:
     from agents.ppo.watch import watch_in_notebook
@@ -18,7 +19,9 @@ from sap.env import OBS_SIZE, ACTIONS, SapEnv
 
 from .checkpoints import load_checkpoint
 from .config import get_device
-from .evaluate import EpisodeRecord, play_episode
+from sap.ghosts import GhostOpponent
+
+from .evaluate import EpisodeRecord, ghosts_from, play_episode
 from .network import ActorCritic
 from .replay import summarize
 
@@ -56,10 +59,20 @@ def watch(
     clear: bool = True,
     env_kwargs: dict | None = None,
     printer=None,
+    vs=None,
+    vs_games: int = 10,
 ) -> list[EpisodeRecord]:
-    """Play `episodes` games, printing each frame as the policy decides. Returns the records."""
+    """Play `episodes` games, printing each frame as the policy decides. Returns the records.
+
+    vs: another policy (same forms as `source`): it first plays `vs_games` games, and the teams it
+    built become the opponents (ghosts). Default: random teams.
+    """
     model = load_policy(source)
-    env = SapEnv(render_mode="ansi", **(env_kwargs or {}))
+    env_kwargs = dict(env_kwargs or {})
+    if vs is not None:
+        pool = ghosts_from(load_policy(vs), vs_games, seed=(seed or 0) + 50_000, source=1)
+        env_kwargs["opponent_fn"] = GhostOpponent(pool)
+    env = SapEnv(render_mode="ansi", **env_kwargs)
     printer = printer or _terminal_printer(clear)
     records = []
     for ep in range(episodes):
@@ -109,12 +122,14 @@ def main(argv=None) -> None:
     ap.add_argument("--delay", type=float, default=0.5, help="seconds between frames")
     ap.add_argument("--battles-only", action="store_true", help="one frame per round")
     ap.add_argument("--no-clear", action="store_true", help="scroll instead of redrawing")
+    ap.add_argument("--vs", help="fight the ghosts of this checkpoint / run dir instead of random teams")
     args = ap.parse_args(argv)
     if not args.checkpoint and not args.random:
         ap.error("give a checkpoint / run dir, or --random")
     watch(
         None if args.random else args.checkpoint, episodes=args.episodes, seed=args.seed,
         greedy=args.greedy, delay=args.delay, battles_only=args.battles_only, clear=not args.no_clear,
+        vs=args.vs,
     )
 
 

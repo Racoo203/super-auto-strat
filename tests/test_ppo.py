@@ -121,3 +121,44 @@ def test_compute_gae():
         pytest.skip("compute_gae not implemented yet")
     assert adv.squeeze(-1).tolist() == pytest.approx([0.59, -0.5, 2.3])
     assert ret.squeeze(-1).tolist() == pytest.approx([1.09, 0.0, 2.8])
+
+
+# --- several policies --------------------------------------------------------------------
+def biased_model(action: int):
+    """A model that strongly prefers `action` (and has value = action)."""
+    m = small_model()
+    with torch.no_grad():
+        m.policy_head.weight.zero_()
+        m.policy_head.bias.fill_(-10.0)
+        m.policy_head.bias[action] = 10.0
+        m.value_head.weight.zero_()
+        m.value_head.bias.fill_(float(action))
+    return m
+
+
+def test_policy_set_routes_each_seat_to_its_policy():
+    from agents.ppo import PolicySet, seat_policies
+
+    seats = seat_policies(6, 2)
+    assert seats.tolist() == [0, 1, 0, 1, 0, 1]
+    ps = PolicySet([biased_model(1), biased_model(3)], seats)
+    obs, mask = torch.rand(6, N_STATES), torch.ones(6, N_ACTIONS, dtype=torch.bool)
+    action, log_prob, value = ps.act(obs, mask)
+    assert action.tolist() == [1, 3, 1, 3, 1, 3]
+    assert value.tolist() == pytest.approx([1, 3, 1, 3, 1, 3])
+    assert ps.value(obs).tolist() == pytest.approx([1, 3, 1, 3, 1, 3])
+    assert ps.seats(1).tolist() == [1, 3, 5]
+
+
+def test_seat_policies_rejects_more_policies_than_envs():
+    from agents.ppo import seat_policies
+
+    with pytest.raises(ValueError):
+        seat_policies(2, 3)
+
+
+def test_minibatches_can_be_restricted_to_some_envs():
+    buf = RolloutBuffer(n_steps=4, n_envs=3, n_states=N_STATES, n_actions=N_ACTIONS, device="cpu")
+    buf.actions = torch.arange(12).reshape(4, 3)  # column j holds j, j+3, j+6, j+9
+    seen = torch.cat([mb["actions"] for mb in buf.minibatches(3, envs=[0, 2])])
+    assert sorted(seen.tolist()) == [0, 2, 3, 5, 6, 8, 9, 11]

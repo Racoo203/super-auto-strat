@@ -62,7 +62,7 @@ START ──► STORE ──► FIGHT ──► (game over?) ──► STORE ...
 | A6 | Health after battle | Fights run on **copies** of the team; every pet returns at full stats for the next store. |
 | A7 | Draw | Both teams wiped in the same exchange → **draw**: no win, no life lost. |
 | A8 | Win target | **10 wins** (Super Auto Pets standard). The current code uses 5; either way it'll be a constant. |
-| A9 | Opponent | A random team of pets from the pool, **the same size as the player's team** (min. 1). Later this can be another player or an agent. |
+| A9 | Opponent | A random team of pets from the pool, **the same size as the player's team** (min. 1), or a **ghost**: a snapshot of a team another player (agent) built at the same round (`sap/ghosts.py`, §9). |
 | A10 | Empty team | Fighting with no pets is an automatic loss. |
 | A11 | Abilities | Trigger → effect, scaled by level. See §6. |
 | A12 | Interface | Terminal menu with numbered choices; the store screen always shows credits, lives, wins, the display and the team. |
@@ -93,10 +93,12 @@ sap/
   store.py         # Store: display, credits, buy/sell/reroll (no input())
   battle.py        # simultaneous-strike battle on copied teams -> result + log
   game.py          # Game: state (lives, wins, stage) + action API, no I/O
+  ghosts.py        # Ghost, GhostPool, GhostOpponent: asynchronous opponents (self-play)
   cli.py           # text interface: render state, read choices, call Game
 agents/
   ppo/             # PPO: config, network, envs (parallel actors), rollout, buffer,
-                   # advantages (GAE), losses, tracking; one concept per module
+                   # advantages (GAE), losses, tracking, policies (seat -> policy),
+                   # selfplay (ghost pool glue); one concept per module
                    # + train, experiments (Optuna/TensorBoard), evaluate, replay, watch, tune
 main.py            # entry point: `python main.py`
 tests/             # pytest tests for store, team, battle, game flow
@@ -130,7 +132,7 @@ Design principles:
    damage, draw, and game-over conditions.
 10. **Cleanup**: update `temp.ipynb` imports to the new modules. Add a short README section on how to run it.
 
-Out of scope for now: opponents smarter than a random team (plug one in via `opponent_fn`).
+Opponents smarter than a random team plug in via `opponent_fn` (self-play ghosts: §9).
 
 ---
 
@@ -211,10 +213,41 @@ automatically when it ends the turn.
 - **Episode**: ends when the game ends; truncated after `max_rounds` (40). A round is ended
   automatically after `max_shop_actions` (50) shop actions, so an agent can't stall.
 - **Opponent**: random team of the round's tiers by default; pass `opponent_fn(game) -> Team` for
-  self-play or scripted opponents.
+  self-play (`GhostOpponent`) or scripted opponents. Every team that fights is kept in
+  `env.snapshots` (`pop_snapshots()`), and `info["opponent_source"]` says whose ghost was fought
+  (-1 = random team).
 - **Rendering**: `render_mode="ansi"` makes `render()` return a text frame (`sap/env/render.py`):
   status line, last action and reward, the last battle (opponent team and log) when a turn just
   ended, the store and the team. `"human"` prints it every step. `render(policy=...)` adds an overlay
   of the agent's top actions (used by `agents/ppo/watch.py`).
 - Tests check the mask against the real rules: every allowed action succeeds and every forbidden
   one is refused.
+
+---
+
+## 9. Self-play: ghosts, seats and policies
+
+As in Super Auto Pets, players never wait for each other: at round r a player fights a **ghost**,
+a frozen copy of a team some player had at round r. So K agents need no lockstep lobby:
+
+- **Seats** are the N vector envs, each an ordinary single-agent `SapEnv` (no idle seats, no
+  masked waiting steps, GAE unchanged).
+- **`Game.end_turn`** is three atomic steps: `finish_shop()` (end-of-turn abilities, returns the
+  team that fights), `play_battle(opponent)`, `record_result(result)`. The env snapshots the team
+  between the first two.
+- **`GhostPool`** (`sap/ghosts.py`) keeps, per round, the newest `recent` ghosts (FIFO) and a
+  reservoir of `history` older ones: opponents from past policies, a league at no extra cost.
+  `sample(round, ...)` takes the exact round, else the nearest earlier one; empty teams are never
+  ghosts. `GhostOpponent` is the `opponent_fn`, seeded by the game's rng, falling back to a random
+  team when nothing matches (cold start) or with `random_prob`.
+- **Policies**: `seat_policy[i]` says which policy plays env i (`agents/ppo/policies.py`,
+  `PolicySet`: one batched forward per policy). `n_policies=1` is shared-policy self-play,
+  `n_policies=2` with `opponents="others"` is two agents trained against each other, P > 2 a league.
+- **Per update** (`agents/ppo/selfplay.py`): rollout, `harvest` (`envs.call("pop_snapshots")` ->
+  ghosts tagged with the seat's policy), `push_opponents` (`envs.set_attr("opponent_fn", ...)`,
+  one GhostOpponent per seat), then one PPO update per policy on its own buffer columns.
+  Opponents are at most one update old.
+- **Evaluation**: `eval/*` stays against random teams (a fixed yardstick: self-play win rates drift
+  toward 50%); `eval/vs_ghosts/*` against the live pool; `eval/h2h_p0_vs_p1/*` policy 0 against
+  policy 1's ghosts (`evaluate.head_to_head`). Against an equal opponent whole games are rarely won,
+  so watch `battle_win_rate` there (50% = even).

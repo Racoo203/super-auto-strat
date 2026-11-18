@@ -70,6 +70,15 @@ from agents.ppo import PPOConfig, train
 result = train(PPOConfig(n_updates=300), "baseline")   # tracked run -> runs/baseline/
 ```
 
+Opponents are **ghosts** by default (self-play, as in Super Auto Pets: each player fights a snapshot of a
+team another player built at the same round; see Context.md §9):
+
+```python
+train(PPOConfig(n_updates=300), "selfplay")                  # one shared policy plays every seat
+train(PPOConfig(n_updates=300, n_policies=2), "duel")        # two agents trained against each other
+train(PPOConfig(n_updates=300, opponent="random"), "random") # the original: random opponent teams
+```
+
 Run `python -m agents.ppo.tune --trials 20` from a script rather than a notebook (async envs need the
 `__main__` guard on Windows).
 
@@ -77,7 +86,8 @@ Run `python -m agents.ppo.tune --trials 20` from a script rather than a notebook
 |---|---|
 | How is it training? (live) | `tensorboard --logdir runs`: win rate, wins, return, entropy, KL, clip fraction |
 | How did it play? | `python -m agents.ppo.replay runs/baseline` summarises the latest evaluation games; add `-e 0 --play [--battles-only]` to step through one |
-| How is it playing? (live) | `python -m agents.ppo.watch runs/baseline --delay 0.5` plays a fresh game, showing the board, the last battle and the policy's top actions with V(s) |
+| How is it playing? (live) | `python -m agents.ppo.watch runs/baseline --delay 0.5` plays a fresh game, showing the board, the last battle and the policy's top actions with V(s); `--vs runs/duel/checkpoints/latest_p1.pt` fights another policy's ghosts |
+| Who beats whom? | TensorBoard `eval/vs_ghosts/*`, `eval/h2h_p0_vs_p1/*`; in code `head_to_head(model_a, model_b, 20)` |
 | How do runs compare? | `optuna-dashboard sqlite:///runs/optuna.db`, or `load_runs()` (a DataFrame) in a notebook |
 | Hyperparameter search | `python -m agents.ppo.tune --trials 20 --updates 200` (study `ppo-tune`, median pruning) |
 

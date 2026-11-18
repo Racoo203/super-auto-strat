@@ -32,6 +32,15 @@ class PPOConfig:
     # --- network ---
     hidden: tuple[int, ...] = (2048, 1024, 512)  # trunk layer sizes of ActorCritic
 
+    # --- opponents / self-play (agents/ppo/selfplay.py, sap/ghosts.py) ---
+    opponent: str = "ghosts"     # "ghosts": fight teams the policies built (self-play); "random": random teams
+    n_policies: int = 1          # 1: shared-policy self-play; P > 1: P agents, env i played by policy i % P
+    opponents: str = "others"    # P > 1: "others" = only other policies' ghosts, "all" = anyone's
+    ghost_recent: int = 32       # newest ghosts kept per round
+    ghost_history: int = 64      # older ghosts kept per round (reservoir: a league of past policies)
+    ghost_history_prob: float = 0.2    # chance an opponent comes from the older reservoir
+    random_opponent_prob: float = 0.05  # chance of a random team anyway (a fixed reference point)
+
     # --- tracking / evaluation (agents/ppo/train.py) ---
     seed: int = 0
     eval_every: int = 25        # updates between evaluations (0 = never); also saves replays

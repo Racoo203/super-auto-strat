@@ -110,3 +110,31 @@ def test_run_name_is_not_reused(tmp_path):
         pass
     assert a.dir != b.dir
     assert np.all(load_runs(runs_dir=str(tmp_path))["state"] == "COMPLETE")
+
+
+def test_two_policy_self_play_trains_both_and_tracks_each(tmp_path):
+    cfg = tiny_cfg(tmp_path, n_envs=4, n_policies=2, n_updates=2, eval_every=2, checkpoint_every=0)
+    result = train(cfg, "duel", log_fn=None)
+    ck = result.run_dir / "checkpoints"
+    for f in ("latest.pt", "latest_p1.pt", "best.pt", "best_p1.pt"):
+        assert (ck / f).exists(), f
+    p1, _, raw = load_checkpoint(ck / "latest_p1.pt", device="cpu")
+    assert raw["policy"] == 1 and len(result.models) == 2
+    m = load_metrics(result.run_dir)
+    assert {"loss/policy", "loss/p1/policy", "ghosts/pool_size"} <= set(m.columns)
+    assert m["ghosts/pool_size"].iloc[-1] > 0
+    assert {"eval/vs_ghosts/battle_win_rate", "eval/h2h_p0_vs_p1/battle_win_rate"} <= set(m.columns)
+
+
+def test_random_opponent_mode_has_no_ghosts(tmp_path):
+    result = train(tiny_cfg(tmp_path, opponent="random", n_updates=1, eval_every=0), "rand", log_fn=None)
+    assert "ghosts/pool_size" not in load_metrics(result.run_dir).columns
+
+
+def test_watch_against_another_policys_ghosts():
+    from agents.ppo.watch import watch
+
+    frames = []
+    (rec,) = watch(tiny_model(), vs=tiny_model(), vs_games=2, seed=0, delay=0, printer=frames.append)
+    sources = {s.battle["opponent_source"] for s in rec.steps if s.battle}
+    assert 1 in sources and frames

@@ -115,16 +115,33 @@ class Game:
         return Team("Opponent", [random_pet(self.rng, self.max_tier) for _ in range(size)])
 
     def end_turn(self, opponent: Team | None = None) -> BattleResult:
-        """Leave the store and fight, apply the result, then start the next round or end the game."""
+        """Leave the store and fight, apply the result, then start the next round or end the game.
+
+        The composition of the three atomic steps below; an env that needs the fighting team
+        (e.g. to record it as a ghost) calls them one by one.
+        """
         self._require_store()
         opponent = opponent or self.make_opponent()
+        self.finish_shop()
+        result = self.play_battle(opponent)
+        self.record_result(result)
+        return result
+
+    def finish_shop(self) -> Team:
+        """Leave the store: fire end-of-turn abilities. Returns the team that is about to fight."""
+        self._require_store()
         self.store.trigger(self.team, Event(Trigger.END_TURN))
+        return self.team
 
+    def play_battle(self, opponent: Team) -> BattleResult:
+        """Fight `opponent` (on copies: neither team changes). An empty team loses automatically."""
         if not self.team:
-            result = BattleResult(Outcome.LOSS, 0, ["Your team has no pets: automatic loss."])
-        else:
-            result = fight(self.team, opponent, rng=self.rng)
+            return BattleResult(Outcome.LOSS, 0, ["Your team has no pets: automatic loss."])
+        return fight(self.team, opponent, rng=self.rng)
 
+    def record_result(self, result: BattleResult) -> None:
+        """Apply a battle result, then start the next round or end the game."""
+        self._require_store()
         for pet in self.team:
             pet.end_battle()  # "until end of battle" buffs and Parrot copies wear off
         self.store.lost_last_battle = result.outcome is Outcome.LOSS
@@ -142,4 +159,3 @@ class Game:
             self.stage = Stage.OVER
         else:
             self._begin_round()
-        return result

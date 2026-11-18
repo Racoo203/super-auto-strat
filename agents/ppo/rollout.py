@@ -4,6 +4,8 @@ import numpy as np
 import torch
 
 from .buffer import RolloutBuffer
+from .network import ActorCritic
+from .policies import PolicySet
 from .tracking import EpisodeTracker
 
 
@@ -12,8 +14,14 @@ def collect_rollout(
 ):
     """Fill `buffer` with T steps from all N envs using the current (= old) policy.
 
+    `model`: an ActorCritic (plays every env) or a PolicySet (env i played by seat_policy[i]).
+    Each buffer column is one seat's own trajectory with its own policy's values, so GAE needs no
+    change when several policies share the batch.
+
     Returns the obs/mask to continue from and V(s_T) for bootstrapping GAE.
     """
+    if isinstance(model, ActorCritic):
+        model = PolicySet.single(model, buffer.n_envs)
     buffer.reset()
 
     def to_t(x, dtype=torch.float32):
@@ -31,6 +39,5 @@ def collect_rollout(
         if tracker is not None:
             tracker.update(reward, done, info)
 
-    with torch.no_grad():
-        _, last_value = model(to_t(obs))
+    last_value = model.value(to_t(obs))
     return obs, mask, last_value

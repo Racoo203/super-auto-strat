@@ -43,17 +43,22 @@ class RolloutBuffer:
     def reset(self) -> None:
         self.t = 0
 
-    def minibatches(self, minibatch_size: int) -> Iterator[dict[str, torch.Tensor]]:
-        """Flatten (T, N) -> (T*N,) and yield shuffled minibatches. Call once per epoch K."""
-        b = self.n_steps * self.n_envs
+    def minibatches(self, minibatch_size: int, envs=None) -> Iterator[dict[str, torch.Tensor]]:
+        """Flatten (T, N) -> (T*N,) and yield shuffled minibatches. Call once per epoch K.
+
+        envs: only these env columns (one policy's seats when several policies share the buffer).
+        """
+        cols = slice(None) if envs is None else torch.as_tensor(envs, device=self.device)
+        n = self.n_envs if envs is None else len(envs)
+        b = self.n_steps * n
         flat = {
-            "obs": self.obs.reshape(b, -1),
-            "masks": self.masks.reshape(b, -1),
-            "actions": self.actions.reshape(b),
-            "log_probs": self.log_probs.reshape(b),
-            "values": self.values.reshape(b),
-            "advantages": self.advantages.reshape(b),
-            "returns": self.returns.reshape(b),
+            "obs": self.obs[:, cols].reshape(b, -1),
+            "masks": self.masks[:, cols].reshape(b, -1),
+            "actions": self.actions[:, cols].reshape(b),
+            "log_probs": self.log_probs[:, cols].reshape(b),
+            "values": self.values[:, cols].reshape(b),
+            "advantages": self.advantages[:, cols].reshape(b),
+            "returns": self.returns[:, cols].reshape(b),
         }
         perm = torch.randperm(b, device=self.device)
         for start in range(0, b, minibatch_size):

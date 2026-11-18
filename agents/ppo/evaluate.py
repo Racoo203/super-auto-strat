@@ -11,6 +11,7 @@ action marked '>'.
 """
 
 import json
+import random
 from collections.abc import Callable
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -20,6 +21,7 @@ import torch
 
 from sap.env import SapEnv, describe_action
 from sap.env.render import render_policy
+from sap.ghosts import Ghost, GhostOpponent, GhostPool
 
 from .network import ActorCritic
 
@@ -152,12 +154,55 @@ def evaluate(
     ]
 
 
+def ghosts_from(
+    model: ActorCritic,
+    n_episodes: int,
+    *,
+    seed: int = 0,
+    source: int = 0,
+    greedy: bool = False,
+    env_kwargs: dict | None = None,
+    pool: GhostPool | None = None,
+) -> GhostPool:
+    """Play `n_episodes` games with `model` and keep every team it fought with as a ghost
+    (tagged `source`). Pass `pool` to add to an existing one."""
+    pool = pool if pool is not None else GhostPool()
+    env = SapEnv(**(env_kwargs or {}))
+    for i in range(n_episodes):
+        play_episode(model, env, seed=seed + i, greedy=greedy, record_frames=False)
+    pool.add([Ghost(team, rnd, source) for rnd, team in env.pop_snapshots()], random.Random(seed))
+    return pool
+
+
+def head_to_head(
+    model_a: ActorCritic,
+    model_b: ActorCritic,
+    n_episodes: int,
+    *,
+    seed: int = 0,
+    greedy: bool = False,
+    env_kwargs: dict | None = None,
+    record_frames: bool = False,
+) -> list[EpisodeRecord]:
+    """A's games against B's ghosts: B first plays `n_episodes` games of its own (other seeds)
+    to build the ghosts, then A plays `n_episodes` evaluation games against them.
+    If B's games end early, A's later rounds face B's latest earlier-round teams."""
+    pool = ghosts_from(model_b, n_episodes, seed=seed + EVAL_SEED_OFFSET + 5_000, source=1,
+                       greedy=greedy, env_kwargs=env_kwargs)
+    kwargs = {**(env_kwargs or {}), "opponent_fn": GhostOpponent(pool)}
+    return evaluate(model_a, n_episodes, seed=seed, greedy=greedy, env_kwargs=kwargs, record_frames=record_frames)
+
+
 def summarize_records(records: list[EpisodeRecord], prefix: str = "eval/") -> dict[str, float]:
     if not records:
         return {}
     steps = [s for r in records for s in r.steps]
+    battles = sum(r.wins + r.losses + r.draws for r in records)
     return {
-        f"{prefix}win_rate": float(np.mean([r.won for r in records])),
+        f"{prefix}win_rate": float(np.mean([r.won for r in records])),  # games won (WIN_TARGET wins)
+        # battles won: the informative number against an equal opponent (self-play), where whole
+        # games are rarely won
+        f"{prefix}battle_win_rate": sum(r.wins for r in records) / max(1, battles),
         f"{prefix}wins": float(np.mean([r.wins for r in records])),
         f"{prefix}losses": float(np.mean([r.losses for r in records])),
         f"{prefix}rounds": float(np.mean([r.rounds for r in records])),
