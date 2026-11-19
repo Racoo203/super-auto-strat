@@ -1,0 +1,23 @@
+# Runs the test suite on Ubuntu, from the lockfile, on every push / PR: catches "works on my
+# laptop" problems before the server pulls the commit.
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.8"
+          enable-cache: true
+      - run: uv sync --frozen
+      - run: uv run --frozen python -m pytest -q
+      - name: smoke train (CPU, 2 updates + resume)
+        run: |
+          A="--runs-dir /tmp/smoke --name smoke --n-envs 2 --eval-every 1 --checkpoint-every 1"
+          uv run --frozen python -m agents.ppo.run $A --updates 2
+          uv run --frozen python -m agents.ppo.run $A --updates 3 --resume

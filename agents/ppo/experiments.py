@@ -17,6 +17,7 @@ View:
 """
 
 import json
+import os
 import subprocess
 import time
 from dataclasses import fields
@@ -37,9 +38,15 @@ def default_storage(runs_dir: str | Path = "runs") -> str:
 
 
 def _git_commit() -> str:
+    """Short commit (+"-dirty"). Inside the Docker image there is no .git: the build bakes the
+    commit into $GIT_COMMIT instead (see Dockerfile)."""
+    if os.environ.get("GIT_COMMIT"):
+        return os.environ["GIT_COMMIT"]
     try:
         out = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, timeout=5)
         dirty = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, timeout=5)
+        if out.returncode != 0:
+            return "unknown"
         return out.stdout.strip() + ("-dirty" if dirty.stdout.strip() else "")
     except (OSError, subprocess.SubprocessError):
         return "unknown"

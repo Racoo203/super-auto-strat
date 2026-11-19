@@ -1,0 +1,60 @@
+# Training server stack. Usage (see deploy/README.md):
+#   cp .env.example .env    # set RUN_NAME, UPDATES, ...
+#   make up                 # build, start training + dashboards
+#   make logs               # follow training output
+#
+# Everything a run writes lands in ./runs on the host (bind mount), so it survives rebuilds.
+
+x-app: &app
+  image: super-auto-strat:${GIT_COMMIT:-latest}
+  build:
+    context: .
+    args:
+      GIT_COMMIT: ${GIT_COMMIT:-unknown}
+      UID: ${UID:-1000}
+      GID: ${GID:-1000}
+  volumes:
+    - ./runs:/app/runs
+  init: true  # tini as PID 1: forwards SIGTERM to python and reaps env worker processes
+
+services:
+  train:
+    <<: *app
+    # --resume always: fresh start if there's no checkpoint, continue after a crash/reboot,
+    # no-op once the run is finished (agents/ppo/run.py).
+    command: >
+      python -m agents.ppo.run --resume
+      --name ${RUN_NAME:?set RUN_NAME in .env}
+      --updates ${UPDATES:-5000}
+      --n-envs ${N_ENVS:-8}
+      --n-policies ${N_POLICIES:-1}
+      --opponent ${OPPONENT:-ghosts}
+      --seed ${SEED:-0}
+      ${EXTRA_ARGS:-}
+    # Restarts after crashes and host reboots (exit 130 on SIGTERM counts as a failure), but not
+    # after `docker compose stop` or once training finishes cleanly (exit 0).
+    restart: on-failure:5
+    stop_grace_period: 2m  # time to finish the current update and save latest.pt
+    shm_size: 2gb          # multiprocessing between the async env workers
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    logging:
+      driver: json-file
+      options: {max-size: "50m", max-file: "5"}
+
+  tensorboard:
+    <<: *app
+    command: tensorboard --logdir runs --host 0.0.0.0 --port 6006
+    ports: ["${BIND_ADDR:-127.0.0.1}:${TB_PORT:-6006}:6006"]
+    restart: unless-stopped
+
+  optuna-dashboard:
+    <<: *app
+    command: optuna-dashboard sqlite:///runs/optuna.db --host 0.0.0.0 --port 8080
+    ports: ["${BIND_ADDR:-127.0.0.1}:${OPTUNA_PORT:-8080}:8080"]
+    restart: unless-stopped

@@ -10,10 +10,12 @@ python main.py
 
 ## Install
 
-The game itself needs only Python 3.10+. For the RL environment and tests:
+The game itself needs only Python 3.10+. The RL stack (Python 3.13) is pinned in `pyproject.toml`
+and `uv.lock`:
 
 ```
-python -m pip install -r requirements.txt
+uv sync                                   # or, in a conda/venv env:
+python -m pip install -r requirements.txt # generated from uv.lock
 ```
 
 ## Test
@@ -87,6 +89,9 @@ of a notebook so it isn't tied to a kernel staying open, and so it can be resume
 python -m agents.ppo.run --name final --updates 5000
 python -m agents.ppo.run --name final --updates 5000 --resume   # after a crash/interrupt
 ```
+
+To train on a GPU server (Docker, automatic resume, dashboards over SSH), see
+[deploy/README.md](deploy/README.md): `cp .env.example .env && make check test smoke up`.
 
 | Question | Tool |
 |---|---|

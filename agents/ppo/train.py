@@ -241,10 +241,12 @@ def train(
                 if log_fn and (update % log_every == 0 or "eval/win_rate" in metrics):
                     log_fn(_progress_line(update, metrics))
         finally:
-            envs.close()
-            if update >= 0:  # whatever happened, keep the latest weights
-                for p in range(n_policies):
-                    save("latest", p)
+            try:
+                envs.close()  # can raise if workers already died (e.g. SIGTERM'd)
+            finally:
+                if update >= 0:  # whatever happened, keep the latest weights
+                    for p in range(n_policies):
+                        save("latest", p)
 
     return TrainResult(run.name, run.dir, run.best_value, models[0], models)
 

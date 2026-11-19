@@ -3,8 +3,10 @@
 Each env lives in its own process (AsyncVectorEnv) and all N are stepped in lockstep with one
 batched forward pass: the synchronous A2C-style setup the PPO paper uses.
 
-Windows note: async envs use `spawn`, so in a *script* the entry point must sit under
-`if __name__ == "__main__":`. In a notebook it just works.
+Async envs always use `spawn` (Windows' only option, and Linux's default `fork` is unsafe once the
+parent has threads, e.g. TensorBoard's writer, or CUDA initialised), so the laptop and the Linux
+server behave the same. In a *script* the entry point must sit under `if __name__ == "__main__":`.
+In a notebook it just works.
 """
 
 import gymnasium as gym
@@ -25,7 +27,8 @@ def make_vec_env(n_envs: int, async_envs: bool = True, seed: int | None = None, 
         ENV_ID,
         num_envs=n_envs,
         vectorization_mode="async" if async_envs else "sync",
-        vector_kwargs={"autoreset_mode": gym.vector.AutoresetMode.SAME_STEP},
+        vector_kwargs={"autoreset_mode": gym.vector.AutoresetMode.SAME_STEP,
+                       **({"context": "spawn"} if async_envs else {})},
         **env_kwargs,
     )
     obs, info = envs.reset(seed=seed)

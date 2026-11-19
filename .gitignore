@@ -17,3 +17,7 @@ runs/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Local deployment settings
+.env
+backups/
