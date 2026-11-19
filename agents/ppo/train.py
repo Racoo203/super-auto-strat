@@ -20,7 +20,9 @@ With several policies, policy 0 keeps the plain names and policy p logs train/p{
 
 Every cfg.eval_every updates it plays cfg.eval_episodes games on fixed seeds against random teams
 (eval/*: a fixed yardstick; self-play win rates drift toward 50% and say little), saves them as
-runs/<run>/replays/update_XXXX.jsonl, reports eval/win_rate to Optuna and saves checkpoints.
+runs/<run>/replays/update_XXXX.jsonl, reports OBJECTIVE (eval/battle_win_rate) to Optuna and saves
+checkpoints; best.pt follows the same metric. eval/win_rate (whole games won) is still logged, but
+saturates at ~1.0 against random teams early on, so it can't rank runs.
 With ghosts it also plays policy 0 against the live pool (eval/vs_ghosts/*) and, with 2+ policies,
 against policy 1's own ghosts (eval/h2h_p0_vs_p1/*).
 Checkpoints: latest.pt / best.pt are policy 0; other policies get latest_p1.pt, best_p1.pt, ...
@@ -58,11 +60,16 @@ from .selfplay import harvest, make_pool, opponent_sources, push_opponents, rand
 from .tracking import EpisodeTracker, summarize_episodes
 
 
+# The eval metric reported to Optuna (the trial value) and used to pick best.pt. Battles won vs
+# random teams: unlike eval/win_rate it keeps improving after the agent wins almost every game.
+OBJECTIVE = "eval/battle_win_rate"
+
+
 @dataclass
 class TrainResult:
     run_name: str
     run_dir: Path
-    best_eval_win_rate: float | None
+    best_objective: float | None             # best OBJECTIVE seen (= the Optuna trial value)
     model: ActorCritic                       # policy 0
     models: list[ActorCritic] | None = None  # every policy (index = policy id)
 
@@ -148,11 +155,15 @@ def train(
     log_every: int = 1,
     log_fn: Callable[[str], None] | None = print,
     resume: bool = False,
+    study_name: str | None = None,
+    user_attrs: dict | None = None,
 ) -> TrainResult:
     """Train PPO and track the run. See the module docstring.
 
     storage: Optuna storage URL (default sqlite:///<runs_dir>/optuna.db).
     trial / prune: used by tune.py; a normal run creates its own trial.
+    study_name: the study that trial goes in (default experiments.STUDY_NAME, "ppo").
+    user_attrs: extra Optuna user attrs for the trial (e.g. where the hyperparameters came from).
     resume: continue runs/<run_name>/checkpoints/latest*.pt instead of starting from scratch
     (model + optimizer state and the update counter; the self-play ghost pool is not persisted
     and rebuilds within a few updates). Writes append to the same run directory. Opens a new
@@ -166,8 +177,12 @@ def train(
     selfplay = cfg.opponent == "ghosts"
     n_policies = cfg.n_policies if selfplay else 1
 
-    with Run(cfg, run_name, storage=storage, trial=trial, resume=resume) as run:
-        run.trial.set_user_attr("device", str(device))
+    run_kw = {"study_name": study_name} if study_name else {}
+    with Run(cfg, run_name, storage=storage, trial=trial, resume=resume, **run_kw) as run:
+        run.set_user_attr("device", str(device))
+        run.set_user_attr("objective", OBJECTIVE)
+        for k, v in (user_attrs or {}).items():
+            run.set_user_attr(k, v)
         envs, obs, mask = make_vec_env(cfg.n_envs, async_envs=cfg.async_envs, seed=cfg.seed, **env_kwargs)
         n_states = envs.single_observation_space.shape[0]
         n_actions = int(envs.single_action_space.n)
@@ -181,12 +196,14 @@ def train(
 
         start_update = _resume_from(ckpt_dir, models, optimizers, device) if resume else 0
         if start_update:
-            run.trial.set_user_attr("resumed_from_update", start_update)
-        update = start_update - 1
+            run.set_user_attr("resumed_from_update", start_update)
+        # Last update whose PPO step finished, i.e. what the weights reflect. Checkpoints record
+        # this, not the loop index: an update interrupted mid-rollout must be redone on resume.
+        done = start_update - 1
 
         def save(name: str, p: int, **extra) -> None:
             stem = name if p == 0 else f"{name}_p{p}"
-            save_checkpoint(ckpt_dir / f"{stem}.pt", models[p], optimizers[p], cfg, update, run=run.name, policy=p, **extra)
+            save_checkpoint(ckpt_dir / f"{stem}.pt", models[p], optimizers[p], cfg, done, run=run.name, policy=p, **extra)
 
         if log_fn:
             mode = f"self-play, {n_policies} polic{'y' if n_policies == 1 else 'ies'}" if selfplay else "vs random teams"
@@ -212,6 +229,7 @@ def train(
                     metrics.update({k.replace("loss/", f"loss/{pre}", 1): v for k, v in losses.items()})
                     mine = [e for e in episodes if policies.seat_policy[e.env] == p]
                     metrics.update(summarize_episodes(mine, prefix=f"train/{pre}"))
+                done = update
                 metrics["perf/sps"] = cfg.batch_size / (time.time() - t0)
                 if selfplay:
                     metrics["ghosts/pool_size"] = float(len(pool))
@@ -228,7 +246,7 @@ def train(
                         metrics.update(selfplay_evals(models, pool, cfg, env_kwargs))
                     for p in range(n_policies):
                         save("latest", p)
-                    if run.report(update, ev["eval/win_rate"], prune=prune):
+                    if run.report(update, ev[OBJECTIVE], prune=prune):
                         save("best", 0, **ev)
                         for p in range(1, n_policies):
                             save("best", p)
@@ -244,7 +262,7 @@ def train(
             try:
                 envs.close()  # can raise if workers already died (e.g. SIGTERM'd)
             finally:
-                if update >= 0:  # whatever happened, keep the latest weights
+                if done >= start_update:  # whatever happened, keep the latest weights
                     for p in range(n_policies):
                         save("latest", p)
 
@@ -278,7 +296,10 @@ def _progress_line(update: int, m: dict) -> str:
     if "ghosts/pool_size" in m:
         parts.append(f"ghosts {m['ghosts/pool_size']:.0f}")
     if "eval/win_rate" in m:
-        parts.append(f"EVAL win {m['eval/win_rate']:.0%} wins {m['eval/wins']:.1f} rounds {m['eval/rounds']:.1f}")
+        parts.append(
+            f"EVAL win {m['eval/win_rate']:.0%} battles {m['eval/battle_win_rate']:.0%} "
+            f"wins {m['eval/wins']:.1f} rounds {m['eval/rounds']:.1f}"
+        )
     if "eval/vs_ghosts/win_rate" in m:
         parts.append(f"vs ghosts: battles {m['eval/vs_ghosts/battle_win_rate']:.0%}")
     if "eval/h2h_p0_vs_p1/win_rate" in m:

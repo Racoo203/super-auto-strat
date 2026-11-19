@@ -21,6 +21,7 @@ Training and observability:
   replay.py       summarize / step through recorded games   (python -m agents.ppo.replay)
   watch.py        watch a policy play live, as text          (python -m agents.ppo.watch)
   tune.py         Optuna hyperparameter search               (python -m agents.ppo.tune)
+  validate.py     rerun the top tuning trials with more seeds (python -m agents.ppo.validate)
   run.py          one long run from a terminal, resumable    (python -m agents.ppo.run)
 """
 

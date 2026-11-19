@@ -18,6 +18,6 @@ jobs:
       - run: uv run --frozen python -m pytest -q
       - name: smoke train (CPU, 2 updates + resume)
         run: |
-          A="--runs-dir /tmp/smoke --name smoke --n-envs 2 --eval-every 1 --checkpoint-every 1"
+          A="--runs-dir /tmp/smoke --name smoke --n-envs 2 --eval-every 1 --eval-episodes 2 --checkpoint-every 1"
           uv run --frozen python -m agents.ppo.run $A --updates 2
           uv run --frozen python -m agents.ppo.run $A --updates 3 --resume

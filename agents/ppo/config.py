@@ -45,7 +45,9 @@ class PPOConfig:
     # --- tracking / evaluation (agents/ppo/train.py) ---
     seed: int = 0
     eval_every: int = 25        # updates between evaluations (0 = never); also saves replays
-    eval_episodes: int = 20     # games per evaluation
+    # games per evaluation (each kind: vs random teams, and with ghosts vs the pool). 50, not 20:
+    # with 20 games eval/battle_win_rate (the Optuna objective) is too noisy to rank trials by.
+    eval_episodes: int = 50
     eval_greedy: bool = False   # evaluate with argmax actions instead of sampling
     checkpoint_every: int = 50  # updates between numbered checkpoints (latest.pt: each eval + at the end)
     keep_checkpoints: int = 3  # numbered update_XXXX.pt kept per policy (0 = keep all)

@@ -21,7 +21,9 @@ services:
   train:
     <<: *app
     # --resume always: fresh start if there's no checkpoint, continue after a crash/reboot,
-    # no-op once the run is finished (agents/ppo/run.py).
+    # no-op once the run is finished (agents/ppo/run.py). EXTRA_ARGS: any other run.py flags,
+    # e.g. tuned hyperparameters (--from-trial ppo-tune:7); see docs/tuning.md.
+    # `make tune` / `make validate` reuse this service with their own command (Makefile).
     command: >
       python -m agents.ppo.run --resume
       --name ${RUN_NAME:?set RUN_NAME in .env}

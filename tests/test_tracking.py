@@ -87,7 +87,7 @@ def test_train_tracks_the_run(tmp_path):
     runs = load_runs(runs_dir=str(tmp_path))
     row = runs.iloc[-1]
     assert row["state"] == "COMPLETE" and row["user_attrs_run_name"] == "smoke"
-    assert row["value"] == pytest.approx(result.best_eval_win_rate)
+    assert row["value"] == pytest.approx(result.best_objective)
     assert row["params_lr"] == pytest.approx(cfg.lr) and row["user_attrs_cfg.hidden"] == [16]
 
 

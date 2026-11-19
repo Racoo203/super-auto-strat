@@ -2,7 +2,7 @@
 
     with Run(cfg, "baseline") as run:
         run.log(update, {"train/win_rate": 0.4, "loss/policy": 0.01})
-        run.report(update, eval_win_rate)   # the trial's objective (best value wins)
+        run.report(update, eval_battle_win_rate)   # the objective (best value wins)
 
 Where things go (runs_dir defaults to cfg.runs_dir = "runs"):
     runs/optuna.db                  every run as a trial of study "ppo" (params, value, attrs)
@@ -14,9 +14,15 @@ Where things go (runs_dir defaults to cfg.runs_dir = "runs"):
 View:
     optuna-dashboard sqlite:///runs/optuna.db
     tensorboard --logdir runs
+
+Tracking never stops training: once a run has started, an Optuna storage error (the study or
+trial deleted in the dashboard, a locked or broken optuna.db) logs a warning and training carries
+on. Checkpoints, metrics.jsonl and TensorBoard don't depend on Optuna. Only `optuna.TrialPruned`
+(a pruning decision, not an error) propagates.
 """
 
 import json
+import logging
 import os
 import subprocess
 import time
@@ -30,6 +36,8 @@ from .config import PPOConfig
 
 STUDY_NAME = "ppo"
 LOG_SCALE_PARAMS = {"lr"}  # must match how tune.py suggests them (Optuna checks the log flag)
+
+log = logging.getLogger(__name__)
 
 
 def default_storage(runs_dir: str | Path = "runs") -> str:
@@ -98,10 +106,11 @@ class Run:
         self._owns_trial = trial is None
         self.use_tb = tensorboard
         self.best_value: float | None = None
-        self.last_train_win_rate: float | None = None
+        self.last_train_battle_win_rate: float | None = None
         self.writer = None
         self._metrics_file = None
         self.study: optuna.Study | None = None
+        self.tracking_errors = 0  # Optuna storage calls that failed (and were skipped)
 
     # --- context manager -------------------------------------------------------
     def __enter__(self) -> "Run":
@@ -135,16 +144,16 @@ class Run:
 
     def __exit__(self, exc_type, exc, tb) -> bool:
         try:
-            self.trial.set_user_attr("duration_s", round(time.time() - self._t0, 1))
+            self.set_user_attr("duration_s", round(time.time() - self._t0, 1))
             if exc_type is not None:
-                self.trial.set_user_attr("error", f"{exc_type.__name__}: {exc}"[:500])
+                self.set_user_attr("error", f"{exc_type.__name__}: {exc}"[:500])
             if self._owns_trial:
                 if exc_type is None:
-                    self.study.tell(self.trial, self.objective_value())
+                    self._safely("tell", self.study.tell, self.trial, self.objective_value())
                 elif issubclass(exc_type, optuna.TrialPruned):
-                    self.study.tell(self.trial, state=optuna.trial.TrialState.PRUNED)
+                    self._safely("tell", self.study.tell, self.trial, state=optuna.trial.TrialState.PRUNED)
                 else:  # crash or KeyboardInterrupt: keep the record, marked FAIL
-                    self.study.tell(self.trial, state=optuna.trial.TrialState.FAIL)
+                    self._safely("tell", self.study.tell, self.trial, state=optuna.trial.TrialState.FAIL)
         finally:
             if self.writer:
                 self.writer.close()
@@ -152,17 +161,40 @@ class Run:
                 self._metrics_file.close()
         return False  # never swallow the exception
 
+    # --- Optuna storage, failure-tolerant -------------------------------------------
+    def _safely(self, what: str, fn, *args, **kwargs):
+        """fn(*args, **kwargs), or None (plus a warning) if Optuna storage fails. Training must
+        not die because the trial was deleted in the dashboard or optuna.db is locked."""
+        try:
+            return fn(*args, **kwargs)
+        except optuna.TrialPruned:
+            raise
+        except Exception as e:  # noqa: BLE001 -- storage errors are KeyError, sqlalchemy errors, ...
+            self.tracking_errors += 1
+            log.warning(
+                "Optuna %s failed for run '%s' (trial #%s), training continues untracked in Optuna: %s: %s",
+                what, self.name, getattr(self.trial, "number", "?"), type(e).__name__, e,
+            )
+            return None
+
+    def set_user_attr(self, key: str, value) -> None:
+        self._safely(f"set_user_attr({key})", self.trial.set_user_attr, key, value)
+
     # --- logging -----------------------------------------------------------------
     def objective_value(self) -> float:
-        """Best eval win rate seen; falls back to the last training win rate, then 0."""
-        for v in (self.best_value, self.last_train_win_rate):
+        """Best reported value (the eval objective); falls back to the battle win rate of the
+        last training update's finished games, then 0."""
+        for v in (self.best_value, self.last_train_battle_win_rate):
             if v is not None:
                 return float(v)
         return 0.0
 
     def log(self, step: int, metrics: dict[str, float]) -> None:
-        if "train/win_rate" in metrics:
-            self.last_train_win_rate = metrics["train/win_rate"]
+        # Same quantity as the eval objective (battles won / battles), from training games. Draws
+        # aren't tracked in training, so this slightly overstates it. Only used if no eval ran.
+        w, l = metrics.get("train/wins"), metrics.get("train/losses")
+        if w is not None and l is not None and w + l > 0:
+            self.last_train_battle_win_rate = w / (w + l)
         if self.writer:
             for k, v in metrics.items():
                 self.writer.add_scalar(k, v, step)
@@ -171,20 +203,21 @@ class Run:
         self._metrics_file.flush()
 
     def report(self, step: int, value: float, prune: bool = False) -> bool:
-        """Report the objective (eval win rate). Returns True if this is the best so far.
-        With prune=True (tuning) raises optuna.TrialPruned when the pruner says so."""
-        self.trial.report(value, step)
+        """Report the objective (train.OBJECTIVE). Returns True if this is the best so far (tracked
+        locally, so best.pt keeps working if Optuna storage fails). With prune=True (tuning)
+        raises optuna.TrialPruned when the pruner says so."""
+        self._safely("report", self.trial.report, value, step)
         best = self.best_value is None or value > self.best_value
         if best:
             self.best_value = value
-            self.trial.set_user_attr("best_update", step)
-        if prune and self.trial.should_prune():
+            self.set_user_attr("best_update", step)
+        if prune and self._safely("should_prune", self.trial.should_prune):
             raise optuna.TrialPruned(f"pruned at update {step}")
         return best
 
 
 def load_runs(storage: str | None = None, study_name: str = STUDY_NAME, runs_dir: str = "runs"):
-    """All runs as a pandas DataFrame: value (best eval win rate), state, params_*, user_attrs_*."""
+    """All runs as a pandas DataFrame: value (best eval objective), state, params_*, user_attrs_*."""
     study = optuna.load_study(study_name=study_name, storage=storage or default_storage(runs_dir))
     return study.trials_dataframe()
 
